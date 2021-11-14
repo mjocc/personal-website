@@ -8,8 +8,6 @@ function FooterLink({ href, text }) {
     <a
       href={href}
       className={`bg-gray-lightest text-white flex-center font-bold px-12 h-11 rounded-full my-4 mx-2.5 ${footerStyles.linkBtnShadow}`}
-      target="_blank"
-      rel="noopener"
       title={text}
     >
       {text}
@@ -22,8 +20,6 @@ function SocialMediaIcon({ href, name, src }) {
     <Link href={href}>
       <a
         className={`h-16 w-16 rounded-3xl flex-center bg-gray-lightest ${footerStyles.socialBtnShadow}`}
-        target="_blank"
-        rel="noopener"
         title={name}
       >
         <Image src={src} alt={name} width={32} height={32} />
@@ -35,30 +31,40 @@ function SocialMediaIcon({ href, name, src }) {
 export default function Footer() {
   return (
     <footer
-      className={`py-6 md:px-10 lg:px-20 flex-center absolute bottom-0 w-full bg-gray-lightest ${footerStyles.height}`}
+      className={`py-6 md:px-10 lg:px-20 absolute bottom-0 w-full bg-gray-lightest ${footerStyles.height}`}
     >
-      <FooterLink
-        href="https://www.github.com/mjocc/personal-website"
-        text="GitHub Repository"
-      />
-      <div
-        className={`flex-grow flex justify-around items-center h-16 ${footerStyles.socialContainerWidth}`}
-      >
-        <SocialMediaIcon
-          href="https://github.com/mjocc"
-          name="GitHub"
-          src="/images/github-logo.svg"
+      <div className="flex-center">
+        <FooterLink
+          href="https://www.github.com/mjocc/personal-website"
+          text="GitHub Repository"
         />
-        <SocialMediaIcon
-          href="https://developers.google.com/profile/u/108756308586786593957"
-          name="Google Developer Profile"
-          src="/images/google-developer-logo.svg"
-        />
-        <SocialMediaIcon
-          href="https://uk.linkedin.com/"
-          name="LinkedIn"
-          src="/images/linkedin-logo.svg"
-        />
+        <div
+          className={`flex-grow flex justify-around items-center h-16 ${footerStyles.socialContainerWidth}`}
+        >
+          <SocialMediaIcon
+            href="https://github.com/mjocc"
+            name="GitHub"
+            src="/images/github-logo.svg"
+          />
+          <SocialMediaIcon
+            href="https://developers.google.com/profile/u/108756308586786593957"
+            name="Google Developer Profile"
+            src="/images/google-developer-logo.svg"
+          />
+          <SocialMediaIcon
+            href="https://uk.linkedin.com/"
+            name="LinkedIn"
+            src="/images/linkedin-logo.svg"
+          />
+        </div>
+      </div>
+      <div className="flex-center">
+        <a
+          href="/privacy.txt"
+          className="font-thin underline text-gray hover:text-black"
+        >
+          Privacy Policy
+        </a>
       </div>
     </footer>
   );
