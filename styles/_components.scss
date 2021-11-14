@@ -1,0 +1,566 @@
+// Anything reusable such as buttons, navbars, cards etc.
+
+// Header
+header.page-header {
+  background-image: url(/img/header-background.webp);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-banner {
+  height: 400px;
+  line-height: 400px;
+  @include bp(tablet) {
+    height: 300px;
+    line-height: 300px;
+  }
+}
+
+.header-text {
+  @include header-font;
+  text-align: center;
+  margin: 0px;
+  @include bp(tablet) {
+    font-size: 90px;
+  }
+  @include bp(phone) {
+    font-size: 65px;
+  }
+}
+
+// Navbar
+.navbar {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-items: flex-start;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.navbar-button {
+  background-color: lighten($mainColor, 5%);
+  padding: 10px 25px;
+  margin: 15px 10px 0px 10px;
+  box-sizing: border-box;
+  max-height: 100%;
+  border-radius: 50px;
+  $offset: 7.5px;
+  $-offset: -2.5px;
+  $blur: 13px;
+  box-shadow: $offset $offset $blur #181818;
+  &.active,
+  &:hover {
+    box-shadow: inset $offset $offset $blur #131313,
+      inset $-offset $-offset 5px #424242;
+  }
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-hamburger-container {
+  display: none;
+}
+
+// Mobile navbar menu and hamburger icon
+@include bp(phone) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    height: 150px;
+    display: none;
+    padding: 0 15px;
+  }
+
+  .navbar-parent {
+    position: absolute;
+    top: 65px;
+    right: 0px;
+    width: 100%;
+  }
+
+  .navbar-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0 0 15px;
+  }
+
+  .navbar-hamburger-bar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+  }
+
+  .navbar-hamburger-container {
+    display: flex;
+    float: right;
+    height: 50px;
+    width: 65px;
+    background-color: $mainColor;
+    height: inherit;
+    text-align: center;
+    border-radius: 15px;
+    $offset: 7.5px;
+    $-offset: -2.5px;
+    $blur: 13px;
+    box-shadow: $offset $offset $blur #181818;
+    &.active {
+      box-shadow: inset $offset $offset $blur #131313,
+        inset $-offset $-offset 5px #424242;
+    }
+  }
+
+  .navbar-hamburger {
+    align-self: center;
+    margin: auto;
+    display: block;
+    width: 35px;
+
+    &:after,
+    &:before,
+    div {
+      background-color: white;
+      border-radius: 3px;
+      content: '';
+      display: block;
+      height: 5px;
+      margin: 7px 0;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &.active {
+      &:before {
+        transform: translateY(12px) rotate(135deg);
+      }
+      &:after {
+        transform: translateY(-12px) rotate(-135deg);
+      }
+      div {
+        transform: scale(0);
+      }
+    }
+  }
+}
+
+// Contrasting section
+section.article article.contrasting {
+  background-color: $contrastingColor;
+  color: $mainColor;
+  padding: 25px inherit;
+  margin: auto 0px;
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// Footer
+footer.page-footer {
+  background-color: $accentColor;
+  padding: 25px 10%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  @include bp(phone) {
+    display: flex;
+    flex-direction: column;
+  }
+  @include bp(tablet) {
+    padding: 25px 15px;
+  }
+  .footer-icons-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 65px;
+  }
+  a {
+    &.social-media-icon {
+      width: 65px;
+      height: inherit;
+      border-radius: 25px;
+      text-align: center;
+      $offset: 7.5px;
+      $-offset: -2.5px;
+      $blur: 15px;
+      box-shadow: $offset $offset $blur #181818, $-offset $-offset $blur #545454;
+      &:hover {
+        box-shadow: inset $offset $offset $blur #181818,
+          inset $-offset $-offset $blur #545454;
+      }
+      img {
+        margin: 16px;
+      }
+    }
+    &.footer-link {
+      padding: 0 50px;
+      height: 45px;
+      line-height: 45px;
+      margin: auto;
+      text-decoration: none;
+      display: block;
+      border-radius: 50px;
+      text-align: center;
+      $offset: 7.5px;
+      $-offset: -2.5px;
+      $blur: 15px;
+      box-shadow: $offset $offset $blur #181818, $-offset $-offset $blur #545454;
+      &:hover {
+        box-shadow: inset $offset $offset $blur #181818,
+          inset $-offset $-offset $blur #545454;
+      }
+      @include bp(phone) {
+        margin-bottom: 35px;
+        padding: 0 50px;
+      }
+      @include bp(tablet) {
+        padding: 0 20px;
+        font-size: 90%;
+      }
+    }
+  }
+}
+
+// Cards
+.card-parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 0 50px;
+  @include bp(phone) {
+    margin: 15px 0;
+  }
+}
+.card {
+  width: 600px;
+  height: 250px;
+  padding: 10px;
+  margin: 15px;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  border-radius: 25px;
+  background: $mainColor;
+  $offset: 5px;
+  $-offest: 0px - $offset;
+  $blur: 8px;
+  box-shadow: $offset $offset $blur #171717, $-offest $-offest $blur #212121;
+  &.active,
+  &:hover {
+    box-shadow: inset $offset $offset $blur #171717,
+      inset $-offest $-offest $blur #212121;
+  }
+  cursor: pointer;
+  p {
+    align-self: center;
+    text-justify: none;
+    margin: 0 10px 0 30px;
+    vertical-align: middle;
+    line-height: normal;
+  }
+  img {
+    max-width: 100%;
+    margin: auto 10px;
+    border-radius: 10px;
+  }
+  .text-parent {
+    display: flex;
+    align-items: center;
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      text-align: center;
+      margin: 0 0 5px;
+      font-size: 1.17em;
+    }
+  }
+  @include bp(phone) {
+    height: auto;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    img {
+      margin: 0 0 7.5px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+
+// Modal
+.modal {
+  display: none;
+  &.is-open {
+    display: block;
+  }
+  &[aria-hidden='false'] {
+    .modal-overlay {
+      animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+    .modal-container {
+      animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+  &[aria-hidden='true'] {
+    .modal-overlay {
+      animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+    .modal-container {
+      animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+  .modal-container,
+  .modal-overlay {
+    will-change: transform;
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .modal-container {
+      background-color: $mainColor;
+      padding: 30px;
+      width: 500px;
+      max-height: 100vh;
+      border-radius: 25px;
+      overflow-y: auto;
+      box-sizing: border-box;
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h2 {
+          padding: 5px 0 0;
+          margin: 0 0 5px;
+        }
+        .modal-close {
+          background: transparent;
+          border: 0;
+          cursor: pointer;
+          color: $contrastingColor;
+          font-size: 150%;
+          &:before {
+            content: '\2715';
+          }
+          &:focus {
+            outline: 1px solid $contrastingColor;
+          }
+        }
+      }
+      main {
+        p {
+          margin: 0;
+          line-height: normal;
+        }
+        img {
+          width: 100%;
+          margin: 10px 0;
+          border-radius: 10px;
+        }
+        .link-container {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+          a.link {
+            height: 45px;
+            line-height: 45px;
+            text-decoration: none;
+            text-align: center;
+            $offset: 7.5px;
+            $-offset: -2.5px;
+            $blur: 15px;
+            box-shadow: $offset $offset $blur #121212,
+              $-offset $-offset $blur #262626;
+            &:hover {
+              box-shadow: inset $offset $offset $blur #121212,
+                inset $-offset $-offset $blur #262626;
+            }
+          }
+          &.single {
+            a.link {
+              border-radius: 50px;
+              width: 90%;
+            }
+          }
+          &.double {
+            a.link {
+              width: 45%;
+              &:first-child {
+                border-radius: 50px 0 0 50px;
+                clip-path: inset(-15px 0 -15px -15px);
+              }
+              &:last-child {
+                border-radius: 0 50px 50px 0;
+                clip-path: inset(-15px -15px -15px 0);
+              }
+            }
+          }
+          a.link:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes mmfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mmfadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes mmslideIn {
+  from {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes mmslideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+
+// HTTP Error
+main.http-error {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    background: #1c1c1c;
+    box-shadow: 18px 18px 27px #171717, -18px -18px 27px #212121;
+    padding: 75px;
+    h1,
+    h2 {
+      @include header-font;
+      margin: 0;
+    }
+    h1 {
+      font-size: 250px;
+    }
+    h2 {
+      font-size: 40px;
+      margin-bottom: 35px;
+      text-align: center;
+    }
+    a {
+      font-size: 20px;
+      padding: 0 50px;
+      height: 45px;
+      line-height: 45px;
+      text-decoration: none;
+      display: block;
+      border-radius: 50px;
+      text-align: center;
+      $offset: 7.5px;
+      $-offset: -2.5px;
+      $blur: 15px;
+      box-shadow: $offset $offset $blur #111111, $-offset $-offset $blur #272727;
+      &:hover {
+        box-shadow: inset $offset $offset $blur #111111,
+          inset $-offset $-offset $blur #272727;
+      }
+    }
+    @include bp(phone) {
+      h1 {
+        font-size: 125px;
+      }
+      h2 {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+// Forms
+#modal-contact {
+  h2 {
+    margin-bottom: 15px;
+  }
+  label {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  input,
+  textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 10px;
+    line-height: 1.5;
+    font-size: 90%;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+  }
+  input[type='submit'] {
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  .form-group {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    label.required::after {
+      content: ' *';
+      color: red;
+    }
+  }
+  .g-recaptcha {
+    margin-top: 17.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

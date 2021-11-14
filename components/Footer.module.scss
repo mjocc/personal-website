@@ -1,0 +1,38 @@
+//TODO: Update with valid header height + add media queries
+$sm-footer-height: 115px;
+$md-footer-height: 115px;
+$lg-footer-height: 115px;
+
+.paddingBottom {
+  padding-bottom: $lg-footer-height;
+}
+
+.height {
+  height: $lg-footer-height;
+}
+
+.linkBtnShadow {
+  $offset: 7.5px;
+  $-offset: -2.5px;
+  $blur: 15px;
+  box-shadow: $offset $offset $blur #181818, $-offset $-offset $blur #545454;
+  &:hover {
+    box-shadow: inset $offset $offset $blur #181818,
+      inset $-offset $-offset $blur #545454;
+  }
+}
+
+.socialBtnShadow {
+  $offset: 7.5px;
+  $-offset: -2.5px;
+  $blur: 15px;
+  box-shadow: $offset $offset $blur #181818, $-offset $-offset $blur #545454;
+  &:hover {
+    box-shadow: inset $offset $offset $blur #181818,
+      inset $-offset $-offset $blur #545454;
+  }
+}
+
+.socialContainerWidth {
+  max-width: 600px;
+}

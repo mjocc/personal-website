@@ -1,0 +1,11 @@
+.btnShadow {
+  $offset: 7.5px;
+  $-offset: -2.5px;
+  $blur: 13px;
+  box-shadow: $offset $offset $blur #181818;
+  &.active,
+  &:hover {
+    box-shadow: inset $offset $offset $blur #131313,
+      inset $-offset $-offset 5px #424242;
+  }
+}
