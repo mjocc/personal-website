@@ -2,18 +2,18 @@ import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 
-import navbarStyles from '@components/Navbar.module.scss';
+import utils from '@styles/Utilities.module.scss';
 
-function NavbarLink({ href, text, align = 'left' }) {
+const NavbarLink = ({ href, text, align = 'left' }) => {
   const router = useRouter();
   const pathname = router.pathname;
   return (
     <Link href={href}>
       <a
-        className={`bg-gray text-white font-bold py-2.5 px-6 rounded-full my-4 mx-2.5
-          ${pathname === href ? 'active' : ''}
+        className={`bg-gray-800 text-white font-bold py-2.5 px-6 rounded-full mt-2.5 mx-2.5
+          ${pathname === href ? utils.active : ''}
           ${align === 'right' ? 'sm:ml-auto' : ''}
-          ${navbarStyles.btnShadow}`}
+          ${utils.btnShadow}`}
         title={text}
         tabIndex={0}
       >
@@ -21,7 +21,7 @@ function NavbarLink({ href, text, align = 'left' }) {
       </a>
     </Link>
   );
-}
+};
 
 export default function Navbar() {
   return (
@@ -35,9 +35,9 @@ export default function Navbar() {
       </div>
       <nav className="flex-col flex px-4 sm:p-0 sm:flex sm:flex-row sm:flex-nowrap items-center justify-items-start absolute top-0 left-0 w-full">
         <NavbarLink href="/" text="Home" />
-        <NavbarLink href="/portfolio/" text="Portfolio" />
-        <NavbarLink href="/blog/" text="Blog" />
-        <NavbarLink href="/contact/" text="Contact Me" align="right" />
+        <NavbarLink href="/portfolio" text="Portfolio" />
+        <NavbarLink href="/blog" text="Blog" />
+        <NavbarLink href="/contact" text="Contact Me" align="right" />
       </nav>
     </>
   );

@@ -1,9 +1,11 @@
-import footerStyles from '@components/Footer.module.scss';
-
-export default function MainContent({ children }) {
+export default function MainContent({ className, children }) {
   return (
-    <div className="relative min-h-screen">
-      <div className={footerStyles.paddingBottom}>{children}</div>
+    <div
+      className={`relative min-h-screen overflow-hidden ${
+        className || 'bg-gray-800'
+      }`}
+    >
+      {children}
     </div>
   );
 }
