@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import Image from "next/image";
 
-import socialMediaIconStyles from '@components/SocialMediaIcons.module.scss';
+import socialMediaIconStyles from "@components/SocialMediaIcons.module.scss";
 
-import utils from '@styles/Utilities.module.scss';
+import utils from "@styles/Utilities.module.scss";
 
 function SocialMediaIcon({ href, name, src }) {
   return (
@@ -16,7 +16,7 @@ function SocialMediaIcon({ href, name, src }) {
   );
 }
 
-export default function SocialMediaIcons({ className, width = '500px' }) {
+export default function SocialMediaIcons({ className, width = "500px" }) {
   return (
     <div
       className={`flex-grow flex justify-between items-center h-16 ${socialMediaIconStyles.containerWidth} ${className}`}
