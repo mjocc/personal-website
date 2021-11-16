@@ -28,7 +28,7 @@ export default function SocialMediaIcons({ className = "", width = "500px" }) {
         src="/images/github-logo.svg"
       />
       <SocialMediaIcon
-        href="https://developers.google.com/profile/u/108756308586786593957"
+        href="https://g.dev/mjocc"
         name="Google Developer Profile"
         src="/images/google-developer-logo.svg"
       />
