@@ -1,11 +1,15 @@
-export default function MainContent({ className, children }) {
+import utils from "@styles/Utilities.module.scss";
+
+export default function MainContent({ className = "", children }) {
   return (
-    <div
-      className={`relative min-h-screen overflow-hidden ${
-        className || "bg-gray-800"
-      }`}
-    >
-      {children}
-    </div>
+    <>
+      <div
+        className={`relative overflow-hidden ${utils.heightVisibleScreen} ${
+          className || "bg-gray-800"
+        }`}
+      >
+        {children}
+      </div>
+    </>
   );
 }

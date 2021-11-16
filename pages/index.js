@@ -13,11 +13,11 @@ export default function Home() {
         <title>Home | mjocc</title>
       </Head>
 
-      <MainContent>
-        <Navbar />
+      <Navbar />
 
+      <MainContent>
         <div className={`${utils.flexCenter} sm:w-screen sm:h-screen`}>
-          <div className="flex flex-col">
+          <div className="fade flex flex-col">
             <h1 className="text-white font-heading text-8xl">Hi, I'm</h1>
             <h1 className="text-white font-heading text-9xl">Matthew</h1>
             <h2 className="text-white font-heading text-5xl">Web developer</h2>

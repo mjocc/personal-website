@@ -10,9 +10,9 @@ export default function Portfolio() {
         <title>Portfolio | mjocc</title>
       </Head>
 
-      <MainContent>
-        <Navbar />
-      </MainContent>
+      <Navbar />
+
+      <MainContent></MainContent>
 
       <Footer />
     </>

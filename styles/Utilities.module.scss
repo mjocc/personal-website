@@ -13,3 +13,7 @@
       inset $-offset $-offset $blur #323235;
   }
 }
+
+.heightVisibleScreen {
+  height: calc(100vh - 36px);
+}

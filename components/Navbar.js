@@ -33,7 +33,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <nav className="absolute left-0 top-0 flex flex-col items-center justify-items-start px-4 w-full sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
+      <nav className="absolute z-10 left-0 top-0 flex flex-col items-center justify-items-start px-4 w-full sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
         <NavbarLink href="/" text="Home" />
         <NavbarLink href="/portfolio" text="Portfolio" />
         <NavbarLink href="/blog" text="Blog" />
