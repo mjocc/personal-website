@@ -26,13 +26,23 @@ function runAnimation() {
     translateY: 700,
     delay: anime.stagger(1000, { start: 250 }),
     ...commonSettings,
-  });
-  anime({
-    targets: '.bottom-card',
-    translateY: -700,
-    delay: anime.stagger(1000, { start: 750 }),
-    ...commonSettings,
-  });
+  }),
+    anime({
+      targets: '.bottom-card',
+      translateY: -700,
+      delay: anime.stagger(1000, { start: 750 }),
+      ...commonSettings,
+    }),
+    anime({
+      targets: '.arrow-button-right',
+      translateX: -72,
+      delay: 4000,
+    });
+    anime({
+      targets: '.arrow-button-left',
+      translateX: 72,
+      delay: 4000,
+    });
 }
 
 export default function Portfolio() {

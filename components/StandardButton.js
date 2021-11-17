@@ -13,7 +13,7 @@ export default function Button(props) {
   }
   return (
     <button
-      className={`px-3 py-1.5 text-white ${mappedColor.DEFAULT} ${mappedColor.clicked} border border-transparent rounded active:ring ${className}`}
+      className={`px-3 py-1.5 text-white disabled:opacity-50 ${mappedColor.DEFAULT} ${mappedColor.clicked} border border-transparent rounded active:ring ${className}`}
       {...otherProps}
     >
       {children}
