@@ -44,12 +44,34 @@ export default function Portfolio() {
               return success;
             }}
           /> */}
-          <form data-netlify={true} name="contact-form" method="post">
-            <input type="text" name="name" />
-            <input type="text" name="email" />
-            <input type="text" name="subject" />
-            <input type="text" name="message" />
-            <button type="submit">Submit</button>
+          <form
+            name="contact"
+            method="POST"
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+          >
+            <div className="hidden">
+              <label>
+                Don’t fill this out if you’re human: <input name="bot-field" />
+              </label>
+            </div>
+            <div className="form-group">
+              <label htmlFor="contact-name">Name</label>
+              <input id="contact-name" type="text" name="name" />
+            </div>
+            <div className="form-group">
+              <label className="required" htmlFor="contact-email">
+                Email
+              </label>
+              <input id="contact-email" type="email" name="email" required />
+            </div>
+            <div className="form-group">
+              <label className="required" htmlFor="contact-message">
+                Message
+              </label>
+              <textarea id="contact-message" name="message" required></textarea>
+            </div>
+            <input type="submit" />
           </form>
         </div>
       </MainContent>
