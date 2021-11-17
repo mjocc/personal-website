@@ -43,16 +43,28 @@ const SuccessMessage = ({ show }) => (
   <div
     className={
       show
-        ? 'text-green-700 bg-green-200 rounded-md p-3 mt-2 border border-green-900'
+        ? 'text-green-700 bg-green-200 rounded-md p-3 mt-4 border border-green-900'
         : 'hidden'
     }
   >
-    Form submitted successfully
+    Form submitted successfully.
+  </div>
+);
+
+const ErrorMessage = ({ show }) => (
+  <div
+    className={
+      show
+        ? 'text-red-700 bg-red-200 rounded-md p-3 mt-4 border border-red-900'
+        : 'hidden'
+    }
+  >
+    Something went wrong. Please try again.
   </div>
 );
 
 export default function ContactForm({ onSubmit }) {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(null);
   return (
     <div>
       <Formik
@@ -80,8 +92,10 @@ export default function ContactForm({ onSubmit }) {
           let submitSuccessful = await onSubmit(values);
           setSubmitting(false);
           if (submitSuccessful) {
-            setSubmitted(true);
+            setSubmitted('success');
             resetForm();
+          } else {
+            setSubmitted('error')
           }
         }}
       >
@@ -112,7 +126,8 @@ export default function ContactForm({ onSubmit }) {
           </Form>
         )}
       </Formik>
-      <SuccessMessage show={submitted} />
+      <SuccessMessage show={submitted === 'success'} />
+      <ErrorMessage show={submitted === 'error'} />
     </div>
   );
 }

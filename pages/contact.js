@@ -28,7 +28,7 @@ export default function Portfolio() {
           <ContactForm
             onSubmit={async (values) => {
               const success = false;
-              await fetch('/', {
+              await fetch('/contact', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/x-www-form-urlencoded',
