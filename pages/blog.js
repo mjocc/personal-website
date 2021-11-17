@@ -7,7 +7,7 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>Portfolio | mjocc</title>
+        <title>Blog | mjocc</title>
       </Head>
 
       <Navbar />

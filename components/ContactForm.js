@@ -102,6 +102,7 @@ export default function ContactForm({ onSubmit }) {
         {({ isSubmitting }) => (
           <Form
             id="contact-form"
+            name="contact-form"
             className="flex flex-col"
             data-netlify={true}
             netlify-honeypot="phone-number"
