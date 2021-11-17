@@ -25,10 +25,10 @@ export default function Portfolio() {
         <div
           className={`${utils.flexCenter} ${utils.heightVisibleScreen} w-screen`}
         >
-          {/* <ContactForm
+          <ContactForm
             onSubmit={async (values) => {
               const success = false;
-              await fetch('/contact', {
+              await fetch('/', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/x-www-form-urlencoded',
@@ -43,37 +43,7 @@ export default function Portfolio() {
                 });
               return success;
             }}
-          /> */}
-          <form
-            name="contact"
-            method="POST"
-            netlify-honeypot="bot-field"
-            data-netlify="true"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <div className="hidden">
-              <label>
-                Don’t fill this out if you’re human: <input name="bot-field" />
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="contact-name">Name</label>
-              <input id="contact-name" type="text" name="name" />
-            </div>
-            <div className="form-group">
-              <label className="required" htmlFor="contact-email">
-                Email
-              </label>
-              <input id="contact-email" type="email" name="email" required />
-            </div>
-            <div className="form-group">
-              <label className="required" htmlFor="contact-message">
-                Message
-              </label>
-              <textarea id="contact-message" name="message" required></textarea>
-            </div>
-            <input type="submit" />
-          </form>
+          />
         </div>
       </MainContent>
 
