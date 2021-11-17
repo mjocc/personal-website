@@ -82,8 +82,7 @@ export default function ContactForm({ onSubmit }) {
             .email("Invalid email address")
             .required("Required"),
           subject: Yup.string()
-            .max(50, "Must be 50 characters or less")
-            .required("Required"),
+            .max(50, "Must be 50 characters or less"),
           message: Yup.string()
             .max(1000, "Must be 1000 characters or less")
             .required("Required"),

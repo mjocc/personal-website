@@ -6,11 +6,11 @@ import ContactForm from '@components/ContactForm';
 
 import utils from '@styles/Utilities.module.scss';
 
-const getFormData = (object) =>
-  Object.keys(object).reduce((formData, key) => {
-    formData.append(key, object[key]);
-    return formData;
-  }, new FormData());
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
 
 export default function Portfolio() {
   return (
@@ -33,7 +33,7 @@ export default function Portfolio() {
                 headers: {
                   'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: new URLSearchParams(getFormData(values)).toString(),
+                body: encode({ 'form-name': 'contact', ...values }),
               })
                 .then(() => {
                   success = true;
