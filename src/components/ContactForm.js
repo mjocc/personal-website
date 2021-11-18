@@ -66,7 +66,6 @@ const SubmitErrorMessage = ({ show }) => (
 export default function ContactForm({ onSubmit }) {
   const [submitted, setSubmitted] = useState(null);
   return (
-    <div>
       <Formik
         initialValues={{
           name: '',
@@ -121,11 +120,10 @@ export default function ContactForm({ onSubmit }) {
             <Button className="mt-5" type="submit" disabled={isSubmitting}>
               Submit
             </Button>
+            <SubmitSuccessMessage show={submitted === 'success'} />
+            <SubmitErrorMessage show={submitted === 'error'} />
           </Form>
         )}
       </Formik>
-      <SubmitSuccessMessage show={submitted === 'success'} />
-      <SubmitErrorMessage show={submitted === 'error'} />
-    </div>
   );
 }

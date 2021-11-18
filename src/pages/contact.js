@@ -36,8 +36,12 @@ export default function Portfolio() {
                 },
                 body: encode({ 'form-name': 'contact', ...values }),
               })
-                .then(() => {
-                  success = true;
+                .then((res) => {
+                  if (res.status === 200) {
+                    success = true;
+                  } else {
+                    success = false;
+                  }
                 })
                 .catch(() => {
                   success = false;
