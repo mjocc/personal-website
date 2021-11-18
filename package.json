@@ -27,5 +27,8 @@
     "prettier-plugin-tailwind": "^2.2.12",
     "sass": "^1.43.4",
     "tailwindcss": "^2.2.19"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

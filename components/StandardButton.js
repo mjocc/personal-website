@@ -1,12 +1,12 @@
 const colorMapping = {
   blue: {
-    DEFAULT: "bg-blue-700",
-    clicked: "hover:bg-blue-800",
+    DEFAULT: 'bg-blue-700',
+    clicked: 'hover:bg-blue-800',
   },
 };
 
 export default function Button(props) {
-  const { children, color, className = "", ...otherProps } = props;
+  const { children, color, className = '', ...otherProps } = props;
   let mappedColor = colorMapping[color]; // mappedColor
   if (mappedColor == null) {
     mappedColor = colorMapping.blue;

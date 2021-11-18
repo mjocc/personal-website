@@ -1,10 +1,10 @@
-import Head from "next/head";
-import MainContent from "@components/MainContent";
-import Navbar from "@components/Navbar";
-import Footer from "@components/Footer";
-import SocialMediaIcons from "@components/SocialMediaIcons";
+import Head from 'next/head';
+import MainContent from '@components/MainContent';
+import Navbar from '@components/Navbar';
+import Footer from '@components/Footer';
+import SocialMediaIcons from '@components/SocialMediaIcons';
 
-import utils from "@styles/Utilities.module.scss";
+import utils from '@styles/Utilities.module.scss';
 
 export default function Home() {
   return (
