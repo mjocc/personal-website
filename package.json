@@ -6,7 +6,7 @@
     "build": "next build",
     "export": "next export",
     "lint": "next lint",
-    "format": "prettier --write \"pages/**/*.{ts,tsx,js,jsx}\" \"components/**/*.{ts,tsx,js,jsx,css,scss,sass}\" \"styles/**/*.{css,scss,sass}\""
+    "format": "prettier --write \"src/pages/**/*.{ts,tsx,js,jsx}\" \"src/components/**/*.{ts,tsx,js,jsx,css,scss,sass}\" \"src/styles/**/*.{css,scss,sass}\""
   },
   "dependencies": {
     "animejs": "^3.2.1",
