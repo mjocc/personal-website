@@ -16,7 +16,7 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>Contact me | mjocc</title>
+        <title>Contact Me | mjocc</title>
       </Head>
 
       <Navbar />
