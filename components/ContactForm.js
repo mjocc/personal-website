@@ -73,7 +73,7 @@ export default function ContactForm({ onSubmit }) {
           email: '',
           subject: '',
           message: '',
-          'phone-number': '', // Netlify honeypot field
+          // 'phone-number': '', // Netlify honeypot field
         }}
         validationSchema={Yup.object({
           name: Yup.string().max(50, 'Must be 50 characters or less'),
@@ -102,7 +102,7 @@ export default function ContactForm({ onSubmit }) {
             name="contact"
             className="flex flex-col"
             data-netlify={true}
-            netlify-honeypot="phone-number"
+            // netlify-honeypot="phone-number"
           >
             <div className="flex">
               <FormField
@@ -116,7 +116,7 @@ export default function ContactForm({ onSubmit }) {
             <FormField label="Subject" name="subject" type="text" />
             <FormField label="Message" name="message" as="textarea" />
 
-            <HoneypotField />
+            {/* <HoneypotField /> */}
 
             <Button className="mt-5" type="submit" disabled={isSubmitting}>
               Submit
