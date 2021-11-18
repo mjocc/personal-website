@@ -25,7 +25,7 @@ export default function Portfolio() {
         <div
           className={`${utils.flexCenter} ${utils.heightVisibleScreen} w-screen`}
         >
-          <ContactForm
+          {/* <ContactForm
             onSubmit={async (values) => {
               const success = false;
               console.log(encode({ 'form-name': 'contact', ...values }));
@@ -44,7 +44,7 @@ export default function Portfolio() {
                 });
               return success;
             }}
-          />
+          /> */}
         </div>
       </MainContent>
 
