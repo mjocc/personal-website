@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import * as Yup from 'yup';
 import Tippy from '@tippyjs/react';
 
@@ -11,10 +11,13 @@ const FormField = (props) => {
   const { label, name, className = '', ...otherProps } = props;
   const { errors, touched } = useFormikContext();
   const [error, setError] = useState(null);
-  const getErrors = () => touched[name] === true && errors[name] !== undefined;
+  const getErrors = useCallback(
+    () => touched[name] === true && errors[name] !== undefined,
+    [name, errors, touched]
+  );
   useEffect(() => {
     setError(getErrors());
-  });
+  }, [setError, getErrors]);
   return (
     <div className={`mb-2 ${className}`}>
       <Tippy
