@@ -6,7 +6,11 @@ import SocialMediaIcons from '@components/SocialMediaIcons';
 
 import utils from '@styles/Utilities.module.scss';
 
-const HeaderText = ({ className = '', children }) => <h1 className={`text-white font-heading text-8xl ${className}`}>{children}</h1>
+const HeaderText = ({ className = '', children }) => (
+  <h1 className={`text-white font-heading text-8xl ${className}`}>
+    {children}
+  </h1>
+);
 
 export default function Home() {
   return (
@@ -23,7 +27,7 @@ export default function Home() {
             <HeaderText>Hi,</HeaderText>
             <HeaderText>I'm Matthew,</HeaderText>
             <HeaderText>Web developer</HeaderText>
-          
+
             <SocialMediaIcons className="mt-5 pl-2" width="350px" />
           </div>
         </div>

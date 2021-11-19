@@ -15,11 +15,7 @@ export const Card = ({ children, className = '', theme = 'dark' }) => (
 export const CardImage = (props) => {
   const { className = '', alt, ...otherProps } = props;
   return (
-    <Image
-      {...otherProps}
-      alt={alt}
-      className={className}
-    />
+    <Image {...otherProps} placeholder="blur" className={className} alt={alt} />
   );
 };
 

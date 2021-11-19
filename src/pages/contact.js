@@ -31,7 +31,6 @@ export default function Portfolio() {
             className="ml-52"
             onSubmit={async (values) => {
               const success = false;
-              console.log(encode({ 'form-name': 'contact', ...values }));
               await fetch('/form-submit.html', {
                 method: 'POST',
                 headers: {

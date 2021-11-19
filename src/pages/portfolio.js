@@ -78,7 +78,7 @@ export default function Portfolio({ imageProps }) {
                     : 'bottom-card bottom-[-600px]'
                 }`}
               >
-                <CardImage {...imageProps} placeholder="blur" alt="landscape" />
+                <CardImage {...imageProps} alt="landscape" />
                 <CardBody>
                   <CardTitle>Card title</CardTitle>
                   <CardText>
