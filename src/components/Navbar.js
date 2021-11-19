@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 
-import utils from '@styles/Utilities.module.scss';
+import navbarStyles from '@components/Navbar.module.scss';
 
 const NavbarLink = ({ href, text, align = 'left' }) => {
   const router = useRouter();
@@ -11,9 +11,9 @@ const NavbarLink = ({ href, text, align = 'left' }) => {
     <Link href={href}>
       <a
         className={`bg-gray-800 text-white font-bold py-2.5 px-6 rounded-full mt-2.5 mx-2.5
-          ${pathname === href ? utils.active : ''}
+          ${pathname === href ? navbarStyles.active : ''}
           ${align === 'right' ? 'sm:ml-auto' : ''}
-          ${utils.btnShadow}`}
+          ${navbarStyles.btnShadow}`}
         title={text}
         tabIndex={0}
       >
@@ -33,7 +33,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <nav className="absolute z-10 left-0 top-0 flex flex-col items-center justify-items-start px-4 w-full sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
+      <nav className="absolute top-0 left-0 z-10 flex flex-col items-center w-full px-4 justify-items-start sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
         <NavbarLink href="/" text="Home" />
         <NavbarLink href="/portfolio" text="Portfolio" />
         <NavbarLink href="/blog" text="Blog" />

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 import socialMediaIconStyles from '@components/SocialMediaIcons.module.scss';
-
 import utils from '@styles/Utilities.module.scss';
 
 function SocialMediaIcon({ href, name, src }) {
@@ -16,11 +15,18 @@ function SocialMediaIcon({ href, name, src }) {
   );
 }
 
-export default function SocialMediaIcons({ className = '', width = '500px' }) {
+export default function SocialMediaIcons({
+  className = '',
+  width = '500px',
+  height = '500px',
+  column = false,
+}) {
   return (
     <div
-      className={`flex-grow flex justify-between items-center h-16 ${socialMediaIconStyles.containerWidth} ${className}`}
-      style={{ width }}
+      className={`flex ${
+        column && 'flex-col'
+      } justify-between items-center h-16 ${className}`}
+      style={column ? { height } : { width }}
     >
       <SocialMediaIcon
         href="https://github.com/mjocc"

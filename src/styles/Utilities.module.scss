@@ -2,18 +2,6 @@
   @apply flex justify-center items-center;
 }
 
-.btnShadow {
-  $offset: 10px;
-  $-offset: -10px;
-  $blur: 20px;
-  box-shadow: $offset $offset $blur #1c1c1f, $-offset $-offset $blur #323235;
-  &:hover,
-  &.active {
-    box-shadow: inset $offset $offset $blur #1c1c1f,
-      inset $-offset $-offset $blur #323235;
-  }
-}
-
 .heightVisibleScreen {
   height: calc(100vh - 36px);
 }
