@@ -1,5 +1,6 @@
 import anime from 'animejs';
 import { useEffect } from 'react';
+import { getPlaiceholder } from 'plaiceholder';
 
 import Head from 'next/head';
 import MainContent from '@components/MainContent';
@@ -12,9 +13,9 @@ import {
   CardTitle,
   CardText,
 } from '@components/Card';
+import ArrowButton from '@components/ArrowButton';
 
 import utils from '@styles/Utilities.module.scss';
-import ArrowButton from '@components/ArrowButton';
 
 function runAnimation() {
   let commonSettings = {
@@ -45,10 +46,17 @@ function runAnimation() {
   });
 }
 
-export default function Portfolio() {
+export const getStaticProps = async () => {
+  const { base64, img } = await getPlaiceholder(
+    '/images/header-background.jpg'
+  );
+  return { props: { imageProps: { ...img, blurDataURL: base64 } } };
+};
+
+export default function Portfolio({ imageProps }) {
   useEffect(() => {
     runAnimation();
-  }, []); // Will only run on initial render
+  }, []); // will only run on initial render
   return (
     <>
       <Head>
@@ -70,10 +78,7 @@ export default function Portfolio() {
                     : 'bottom-card bottom-[-600px]'
                 }`}
               >
-                <CardImage
-                  src="/images/header-background.jpg"
-                  alt="landscape"
-                />
+                <CardImage {...imageProps} placeholder="blur" alt="landscape" />
                 <CardBody>
                   <CardTitle>Card title</CardTitle>
                   <CardText>

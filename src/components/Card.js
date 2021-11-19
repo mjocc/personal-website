@@ -12,9 +12,16 @@ export const Card = ({ children, className = '', theme = 'dark' }) => (
   </div>
 );
 
-export const CardImage = ({ src, alt, className = '' }) => (
-  <Image src={src} alt={alt} width={480} height={270} className={className} />
-);
+export const CardImage = (props) => {
+  const { className = '', alt, ...otherProps } = props;
+  return (
+    <Image
+      {...otherProps}
+      alt={alt}
+      className={className}
+    />
+  );
+};
 
 export const CardBody = ({ children }) => <div className="p-4">{children}</div>;
 
