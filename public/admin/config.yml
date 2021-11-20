@@ -1,0 +1,100 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: 'public/images/cms'
+public_folder: '/images/cms'
+collections:
+  - name: 'config'
+    label: 'Config'
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: 'general'
+        label: 'Site Config'
+        file: 'config.json'
+        description: 'General site settings'
+        fields:
+          - label: 'Site description'
+            name: 'site_description'
+            widget: 'string'
+          - label: 'Site keywords'
+            name: 'site_keywords'
+            widget: 'list'
+            summary: '{{fields.keyword.keyword}}'
+            field:
+              label: Keyword
+              name: keyword
+              widget: 'string'
+          - label: 'Twitter username'
+            name: 'twitter_account'
+            widget: 'string'
+            hint: 'Without @, e.g. johndoe16 not @johndoe16'
+          - label: 'GitHub username'
+            name: 'github_account'
+            widget: 'string'
+          - label: 'Linkedin username'
+            name: 'linkedin_account'
+            widget: 'string'
+  - name: 'posts'
+    label: 'Posts'
+    folder: 'content/posts/'
+    extension: 'mdx'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    identifier_field: slug
+    summary: '{{title}}'
+    fields:
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD'
+        dateFormat: 'YYYY-MM-DD'
+        timeFormat: false
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+  - name: 'portfolio'
+    label: 'Portfolio'
+    folder: 'content/portfolio/'
+    extension: 'mdx'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    identifier_field: slug
+    summary: '{{title}}'
+    fields:
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Creation Date'
+        name: 'date'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD'
+        dateFormat: 'YYYY-MM-DD'
+        timeFormat: false
+      - label: 'URL'
+        name: 'url'
+        widget: 'string'
+      - label: 'Cover image'
+        name: 'cover-img'
+        widget: 'image'
+        media_folder: 'images'
+        hint: 'Usually a screenshot of the website'
+      - label: 'Summary'
+        name: 'summary'
+        widget: 'text'
+        hint: 'Short summary of the project for use on cards'
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'

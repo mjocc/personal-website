@@ -8,7 +8,7 @@ import { getPlaceholders } from '@lib/placeholder';
 
 export const getStaticProps = async () => {
   const placeholders = await getPlaceholders(['/images/header-background.jpg']);
-  return { props: { placeholders } }
+  return { props: { placeholders } };
 };
 
 export default function Portfolio({ placeholders }) {

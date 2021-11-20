@@ -6,7 +6,7 @@ export default function PlaceholderImage({ imgProps, css, alt }) {
   return (
     <div className={`relative block overflow-hidden ${utils.nextImageFix}`}>
       <div
-        className="absolute inset-0 w-full h-full transform scale-150 filter blur-2xl"
+        className="absolute inset-0 w-full h-full transform scale-150 blur-2xl filter"
         style={css}
       />
       <Image {...imgProps} alt={alt} />

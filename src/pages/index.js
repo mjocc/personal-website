@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import MainContent from '@components/MainContent';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
@@ -18,17 +19,18 @@ export default function Home() {
       <Head>
         <title>Home | mjocc</title>
       </Head>
+      <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
 
       <Navbar />
 
       <MainContent>
         <div className={`${utils.flexCenter} sm:w-screen sm:h-screen`}>
-          <div className="fade flex flex-col">
+          <div className="flex flex-col fade">
             <HeaderText>Hi,</HeaderText>
             <HeaderText>I'm Matthew,</HeaderText>
             <HeaderText>Web developer</HeaderText>
 
-            <SocialMediaIcons className="mt-5 pl-2" width="350px" />
+            <SocialMediaIcons className="pl-2 mt-5" width="350px" />
           </div>
         </div>
       </MainContent>
