@@ -14,12 +14,26 @@ const HeaderText = ({ className = '', children }) => (
 );
 
 export default function Home() {
+  useEffect(() => {
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', (user) => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+  }, []);
   return (
     <>
       <Head>
         <title>Home | mjocc</title>
       </Head>
-      <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+      <Script
+        src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+        strategy="beforeInteractive"
+      />
 
       <Navbar />
 
