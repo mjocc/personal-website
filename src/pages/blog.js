@@ -4,14 +4,16 @@ import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 import PlaceholderImage from '@components/PlaceholderImage';
 
-import { getPlaiceholder } from 'plaiceholder';
+import { getPlaceholders } from '@lib/placeholder';
 
 export const getStaticProps = async () => {
-  const { img, css } = await getPlaiceholder('/images/header-background.jpg');
-  return { props: { img, css } };
+  const placeholders = await getPlaceholders(['/images/header-background.jpg']);
+  return { props: { placeholders } }
 };
 
-export default function Portfolio({ img: imgProps, css }) {
+export default function Portfolio({ placeholders }) {
+  const image = placeholders['/images/header-background.jpg'];
+  console.log(image);
   return (
     <>
       <Head>
@@ -21,8 +23,12 @@ export default function Portfolio({ img: imgProps, css }) {
       <Navbar />
 
       <MainContent>
-        <div className="w-1/2 h-1/2">
-          <PlaceholderImage imgProps={imgProps} css={css} alt="landscape" />
+        <div className="w-3/4">
+          <PlaceholderImage
+            imgProps={image.img}
+            css={image.css}
+            alt="landscape"
+          />
         </div>
       </MainContent>
 
