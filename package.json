@@ -22,7 +22,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^3.9.2",
+    "@netlify/plugin-nextjs": "4.0.0-beta.9",
     "@tailwindcss/forms": "^0.3.4",
     "autoprefixer": "^10.4.0",
     "eslint": "7.32.0",
@@ -36,5 +36,5 @@
   "prettier": {
     "singleQuote": true
   },
-  "packageManager": "yarn@3.1.0"
+  // "packageManager": "yarn@3.1.0"
 }
