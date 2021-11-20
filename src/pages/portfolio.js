@@ -1,5 +1,5 @@
-import anime from 'animejs';
 import { useEffect } from 'react';
+import { gsap } from 'gsap';
 import { getPlaiceholder } from 'plaiceholder';
 
 import Head from 'next/head';
@@ -19,7 +19,19 @@ export const getStaticProps = async () => {
 
 export default function Portfolio({ img: imgProps, css }) {
   useEffect(() => {
-    runAnimation();
+    runAnimation({
+      card: {
+        duration: 2,
+        stagger: 1.5,
+        ease: 'expo.out',
+        y: 700,
+      },
+      arrowButton: {
+        duration: 1,
+        x: 100,
+        ease: 'elastic.out(0.75, 0.5)',
+      },
+    });
   }, []); // will only run on initial render
   return (
     <>
@@ -36,10 +48,11 @@ export default function Portfolio({ img: imgProps, css }) {
           {[1, 2, 3, 4].map((num) => (
             <div key={num} className="relative">
               <Card
-                className={`absolute mx-1 ${
+                className={`absolute mx-1
+                ${
                   num % 2
-                    ? 'top-card top-[-600px]'
-                    : 'bottom-card bottom-[-600px]'
+                    ? 'top-card top-[200px]'
+                    : 'bottom-card bottom-[200px]'
                 }`}
               >
                 <PlaceholderImage
@@ -66,31 +79,16 @@ export default function Portfolio({ img: imgProps, css }) {
   );
 }
 
-function runAnimation() {
-  let commonSettings = {
-    duration: 3000,
-    easing: 'easeInOutExpo',
-  };
-  anime({
-    targets: '.top-card',
-    translateY: 700,
-    delay: anime.stagger(1000, { start: 250 }),
-    ...commonSettings,
-  }),
-    anime({
-      targets: '.bottom-card',
-      translateY: -700,
-      delay: anime.stagger(1000, { start: 750 }),
-      ...commonSettings,
-    }),
-    anime({
-      targets: '.arrow-button-right',
-      translateX: -72,
-      delay: 4000,
-    });
-  anime({
-    targets: '.arrow-button-left',
-    translateX: 72,
-    delay: 4000,
+function runAnimation({ card, arrowButton }) {
+  const { y: cardY, ...otherCard } = card;
+  gsap.from('.top-card', { y: -cardY, ...otherCard });
+  gsap.from('.bottom-card', {
+    y: cardY,
+    delay: card.stagger / 2,
+    ...otherCard,
+  });
+  gsap.from('.arrow-button-right', {
+    delay: card.duration + card.stagger * 1.5,
+    ...arrowButton,
   });
 }

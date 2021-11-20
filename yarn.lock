@@ -669,13 +669,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"animejs@npm:^3.2.1":
-  version: 3.2.1
-  resolution: "animejs@npm:3.2.1"
-  checksum: 6939171bed17d6b28307747e564d33e93312c26169b98498c833117d86f174ce7a318469bfd81716c223860a6d13bd76b761e79e765b86b2a2f851963caaa851
-  languageName: node
-  linkType: hard
-
 "anser@npm:1.4.9":
   version: 1.4.9
   resolution: "anser@npm:1.4.9"
@@ -2753,6 +2746,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gsap@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "gsap@npm:3.8.0"
+  checksum: db7ca05441138e082cafb78b3fae981e2c5bd02dfa7caebd78e0a195f924822718e69475642ada42bebab6a17327acfb64b11dbeca5e955851dc2ff4896d1a8b
+  languageName: node
+  linkType: hard
+
 "h3@npm:^0.2.10":
   version: 0.2.12
   resolution: "h3@npm:0.2.12"
@@ -4712,11 +4712,11 @@ __metadata:
     "@plaiceholder/next": ^2.2.0
     "@tailwindcss/forms": ^0.3.4
     "@tippyjs/react": ^4.2.6
-    animejs: ^3.2.1
     autoprefixer: ^10.4.0
     eslint: 7.32.0
     eslint-config-next: 12.0.4
     formik: ^2.2.9
+    gsap: ^3.8.0
     next: ^12.0.4
     plaiceholder: ^2.2.0
     postcss: ^8.3.11
