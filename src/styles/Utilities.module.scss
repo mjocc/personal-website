@@ -5,3 +5,7 @@
 .heightVisibleScreen {
   height: calc(100vh - 36px);
 }
+
+.nextImageFix > span:last-child {
+  @apply align-top;
+}

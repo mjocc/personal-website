@@ -2,18 +2,16 @@ import Head from 'next/head';
 import MainContent from '@components/MainContent';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
+import PlaceholderImage from '@components/PlaceholderImage';
 
 import { getPlaiceholder } from 'plaiceholder';
-import Image from 'next/image';
 
 export const getStaticProps = async () => {
-  const { base64, img } = await getPlaiceholder(
-    '/images/header-background.jpg'
-  );
-  return { props: { imageProps: { ...img, blurDataURL: base64 } } };
+  const { img, css } = await getPlaiceholder('/images/header-background.jpg');
+  return { props: { img, css } };
 };
 
-export default function Portfolio({ imageProps }) {
+export default function Portfolio({ img: imgProps, css }) {
   return (
     <>
       <Head>
@@ -23,7 +21,9 @@ export default function Portfolio({ imageProps }) {
       <Navbar />
 
       <MainContent>
-        <Image {...imageProps} placeholder="blur" />
+        <div className="w-1/2 h-1/2">
+          <PlaceholderImage imgProps={imgProps} css={css} alt="landscape" />
+        </div>
       </MainContent>
 
       <Footer />
