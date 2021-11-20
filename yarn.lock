@@ -207,7 +207,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/plugin-nextjs@npm:^4.0.0-beta.4":
+"@netlify/plugin-nextjs@npm:^4.0.0-beta.9":
   version: 4.0.0-beta.9
   resolution: "@netlify/plugin-nextjs@npm:4.0.0-beta.9"
   dependencies:
@@ -4734,7 +4734,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "personal-website@workspace:."
   dependencies:
-    "@netlify/plugin-nextjs": ^4.0.0-beta.4
+    "@netlify/plugin-nextjs": ^4.0.0-beta.9
     "@plaiceholder/next": ^2.2.0
     "@tailwindcss/forms": ^0.3.4
     "@tippyjs/react": ^4.2.6
