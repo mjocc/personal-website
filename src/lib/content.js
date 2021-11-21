@@ -45,7 +45,11 @@ export const getDataFromDir = async (directory, transformationFunction) => {
     );
     fileData.push(data);
   }
-  const orderedFileData = orderBy(fileData, ['data.date', 'data.title'], ['desc', 'desc'])
+  const orderedFileData = orderBy(
+    fileData,
+    ['data.date', 'data.title'],
+    ['desc', 'desc']
+  );
   return orderedFileData;
 };
 
@@ -54,5 +58,9 @@ export const getSlugsFromDir = async (directory) => {
   let slugs = fileNames.map((fileName) => {
     return fileName.replace(/\.md$/, '');
   });
-  return slugs;
+  let paths = [];
+  for (const slug of slugs) {
+    paths.push({ params: { slug } });
+  }
+  return paths;
 };

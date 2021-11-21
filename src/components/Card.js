@@ -5,7 +5,7 @@ export const Card = ({ children, className = '', theme = 'dark', href }) => (
     className={`card sm:max-w-sm md:max-w-md rounded-lg border overflow-hidden ${
       theme === 'light'
         ? 'bg-gray-100 text-black border-current'
-        : 'bg-gray-800 text-white border-gray-900'
+        : 'bg-gray-800 text-white border-gray-900 filter hover:brightness-95 drop-shadow-xl'
     } ${className}`}
   >
     {children}

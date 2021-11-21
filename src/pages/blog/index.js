@@ -5,7 +5,7 @@ import Layout from '@components/Layout';
 import BlogPostSummary from '@components/BlogPostSummary';
 
 export const getStaticProps = async () => {
-  let posts = await getPosts();
+  const posts = await getPosts();
   return { props: { posts } };
 };
 
@@ -15,7 +15,7 @@ export default function Blog({ posts }) {
       <Head>
         <title>Blog | mjocc</title>
       </Head>
-      <div className="flex flex-col justify-center w-3/4 mt-20 item-center h-3/4">
+      <div className="flex flex-col w-3/4 p-20 item-center h-3/4">
         {posts.map((post) => (
           <BlogPostSummary
             key={post.data.slug}

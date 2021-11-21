@@ -4,7 +4,7 @@ export default function MainContent({ className = '', children }) {
   return (
     <>
       <div
-        className={`relative overflow-hidden ${utils.heightVisibleScreen} ${
+        className={`relative ${utils.heightVisibleScreen} ${
           className || 'bg-gray-800'
         }`}
       >

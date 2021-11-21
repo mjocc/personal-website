@@ -11,7 +11,7 @@ import ArrowButton from '@components/ArrowButton';
 import utils from '@styles/Utilities.module.scss';
 
 export const getStaticProps = async () => {
-  let portfolio = await getPortfolioItems();
+  const portfolio = await getPortfolioItems();
   return { props: { portfolio } };
 };
 
@@ -53,7 +53,7 @@ export default function Portfolio({ portfolio }) {
               <PlaceholderImage
                 imgProps={item.data.placeholder.img}
                 css={item.data.placeholder.css}
-                alt="landscape"
+                alt="website screenshot"
               />
               <CardBody>
                 <CardTitle>{item.data.title}</CardTitle>
