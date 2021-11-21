@@ -30,7 +30,7 @@ export default function Portfolio({ portfolio }) {
         ease: 'elastic.out(0.75, 0.5)',
       },
     });
-  }, []); // will only run on initial render
+  }, [portfolio.length]); // will only run on initial render
   return (
     <Layout>
       <Head>
