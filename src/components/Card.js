@@ -1,4 +1,6 @@
-export const Card = ({ children, className = '', theme = 'dark' }) => (
+import Link from 'next/link';
+
+export const Card = ({ children, className = '', theme = 'dark', href }) => (
   <div
     className={`card sm:max-w-sm md:max-w-md rounded-lg border overflow-hidden ${
       theme === 'light'
@@ -7,6 +9,11 @@ export const Card = ({ children, className = '', theme = 'dark' }) => (
     } ${className}`}
   >
     {children}
+    {href !== undefined && (
+      <Link href={href}>
+        <a className="after:absolute after:inset-0" />
+      </Link>
+    )}
   </div>
 );
 

@@ -2,9 +2,7 @@ import { useEffect } from 'react';
 
 import Head from 'next/head';
 import Script from 'next/script';
-import MainContent from '@components/MainContent';
-import Navbar from '@components/Navbar';
-import Footer from '@components/Footer';
+import Layout from '@components/Layout';
 import SocialMediaIcons from '@components/SocialMediaIcons';
 
 import utils from '@styles/Utilities.module.scss';
@@ -28,7 +26,7 @@ export default function Home() {
     }
   }, []);
   return (
-    <>
+    <Layout>
       <Head>
         <title>Home | mjocc</title>
       </Head>
@@ -37,21 +35,15 @@ export default function Home() {
         strategy="beforeInteractive"
       />
 
-      <Navbar />
+      <div className={`${utils.flexCenter} sm:w-screen sm:h-screen`}>
+        <div className="fade flex flex-col">
+          <HeaderText>Hi,</HeaderText>
+          <HeaderText>I'm Matthew,</HeaderText>
+          <HeaderText>Web developer</HeaderText>
 
-      <MainContent>
-        <div className={`${utils.flexCenter} sm:w-screen sm:h-screen`}>
-          <div className="flex flex-col fade">
-            <HeaderText>Hi,</HeaderText>
-            <HeaderText>I'm Matthew,</HeaderText>
-            <HeaderText>Web developer</HeaderText>
-
-            <SocialMediaIcons className="pl-2 mt-5" width="350px" />
-          </div>
+          <SocialMediaIcons className="mt-5 pl-2" width="350px" />
         </div>
-      </MainContent>
-
-      <Footer />
-    </>
+      </div>
+    </Layout>
   );
 }

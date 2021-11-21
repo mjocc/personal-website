@@ -1,9 +1,7 @@
 import Head from 'next/head';
-import MainContent from '@components/MainContent';
-import Navbar from '@components/Navbar';
-import Footer from '@components/Footer';
-import SocialMediaIcons from '@components/SocialMediaIcons';
+import Layout from '@components/Layout';
 import ContactForm from '@components/ContactForm';
+import SocialMediaIcons from '@components/SocialMediaIcons';
 
 import utils from '@styles/Utilities.module.scss';
 
@@ -13,48 +11,42 @@ const encode = (data) => {
     .join('&');
 };
 
-export default function Portfolio() {
+export default function Contact() {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Contact Me | mjocc</title>
       </Head>
 
-      <Navbar />
-
-      <MainContent>
-        <div
-          className={`${utils.flexCenter} ${utils.heightVisibleScreen} w-screen`}
-        >
-          <SocialMediaIcons height="350px" column={true} />
-          <ContactForm
-            className="ml-52"
-            onSubmit={async (values) => {
-              const success = false;
-              await fetch('/form-submit.html', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: encode({ 'form-name': 'contact', ...values }),
-              })
-                .then((res) => {
-                  if (res.status === 200) {
-                    success = true;
-                  } else {
-                    success = false;
-                  }
-                })
-                .catch(() => {
+      <div
+        className={`${utils.flexCenter} ${utils.heightVisibleScreen} w-screen`}
+      >
+        <SocialMediaIcons height="350px" column={true} />
+        <ContactForm
+          className="ml-52"
+          onSubmit={async (values) => {
+            const success = false;
+            await fetch('/form-submit.html', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: encode({ 'form-name': 'contact', ...values }),
+            })
+              .then((res) => {
+                if (res.status === 200) {
+                  success = true;
+                } else {
                   success = false;
-                });
-              return success;
-            }}
-          />
-        </div>
-      </MainContent>
-
-      <Footer />
-    </>
+                }
+              })
+              .catch(() => {
+                success = false;
+              });
+            return success;
+          }}
+        />
+      </div>
+    </Layout>
   );
 }

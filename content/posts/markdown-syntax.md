@@ -7,7 +7,7 @@ tags:
   - markdown
 ---
 
-This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in MDX.
+This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in MD.
 
 ## Headings
 
@@ -61,7 +61,7 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 
 #### Inline Markdown within tables
 
-<div style={{"overflowX": "auto"}}>
+<div style="overflowX: auto"}}>
 
 | Inline&nbsp;&nbsp;&nbsp; | Markdown&nbsp;&nbsp;&nbsp; | In&nbsp;&nbsp;&nbsp;                | Table  |
 | ------------------------ | -------------------------- | ----------------------------------- | ------ |

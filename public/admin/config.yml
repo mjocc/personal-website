@@ -39,8 +39,6 @@ collections:
   - name: 'posts'
     label: 'Posts'
     folder: 'content/posts/'
-    extension: 'mdx'
-    format: 'frontmatter'
     create: true
     slug: '{{slug}}'
     identifier_field: slug
@@ -64,8 +62,6 @@ collections:
   - name: 'portfolio'
     label: 'Portfolio'
     folder: 'content/portfolio/'
-    extension: 'mdx'
-    format: 'frontmatter'
     create: true
     slug: '{{slug}}'
     identifier_field: slug
