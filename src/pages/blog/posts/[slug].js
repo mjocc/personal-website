@@ -16,11 +16,5 @@ export const getStaticProps = async (context) => {
 };
 
 export default function BlogPost({ content, data }) {
-  return (
-    <Post
-      page="blog"
-      title={data.title}
-      content={content}
-    />
-  );
+  return <Post page="blog" title={data.title} content={content} />;
 }

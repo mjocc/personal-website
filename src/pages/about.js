@@ -1,4 +1,3 @@
-
 import Head from 'next/head';
 import Layout from '@components/Layout';
 
@@ -16,7 +15,6 @@ export default function About() {
       <Head>
         <title>About | mjocc</title>
       </Head>
-
     </Layout>
   );
 }

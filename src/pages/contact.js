@@ -22,7 +22,7 @@ export default function Contact() {
         className={`${utils.flexCenter} ${utils.heightVisibleScreen} w-screen`}
       >
         <div className="flex-col pb-10">
-          <h1 className="text-center text-white font-heading text-8xl font-bold mb-14">
+          <h1 className="mb-14 text-center text-white font-heading text-8xl font-bold">
             Contact Me
           </h1>
           <div className="flex flex-row items-center justify-center">

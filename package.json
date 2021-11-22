@@ -6,7 +6,7 @@
     "build": "next build",
     "export": "next export",
     "lint": "next lint",
-    "format": "prettier --write \"src/**/*\" \"public/admin/*\" \"content/**/*\""
+    "format": "prettier --write \"src/**/*\" \"public/admin/*\""
   },
   "dependencies": {
     "@plaiceholder/next": "^2.2.0",

@@ -36,12 +36,12 @@ export default function Home() {
       />
 
       <div className={`${utils.flexCenter} sm:w-screen sm:h-screen`}>
-        <div className="flex flex-col fade">
+        <div className="fade flex flex-col">
           <HeaderText>Hi,</HeaderText>
           <HeaderText>I'm Matthew,</HeaderText>
           <HeaderText>Web developer</HeaderText>
 
-          <SocialMediaIcons className="pl-2 mt-7" width="350px" />
+          <SocialMediaIcons className="mt-7 pl-2" width="350px" />
         </div>
       </div>
     </Layout>

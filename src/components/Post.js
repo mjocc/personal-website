@@ -14,28 +14,28 @@ export default function Post({ page, title, url, placeholder, content }) {
           {title} | {page} | mjocc
         </title>
       </Head>
-      <article className="container pb-10 mb-10 mt-28">
+      <article className="container mb-10 mt-28 pb-10">
         <Link href={`/${page}`}>
           <a>
             <Image src={leftArrow} alt="back arrow" width={35} height={35} />
           </a>
         </Link>
-        <h1 className="pt-3 pb-6 font-bold text-center text-white font-heading text-7xl">
+        <h1 className="pb-6 pt-3 text-center text-white font-heading text-7xl font-bold">
           {title}
         </h1>
-          {placeholder && (
-            <div className="px-10 pb-6">
-              <PlaceholderImage
-                className="px-10"
-                href={url}
-                imgProps={placeholder.img}
-                css={placeholder.css}
-                alt="website screenshot"
-              />
-            </div>
-          )}
+        {placeholder && (
+          <div className="pb-6 px-10">
+            <PlaceholderImage
+              className="px-10"
+              href={url}
+              imgProps={placeholder.img}
+              css={placeholder.css}
+              alt="website screenshot"
+            />
+          </div>
+        )}
         <div
-          className="text-lg text-white"
+          className="text-white text-lg"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </article>
