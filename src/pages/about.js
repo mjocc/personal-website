@@ -1,7 +1,5 @@
 import Head from 'next/head';
-import Layout from '@components/Layout';
-
-import utils from '@styles/Utilities.module.scss';
+import Layout from '@components/structure/Layout';
 
 const HeaderText = ({ className = '', children }) => (
   <h1 className={`text-white font-heading text-8xl ${className}`}>

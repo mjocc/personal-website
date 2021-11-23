@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import Layout from '@components/Layout';
-import ContactForm from '@components/ContactForm';
-import SocialMediaIcons from '@components/SocialMediaIcons';
+import Layout from '@components/structure/Layout';
+import ContactForm from '@components/items/ContactForm';
+import SocialMediaIcons from '@components/items/SocialMediaIcons';
 
 import utils from '@styles/Utilities.module.scss';
 
@@ -22,7 +22,7 @@ export default function Contact() {
         className={`${utils.flexCenter} ${utils.heightVisibleScreen} w-screen`}
       >
         <div className="flex-col pb-10">
-          <h1 className="mb-14 text-center text-white font-heading text-8xl font-bold">
+          <h1 className="font-bold text-center text-white mb-14 font-heading text-8xl">
             Contact Me
           </h1>
           <div className="flex flex-row items-center justify-center">

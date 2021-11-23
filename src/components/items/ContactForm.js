@@ -5,7 +5,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
-import Button from '@components/StandardButton';
+import Button from '@components/utilities/StandardButton';
 
 const FormField = (props) => {
   const { label, name, className = '', ...otherProps } = props;

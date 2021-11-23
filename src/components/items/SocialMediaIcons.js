@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import socialMediaIconStyles from '@components/SocialMediaIcons.module.scss';
+import socialMediaIconStyles from './SocialMediaIcons.module.scss';
 import utils from '@styles/Utilities.module.scss';
 
 function SocialMediaIcon({ href, name, src }) {

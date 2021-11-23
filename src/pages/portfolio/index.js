@@ -3,10 +3,10 @@ import { gsap } from 'gsap';
 import { getPortfolioItems } from '@lib/portfolio';
 
 import Head from 'next/head';
-import Layout from '@components/Layout';
-import { Card, CardBody, CardTitle, CardText } from '@components/Card';
-import PlaceholderImage from '@components/PlaceholderImage';
-import ArrowButton from '@components/ArrowButton';
+import Layout from '@components/structure/Layout';
+import { Card, CardBody, CardTitle, CardText } from '@components/utilities/Card';
+import PlaceholderImage from '@components/utilities/PlaceholderImage';
+import ArrowButton from '@components/utilities/ArrowButton';
 
 import utils from '@styles/Utilities.module.scss';
 

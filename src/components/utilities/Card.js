@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 export const Card = ({ children, className = '', theme = 'dark', href }) => (
   <div
-    className={`card sm:max-w-sm md:max-w-md rounded-lg border overflow-hidden ${
+    className={`card sm:max-w-sm md:max-w-md rounded-lg border overflow-hidden filter hover:brightness-95 drop-shadow-xl transition ${
       theme === 'light'
         ? 'bg-gray-100 text-black border-current'
-        : 'bg-gray-800 text-white border-gray-900 filter hover:brightness-95 drop-shadow-xl'
+        : 'bg-gray-800 text-white border-gray-900'
     } ${className}`}
   >
     {children}

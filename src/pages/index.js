@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 
 import Head from 'next/head';
 import Script from 'next/script';
-import Layout from '@components/Layout';
-import SocialMediaIcons from '@components/SocialMediaIcons';
+import Layout from '@components/structure/Layout';
+import SocialMediaIcons from '@components/items/SocialMediaIcons';
 
 import utils from '@styles/Utilities.module.scss';
 
@@ -36,12 +36,12 @@ export default function Home() {
       />
 
       <div className={`${utils.flexCenter} sm:w-screen sm:h-screen`}>
-        <div className="fade flex flex-col">
+        <div className="flex flex-col fade">
           <HeaderText>Hi,</HeaderText>
           <HeaderText>I'm Matthew,</HeaderText>
           <HeaderText>Web developer</HeaderText>
 
-          <SocialMediaIcons className="mt-7 pl-2" width="350px" />
+          <SocialMediaIcons className="pl-2 mt-7" width="350px" />
         </div>
       </div>
     </Layout>

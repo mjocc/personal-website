@@ -1,6 +1,6 @@
-import Navbar from '@components/Navbar';
-import Footer from '@components/Footer';
-import MainContent from '@components/MainContent';
+import Navbar from '@components/items/Navbar';
+import Footer from '@components/items/Footer';
+import MainContent from '@components/structure/MainContent';
 
 export default function Layout({ children }) {
   return (
