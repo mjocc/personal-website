@@ -31,11 +31,11 @@ const FormField = (props) => {
       >
         <div>
           <Field
-            className={`block w-full rounded shadow-sm focus:ring focus:ring-opacity-50 bg-gray-700 text-gray-400
+            className={`block w-full rounded shadow-sm focus:ring focus:ring-opacity-50 bg-zinc-700 text-zinc-400
           ${
             error
               ? 'border-[1.5px] border-red-900 focus:border-red-800 focus:ring-red-700'
-              : 'border-gray-900 focus:border-gray-800 focus:ring-gray-700'
+              : 'border-zinc-900 focus:border-zinc-800 focus:ring-zinc-700'
           }`}
             id={`${name}-form-field`}
             name={name}

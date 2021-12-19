@@ -7,7 +7,7 @@ function SocialMediaIcon({ href, name, src }) {
   return (
     <a
       href={href}
-      className={`h-16 w-16 rounded-3xl bg-gray-800 ${utils.flexCenter} ${socialMediaIconStyles.iconShadow}`}
+      className={`h-16 w-16 rounded-3xl bg-zinc-800 ${utils.flexCenter} ${socialMediaIconStyles.iconShadow}`}
       title={name}
     >
       <Image src={src} alt={name} width={32} height={32} />

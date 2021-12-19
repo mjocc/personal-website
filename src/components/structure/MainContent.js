@@ -5,7 +5,7 @@ export default function MainContent({ className = '', children }) {
     <>
       <div
         className={`relative ${utils.heightVisibleScreen} ${
-          className || 'bg-gray-800'
+          className || 'bg-zinc-800'
         }`}
       >
         {children}

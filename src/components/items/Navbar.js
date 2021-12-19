@@ -10,7 +10,7 @@ const NavbarLink = ({ href, text, align = 'left' }) => {
   return (
     <Link href={href}>
       <a
-        className={`bg-gray-800 text-white font-bold py-2.5 px-6 rounded-full mt-2.5 mx-2.5
+        className={`bg-zinc-800 text-white font-bold py-2.5 px-6 rounded-full mt-2.5 mx-2.5
           ${pathname === href ? navbarStyles.active : ''}
           ${align === 'right' ? 'sm:ml-auto' : ''}
           ${navbarStyles.btnShadow}`}
