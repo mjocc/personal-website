@@ -1,3 +1,7 @@
+[[redirects]]
+  from = "/builds"
+  to = "https://app.netlify.com/sites/priceless-liskov-5ad496/deploys"
+
 [build]
   command = "yarn run build"
   publish = ".next"
