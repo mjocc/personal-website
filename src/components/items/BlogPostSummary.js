@@ -1,15 +1,16 @@
 import Link from 'next/link';
+import dateFormat from 'dateformat';
 
 export default function BlogPostSummary({ className = '', slug, title, date }) {
   return (
     <div className={className}>
       <Link href={`/blog/posts/${slug}`}>
-        <a className="group relative flex flex-col">
-          <span className="text-zinc-100 group-hover:underline text-2xl font-bold">
+        <a className="relative flex flex-col group">
+          <span className="text-2xl font-bold text-zinc-100 group-hover:underline">
             {title}
           </span>
-          <span className="text-l text-zinc-500 group-hover:underline italic font-semibold">
-            {date}
+          <span className="italic font-semibold text-l text-zinc-500 group-hover:underline">
+            {dateFormat(date, 'd mmmm, yyyy')}
           </span>
         </a>
       </Link>

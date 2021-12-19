@@ -1,10 +1,9 @@
 import { getDataFromFile, getDataFromDir, getSlugsFromDir } from './content';
 import { cwd } from 'process';
 import { join } from 'path';
-import dateFormat from 'dateformat';
 
 const transformationFunction = async (file) => {
-  file.data.date = dateFormat(file.data.date, 'dd mmmm, yyyy');
+  file.data.date = new Date(file.data.date).getTime();
 };
 
 export const getPosts = async () => {

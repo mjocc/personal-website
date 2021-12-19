@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Layout from '@components/structure/Layout';
 import PlaceholderImage from '@components/utilities/PlaceholderImage';
 
+import 'highlight.js/styles/night-owl.css'
 import leftArrow from '@images/arrow-left.svg';
 
 export default function Post({ page, title, url, placeholder, content }) {
@@ -35,7 +36,7 @@ export default function Post({ page, title, url, placeholder, content }) {
           </div>
         )}
         <div
-          className="text-lg text-white"
+          className="prose prose-invert"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </article>

@@ -2,10 +2,9 @@ import { getDataFromFile, getDataFromDir, getSlugsFromDir } from './content';
 import { getPlaceholder } from './placeholder';
 import { cwd } from 'process';
 import { join } from 'path';
-import dateFormat from 'dateformat';
 
 const transformationFunction = async (file) => {
-  file.data.date = dateFormat(file.data.date, 'mmmm, yyyy');
+  file.data.date = new Date(file.data.date).getTime();
   file.data.placeholder = await getPlaceholder(file.data.img);
 };
 

@@ -2,6 +2,7 @@ import * as matter from 'gray-matter';
 import { readdir, readFile } from 'fs/promises';
 import { join } from 'path';
 import { marked } from 'marked';
+import hljs from 'highlight.js';
 import orderBy from 'lodash/orderBy';
 
 export const getFileNames = async (directory) => {
@@ -17,7 +18,12 @@ export const getDataFromFile = async (
   let filePath = join(directory, fileName);
   let fileContents = await readFile(filePath, 'utf8');
   let fileData = matter(fileContents);
-  fileData.content = marked.parse(fileData.content);
+  fileData.content = marked.parse(fileData.content, {
+    gfm: true,
+    highlight(code) {
+      return hljs.highlightAuto(code).value;
+    }
+  });
   delete fileData.orig;
   if (typeof transformationFunction === 'function') {
     await transformationFunction(fileData);
