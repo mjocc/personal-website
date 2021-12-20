@@ -22,7 +22,7 @@ export const getDataFromFile = async (
     gfm: true,
     highlight(code) {
       return hljs.highlightAuto(code).value;
-    }
+    },
   });
   delete fileData.orig;
   if (typeof transformationFunction === 'function') {
@@ -67,6 +67,6 @@ export const getSlugsFromDir = async (directory) => {
   let paths = [];
   for (const slug of slugs) {
     paths.push({ params: { slug } });
-  }
+  }ru
   return paths;
 };

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Layout from '@components/structure/Layout';
 import PlaceholderImage from '@components/utilities/PlaceholderImage';
 
-import 'highlight.js/styles/atom-one-dark.css'
+import 'highlight.js/styles/atom-one-dark.css';
 import leftArrow from '@images/arrow-left.svg';
 
 export default function Post({ page, title, url, placeholder, content }) {

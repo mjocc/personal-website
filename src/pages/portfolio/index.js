@@ -4,7 +4,12 @@ import { getPortfolioItems } from '@lib/portfolio';
 
 import Head from 'next/head';
 import Layout from '@components/structure/Layout';
-import { Card, CardBody, CardTitle, CardText } from '@components/utilities/Card';
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
+} from '@components/utilities/Card';
 import PlaceholderImage from '@components/utilities/PlaceholderImage';
 import ArrowButton from '@components/utilities/ArrowButton';
 
