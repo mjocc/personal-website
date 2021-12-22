@@ -9,3 +9,11 @@
 .nextImageFix > span:last-child {
   @apply align-top;
 }
+
+.focusRingReplace {
+  @apply focus:outline-none focus:ring focus:ring-emerald-600;
+}
+
+.stretchedLink {
+  @apply after:absolute after:inset-0;
+}

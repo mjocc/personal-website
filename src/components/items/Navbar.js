@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 
+import utils from '@styles/Utilities.module.scss';
 import navbarStyles from './Navbar.module.scss';
 
 const NavbarLink = ({ href, text, align = 'left' }) => {
@@ -13,9 +14,10 @@ const NavbarLink = ({ href, text, align = 'left' }) => {
         className={`bg-zinc-800 text-white font-bold py-2.5 px-6 rounded-full mt-2.5 mx-2.5
           ${pathname === href ? navbarStyles.active : ''}
           ${align === 'right' ? 'sm:ml-auto' : ''}
-          ${navbarStyles.btnShadow}`}
+          ${navbarStyles.btnShadow}
+          ${utils.focusRingReplace}
+          `}
         title={text}
-        tabIndex={0}
       >
         {text}
       </a>

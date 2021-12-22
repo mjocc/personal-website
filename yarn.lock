@@ -715,6 +715,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"animate.css@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "animate.css@npm:4.1.1"
+  checksum: c7eb91540423532c549725a6dedea993735a05eadaa49ed4d1965ce166a6db36459adcc9667c1dfe13657fab92a2875bbee34ad0d942444a731badab69f762c8
+  languageName: node
+  linkType: hard
+
 "anser@npm:1.4.9":
   version: 1.4.9
   resolution: "anser@npm:1.4.9"
@@ -2339,7 +2346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsx-a11y@npm:^6.4.1":
+"eslint-plugin-jsx-a11y@npm:^6.4.1, eslint-plugin-jsx-a11y@npm:^6.5.1":
   version: 6.5.1
   resolution: "eslint-plugin-jsx-a11y@npm:6.5.1"
   dependencies:
@@ -4973,11 +4980,13 @@ __metadata:
     "@tailwindcss/line-clamp": ^0.2.2
     "@tailwindcss/typography": ^0.5.0
     "@tippyjs/react": ^4.2.6
+    animate.css: ^4.1.1
     autoprefixer: ^10.4.0
     cssnano: ^5.0.13
     dateformat: ^5.0.2
     eslint: 7.32.0
     eslint-config-next: 12.0.4
+    eslint-plugin-jsx-a11y: ^6.5.1
     formik: ^2.2.9
     gray-matter: ^4.0.3
     gsap: ^3.8.0

@@ -11,7 +11,8 @@ export default function PlaceholderImage({ imgProps, css, alt, href }) {
       />
       <Image {...imgProps} alt={alt} />
       {href !== undefined && (
-        <a href={href} className="after:absolute after:inset-0" />
+        /* eslint-disable-next-line jsx-a11y/anchor-has-content */
+        <a href={href} className={utils.stretchedLink} />
       )}
     </div>
   );

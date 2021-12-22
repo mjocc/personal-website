@@ -45,14 +45,10 @@ export default function Portfolio({ portfolio }) {
         className={`absolute grid w-screen grid-cols-4 top-0 inset-x-0 ${utils.heightVisibleScreen}`}
       >
         {portfolio.map((item, index) => (
-          <div key={item.data.slug} className="relative">
+          <div key={item.data.slug} className={utils.flexCenter}>
             <Card
-              className={`absolute mx-1
-                ${
-                  index % 2
-                    ? 'top-card top-[200px]'
-                    : 'bottom-card bottom-[200px]'
-                }`}
+              className={`mx-1
+                ${index % 2 ? 'top-card translate-y-6' : 'bottom-card -translate-y-6'}`}
               href={`/portfolio/${item.data.slug}`}
             >
               <PlaceholderImage

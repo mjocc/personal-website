@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Head from 'next/head';
 import Script from 'next/script';
@@ -7,9 +7,28 @@ import SocialMediaIcons from '@components/items/SocialMediaIcons';
 
 import utils from '@styles/Utilities.module.scss';
 
-const HeaderText = ({ className = '', children }) => (
+const HeaderLetter = ({ character, animationType = 'rubberBand' }) => {
+  const [pulsing, setPulsing] = useState(false);
+  return character !== ' ' ? (
+    <span
+      className={`inline-block ${
+        pulsing ? `animate__animated animate__${animationType}` : ''
+      }`}
+      onMouseEnter={() => setPulsing(true)}
+      onAnimationEnd={() => setPulsing(false)}
+    >
+      {character}
+    </span>
+  ) : (
+    <span>{character}</span>
+  );
+};
+
+const HeaderText = ({ className = '', children: text }) => (
   <h1 className={`text-white font-heading text-8xl ${className}`}>
-    {children}
+    {[...text].map((character, index) => (
+      <HeaderLetter key={index} character={character} animationType="rubberBand" />
+    ))}
   </h1>
 );
 

@@ -67,6 +67,6 @@ export const getSlugsFromDir = async (directory) => {
   let paths = [];
   for (const slug of slugs) {
     paths.push({ params: { slug } });
-  }ru
+  }
   return paths;
 };
