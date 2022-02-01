@@ -4,7 +4,7 @@ import utils from '@styles/Utilities.module.scss';
 
 export const Card = ({ children, className = '', theme = 'dark', href }) => (
   <div
-    className={`card sm:max-w-sm md:max-w-md rounded-lg border overflow-hidden filter hover:brightness-95 drop-shadow-xl transition ${
+    className={`card min-w-[350px] sm:max-w-sm md:max-w-md rounded-lg border overflow-hidden filter hover:brightness-95 drop-shadow-xl transition ${
       theme === 'light'
         ? 'bg-zinc-100 text-black border-current'
         : 'bg-zinc-800 text-white border-zinc-900'
@@ -20,10 +20,14 @@ export const Card = ({ children, className = '', theme = 'dark', href }) => (
   </div>
 );
 
-export const CardBody = ({ children }) => <div className="p-4">{children}</div>;
+const CardBody = ({ children }) => <div className="p-4">{children}</div>;
 
-export const CardTitle = ({ children }) => (
+const CardTitle = ({ children }) => (
   <h5 className="mb-1 text-xl font-medium">{children}</h5>
 );
 
-export const CardText = ({ children }) => <p className="mb-4">{children}</p>;
+const CardText = ({ children }) => <p className="mb-4">{children}</p>;
+
+Card.Body = CardBody;
+Card.Title = CardTitle;
+Card.Text = CardText;

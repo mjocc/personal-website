@@ -22,11 +22,11 @@ export default function Contact() {
         className={`${utils.flexCenter} ${utils.heightVisibleScreen} w-screen`}
       >
         <div className="flex-col pb-10">
-          <h1 className="font-bold text-center text-white mb-14 font-heading text-8xl">
+          <h1 className="font-bold text-center text-white mb-14 font-heading text-8xl animate__animated animate__fadeInDown">
             Contact Me
           </h1>
           <div className="flex flex-row items-center justify-center">
-            <SocialMediaIcons height="350px" column={true} />
+            <SocialMediaIcons className="animate__animated animate__fadeInLeft" height="350px" column={true} />
             <ContactForm
               className="ml-52"
               onSubmit={async (values) => {

@@ -1,54 +1,42 @@
-import { useEffect } from 'react';
-import { gsap } from 'gsap';
-import { getPortfolioItems } from '@lib/portfolio';
-
-import Head from 'next/head';
 import Layout from '@components/structure/Layout';
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardText,
-} from '@components/utilities/Card';
+import { Card } from '@components/utilities/Card';
 import PlaceholderImage from '@components/utilities/PlaceholderImage';
-import ArrowButton from '@components/utilities/ArrowButton';
-
+import { getPortfolioItems } from '@lib/portfolio';
 import utils from '@styles/Utilities.module.scss';
+import chunk from 'lodash/chunk';
+import Head from 'next/head';
+import { useState } from 'react';
 
 export const getStaticProps = async () => {
   const portfolio = await getPortfolioItems();
   return { props: { portfolio } };
 };
 
-export default function Portfolio({ portfolio }) {
-  useEffect(() => {
-    runAnimation(portfolio.length, {
-      card: {
-        duration: 2,
-        stagger: 1.5,
-        ease: 'expo.out',
-        y: 700,
-      },
-      arrowButton: {
-        duration: 1,
-        x: 100,
-        ease: 'elastic.out(0.75, 0.5)',
-      },
-    });
-  }, [portfolio.length]); // will only run on initial render
+export default function Portfolio({ portfolio: fullPortfolio }) {
+  const portfolioChunks = chunk(fullPortfolio, 4);
+  const [chunkIndex, setChunkIndex] = useState(0);
+  const getCurrentChunk = () => portfolioChunks[chunkIndex];
+
+  const showRightArrow = () => !!portfolioChunks[chunkIndex + 1];
+  const showLeftArrow = () => !!portfolioChunks[chunkIndex - 1];
+
   return (
     <Layout>
       <Head>
         <title>Portfolio | mjocc</title>
       </Head>
       <div
-        className={`absolute grid w-screen grid-cols-4 top-0 inset-x-0 ${utils.heightVisibleScreen}`}
+        className={`absolute flex overflow-x-auto top-0 inset-x-0 snap-x ${utils.heightVisibleScreen}`}
       >
-        {portfolio.map((item, index) => (
+        {fullPortfolio.map((item, index) => (
           <div key={item.data.slug} className={utils.flexCenter}>
             <Card
-              className={`mx-1
-                ${index % 2 ? 'top-card translate-y-6' : 'bottom-card -translate-y-6'}`}
+              className={`mx-1 snap-start scroll-mx-1 animate__animated
+                ${
+                  index % 2
+                    ? 'top-card animate__slideInDown mb-10'
+                    : 'bottom-card animate__slideInUp mt-10'
+                }`}
               href={`/portfolio/${item.data.slug}`}
             >
               <PlaceholderImage
@@ -56,33 +44,26 @@ export default function Portfolio({ portfolio }) {
                 css={item.data.placeholder.css}
                 alt="website screenshot"
               />
-              <CardBody>
-                <CardTitle>{item.data.title}</CardTitle>
-                <CardText>{item.data.summary}</CardText>
-              </CardBody>
+              <Card.Body>
+                <Card.Title>{item.data.title}</Card.Title>
+                <Card.Text>{item.data.summary}</Card.Text>
+              </Card.Body>
             </Card>
           </div>
         ))}
       </div>
-      {portfolio.length > 4 && <ArrowButton orientation="right" />}
+      {/* {showRightArrow() && (
+        <ArrowButton
+          orientation="right"
+          onClick={() => setChunkIndex((index) => index + 1)}
+        />
+      )}
+      {showLeftArrow() && (
+        <ArrowButton
+          orientation="left"
+          onClick={() => setChunkIndex((index) => index - 1)}
+        />
+      )} */}
     </Layout>
   );
-}
-
-function runAnimation(len, { card, arrowButton }) {
-  const { y: cardY, ...otherCard } = card;
-  gsap.from('.bottom-card', { y: cardY, ...otherCard });
-  if (len >= 2) {
-    gsap.from('.top-card', {
-      y: -cardY,
-      delay: card.stagger / 2,
-      ...otherCard,
-    });
-    if (len > 4) {
-      gsap.from('.arrow-button-right', {
-        delay: card.duration + card.stagger * ((len - 1) / 2),
-        ...arrowButton,
-      });
-    }
-  }
 }

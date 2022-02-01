@@ -3000,13 +3000,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gsap@npm:^3.8.0":
-  version: 3.8.0
-  resolution: "gsap@npm:3.8.0"
-  checksum: db7ca05441138e082cafb78b3fae981e2c5bd02dfa7caebd78e0a195f924822718e69475642ada42bebab6a17327acfb64b11dbeca5e955851dc2ff4896d1a8b
-  languageName: node
-  linkType: hard
-
 "h3@npm:^0.2.10":
   version: 0.2.12
   resolution: "h3@npm:0.2.12"
@@ -4989,7 +4982,6 @@ __metadata:
     eslint-plugin-jsx-a11y: ^6.5.1
     formik: ^2.2.9
     gray-matter: ^4.0.3
-    gsap: ^3.8.0
     highlight.js: ^11.3.1
     lodash: ^4.17.21
     marked: ^4.0.4
