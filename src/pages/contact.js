@@ -1,9 +1,7 @@
-import Head from 'next/head';
-import Layout from '@components/structure/Layout';
 import ContactForm from '@components/items/ContactForm';
 import SocialMediaIcons from '@components/items/SocialMediaIcons';
-
-import utils from '@styles/Utilities.module.scss';
+import Layout from '@components/structure/Layout';
+import Head from 'next/head';
 
 const encode = (data) => {
   return Object.keys(data)
@@ -18,11 +16,9 @@ export default function Contact() {
         <title>Contact Me | mjocc</title>
       </Head>
 
-      <div
-        className={`${utils.flexCenter} ${utils.heightVisibleScreen} w-screen`}
-      >
+      <div className="utils__flex-center utils__visible-screen-height w-screen">
         <div className="flex-col pb-10">
-          <h1 className="font-bold text-center text-white mb-14 font-heading text-8xl">
+          <h1 className="mb-14 text-center font-heading text-8xl font-bold text-white">
             Contact Me
           </h1>
           <div className="flex flex-row items-center justify-center">
@@ -30,7 +26,7 @@ export default function Contact() {
             <ContactForm
               className="ml-52"
               onSubmit={async (values) => {
-                const success = false;
+                let success = false;
                 await fetch('/form-submit.html', {
                   method: 'POST',
                   headers: {

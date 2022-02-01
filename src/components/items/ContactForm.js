@@ -1,14 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
-import * as Yup from 'yup';
-import Tippy from '@tippyjs/react';
-
-import 'tippy.js/dist/tippy.css';
-
-import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
 import Button from '@components/utilities/StandardButton';
+import Tippy from '@tippyjs/react';
+import { ErrorMessage, Field, Form, Formik, useFormikContext } from 'formik';
+import { useCallback, useEffect, useState } from 'react';
+import 'tippy.js/dist/tippy.css';
+import * as Yup from 'yup';
 
-const FormField = (props) => {
-  const { label, name, className = '', ...otherProps } = props;
+const FormField = ({ label, name, className = '', ...otherProps }) => {
   const { errors, touched } = useFormikContext();
   const [error, setError] = useState(null);
   const getErrors = useCallback(
@@ -31,7 +28,7 @@ const FormField = (props) => {
       >
         <div>
           <Field
-            className={`block w-full rounded shadow-sm focus:ring focus:ring-opacity-50 bg-zinc-700 text-zinc-400
+            className={`block w-full rounded bg-zinc-700 text-zinc-400 shadow-sm focus:ring focus:ring-opacity-50
           ${
             error
               ? 'border-[1.5px] border-red-900 focus:border-red-800 focus:ring-red-700'
@@ -57,20 +54,20 @@ const HoneypotField = () => (
 
 const StatusMessage = ({ className = '', children, show }) =>
   show && (
-    <div className={`rounded-md p-3 mt-2 border ${className}`}>{children}</div>
+    <div className={`mt-2 rounded-md border p-3 ${className}`}>{children}</div>
   );
 
 const SubmitSuccessMessage = ({ show }) => (
   <StatusMessage
     show={show}
-    className="text-green-700 bg-green-200 border-green-900"
+    className="border-green-900 bg-green-200 text-green-700"
   >
     Form submitted successfully.
   </StatusMessage>
 );
 
 const SubmitErrorMessage = ({ show }) => (
-  <StatusMessage show={show} className="text-red-700 bg-red-200 border-red-900">
+  <StatusMessage show={show} className="border-red-900 bg-red-200 text-red-700">
     Something went wrong. Please try again.
   </StatusMessage>
 );

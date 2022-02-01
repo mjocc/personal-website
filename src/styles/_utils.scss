@@ -1,0 +1,19 @@
+.utils__flex-center {
+  @apply flex items-center justify-center;
+}
+
+.utils__visible-screen-height {
+  height: calc(100vh - 36px);
+}
+
+.utils__next-fix-image > span:last-child {
+  @apply align-top;
+}
+
+.utils__replace-focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/50 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-800;
+}
+
+.utils__stretched-link {
+  @apply after:absolute after:inset-0;
+}

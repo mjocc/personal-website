@@ -1,11 +1,10 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
 import Layout from '@components/structure/Layout';
 import PlaceholderImage from '@components/utilities/PlaceholderImage';
-
-import 'highlight.js/styles/atom-one-dark.css';
 import leftArrow from '@images/arrow-left.svg';
+import 'highlight.js/styles/atom-one-dark.css';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Post({ page, title, url, placeholder, content }) {
   return (
@@ -15,13 +14,13 @@ export default function Post({ page, title, url, placeholder, content }) {
           {title} | {page} | mjocc
         </title>
       </Head>
-      <article className="container pb-10 mb-10 mt-28">
+      <article className="container mb-10 mt-28 pb-10">
         <Link href={`/${page}`}>
           <a>
             <Image src={leftArrow} alt="back arrow" width={35} height={35} />
           </a>
         </Link>
-        <h1 className="pt-3 pb-6 font-bold text-center text-white font-heading text-7xl">
+        <h1 className="pt-3 pb-6 text-center font-heading text-7xl font-bold text-white">
           {title}
         </h1>
         {placeholder && (

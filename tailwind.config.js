@@ -1,3 +1,5 @@
+const defaultConfig = require('tailwindcss/defaultConfig')
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -6,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['"Inter"', 'sans-serif'],
+        heading: ['"Inter"', ...defaultConfig.theme.fontFamily.sans],
       },
       container: {
         center: true,

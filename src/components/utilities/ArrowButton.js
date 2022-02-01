@@ -1,20 +1,16 @@
-import Image from 'next/image';
-
 import leftArrow from '@images/arrow-left.svg';
 import rightArrow from '@images/arrow-right.svg';
-
-import utils from '@styles/Utilities.module.scss';
+import Image from 'next/image';
 
 // orientation must equal 'left' or 'right'
-export default function ArrowButton(props) {
-  const { orientation = 'right', ...otherProps } = props;
+export default function ArrowButton({ orientation = 'right', ...otherProps }) {
   return (
     <button
-      className={`bg-zinc-800 hover:bg-zinc-900 z-20 border border-zinc-900 rounded-full w-16 h-12 absolute top-2/4 ${
+      className={`absolute top-2/4 z-20 h-12 w-16 rounded-full border border-zinc-900 bg-zinc-800 hover:bg-zinc-900 ${
         orientation === 'right'
           ? 'arrow-button-right right-0 mr-3'
           : 'arrow-button-left left-0 ml-3'
-      } ${utils.flexCenter}`}
+      } utils__flex-center`}
       {...otherProps}
     >
       <Image

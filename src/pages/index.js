@@ -1,36 +1,20 @@
-import { useEffect, useState } from 'react';
-
+import SocialMediaIcons from '@components/items/SocialMediaIcons';
+import Layout from '@components/structure/Layout';
+import HeaderText from '@components/utilities/HeaderText';
 import Head from 'next/head';
 import Script from 'next/script';
-import Layout from '@components/structure/Layout';
-import SocialMediaIcons from '@components/items/SocialMediaIcons';
+import { useEffect } from 'react';
+import Particles from 'react-tsparticles';
 
-import utils from '@styles/Utilities.module.scss';
+/*
+  TODO:
+  - https://particles.js.org/samples/presets/links
+  - https://particles.js.org/samples/presets/index.html
+  - https://github.com/matteobruni/tsparticles
+  - https://github.com/matteobruni/tsparticles/tree/main/components/react
+  - https://www.npmjs.com/package/react-tsparticles
 
-const HeaderLetter = ({ character, animationType = 'rubberBand' }) => {
-  const [pulsing, setPulsing] = useState(false);
-  return character !== ' ' ? (
-    <span
-      className={`inline-block ${
-        pulsing ? `animate__animated animate__${animationType}` : ''
-      }`}
-      onMouseEnter={() => setPulsing(true)}
-      onAnimationEnd={() => setPulsing(false)}
-    >
-      {character}
-    </span>
-  ) : (
-    <span>{character}</span>
-  );
-};
-
-const HeaderText = ({ className = '', children: text }) => (
-  <h1 className={`text-white font-heading text-8xl ${className}`}>
-    {[...text].map((character, index) => (
-      <HeaderLetter key={index} character={character} animationType="rubberBand" />
-    ))}
-  </h1>
-);
+*/
 
 export default function Home() {
   useEffect(() => {
@@ -45,24 +29,40 @@ export default function Home() {
     }
   }, []);
   return (
-    <Layout>
-      <Head>
-        <title>Home | mjocc</title>
-      </Head>
-      <Script
-        src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-        strategy="beforeInteractive"
-      />
+    <>
+      <Layout>
+        <Head>
+          <title>Home | mjocc</title>
+        </Head>
+        <Script
+          src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+          strategy="beforeInteractive"
+        />
 
-      <div className={`${utils.flexCenter} sm:w-screen sm:h-screen`}>
-        <div className="flex flex-col fade">
-          <HeaderText>Hi,</HeaderText>
-          <HeaderText>I'm Matthew,</HeaderText>
-          <HeaderText>Web developer</HeaderText>
+        <div className="utils__flex-center sm:h-screen sm:w-screen">
+          <div className="fade flex flex-col text-white">
+            <HeaderText className="pb-4 text-9xl text-emerald-500">
+              mjocc
+            </HeaderText>
+            <HeaderText className="text-zinc-100">web developer</HeaderText>
+            <HeaderText className="text-zinc-300">& student</HeaderText>
 
-          <SocialMediaIcons className="pl-2 mt-7" width="350px" />
+            <SocialMediaIcons className="mt-7 pl-2" width="350px" />
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+
+      <Particles id="animated-background" />
+
+      <style jsx>{`
+        .animated-background {
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          z-index: 0;
+        }
+      `}</style>
+    </>
   );
 }
