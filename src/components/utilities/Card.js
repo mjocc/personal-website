@@ -1,20 +1,18 @@
 import Link from 'next/link';
 
-import utils from '@styles/Utilities.module.scss';
-
 export const Card = ({ children, className = '', theme = 'dark', href }) => (
   <div
-    className={`card min-w-[350px] sm:max-w-sm md:max-w-md rounded-lg border overflow-hidden filter hover:brightness-95 drop-shadow-xl transition ${
+    className={`card overflow-hidden rounded-lg border drop-shadow-xl filter transition hover:brightness-95 sm:max-w-sm md:max-w-md ${
       theme === 'light'
-        ? 'bg-zinc-100 text-black border-current'
-        : 'bg-zinc-800 text-white border-zinc-900'
+        ? 'border-current bg-zinc-100 text-black'
+        : 'border-zinc-900 bg-zinc-800 text-white'
     } ${className}`}
   >
     {children}
     {href !== undefined && (
       <Link href={href}>
         {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-        <a className={utils.stretchedLink} />
+        <a className="utils__stretched-link" />
       </Link>
     )}
   </div>

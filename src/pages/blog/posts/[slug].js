@@ -1,6 +1,5 @@
-import { getPost, getPostSlugs } from '@lib/posts';
-
 import Post from '@components/structure/Post';
+import { getPost, getPostSlugs } from '@lib/posts';
 
 export const getStaticPaths = async () => {
   const slugs = await getPostSlugs();

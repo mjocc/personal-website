@@ -1,6 +1,5 @@
-import { getPortfolioItem, getPortfolioSlugs } from '@lib/portfolio';
-
 import Post from '@components/structure/Post';
+import { getPortfolioItem, getPortfolioSlugs } from '@lib/portfolio';
 
 export const getStaticPaths = async () => {
   const slugs = await getPortfolioSlugs();

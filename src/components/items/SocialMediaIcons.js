@@ -1,17 +1,26 @@
 import Image from 'next/image';
 
-import socialMediaIconStyles from './SocialMediaIcons.module.scss';
-import utils from '@styles/Utilities.module.scss';
-
 function SocialMediaIcon({ href, name, src }) {
   return (
-    <a
-      href={href}
-      className={`h-16 w-16 rounded-3xl bg-zinc-800 ${utils.flexCenter} ${utils.focusRingReplace} ${socialMediaIconStyles.iconShadow}`}
-      title={name}
-    >
-      <Image src={src} alt={name} width={32} height={32} />
-    </a>
+    <>
+      <a
+        href={href}
+        className="utils__flex-center utils__replace-focus-ring icon-shadow h-16 w-16 rounded-3xl bg-zinc-800"
+        title={name}
+      >
+        <Image src={src} alt={name} width={32} height={32} />
+      </a>
+      <style jsx>{`
+        .icon-shadow {
+          box-shadow: 7.5px 7.5px 15px #181818, 0px 0px 15px #545454;
+        }
+        .icon-shadow:hover {
+          box-shadow: inset 7.5px 7.5px 15px #181818,
+              inset 0px 0px 15px #545454;
+          }
+        }
+      `}</style>
+    </>
   );
 }
 
@@ -25,7 +34,7 @@ export default function SocialMediaIcons({
     <div
       className={`flex ${
         column && 'flex-col'
-      } justify-between items-center h-16 ${className}`}
+      } h-16 items-center justify-between ${className}`}
       style={column ? { height } : { width }}
     >
       <SocialMediaIcon

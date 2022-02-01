@@ -1,9 +1,9 @@
-import * as matter from 'gray-matter';
 import { readdir, readFile } from 'fs/promises';
-import { join } from 'path';
-import { marked } from 'marked';
+import * as matter from 'gray-matter';
 import hljs from 'highlight.js';
 import orderBy from 'lodash/orderBy';
+import { marked } from 'marked';
+import { join } from 'path';
 
 export const getFileNames = async (directory) => {
   const portfolioFiles = await readdir(directory);

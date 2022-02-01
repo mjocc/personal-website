@@ -1,6 +1,6 @@
-import { getDataFromFile, getDataFromDir, getSlugsFromDir } from './content';
-import { cwd } from 'process';
 import { join } from 'path';
+import { cwd } from 'process';
+import { getDataFromDir, getDataFromFile, getSlugsFromDir } from './content';
 
 const transformationFunction = async (file) => {
   file.data.date = new Date(file.data.date).getTime();

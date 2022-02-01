@@ -1,8 +1,8 @@
-import Head from 'next/head';
 import Layout from '@components/structure/Layout';
+import Head from 'next/head';
 
 const HeaderText = ({ className = '', children }) => (
-  <h1 className={`text-white font-heading text-8xl ${className}`}>
+  <h1 className={`font-heading text-8xl text-white ${className}`}>
     {children}
   </h1>
 );

@@ -6,7 +6,7 @@ const FooterLink = ({ href, children }) => (
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-0 flex items-center justify-between w-full px-3 py-2 bg-zinc-900">
+    <footer className="fixed bottom-0 flex w-full items-center justify-between bg-zinc-900 px-3 py-2">
       <FooterLink href="https://www.github.com/mjocc/personal-website">
         GitHub Repository
       </FooterLink>

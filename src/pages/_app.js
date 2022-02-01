@@ -1,7 +1,6 @@
+import '@styles/main.scss';
+import 'animate.css';
 import Head from 'next/head';
-
-import '@styles/globals.css';
-import 'animate.css'
 
 function Application({ Component, pageProps }) {
   return (

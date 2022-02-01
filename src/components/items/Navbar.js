@@ -1,27 +1,33 @@
-import { useRouter } from 'next/router';
-
 import Link from 'next/link';
-
-import utils from '@styles/Utilities.module.scss';
-import navbarStyles from './Navbar.module.scss';
+import { useRouter } from 'next/router';
 
 const NavbarLink = ({ href, text, align = 'left' }) => {
   const router = useRouter();
   const pathname = router.pathname;
   return (
-    <Link href={href}>
-      <a
-        className={`bg-zinc-800 text-white font-bold py-2.5 px-6 rounded-full mt-2.5 mx-2.5
-          ${pathname === href ? navbarStyles.active : ''}
+    <>
+      <Link href={href}>
+        <a
+          className={`utils__replace-focus-ring btn-shadow mx-2.5 mt-2.5 rounded-full bg-zinc-800 py-2.5 px-6 font-bold text-white
+          ${pathname === href ? 'active' : ''}
           ${align === 'right' ? 'sm:ml-auto' : ''}
-          ${navbarStyles.btnShadow}
-          ${utils.focusRingReplace}
           `}
-        title={text}
-      >
-        {text}
-      </a>
-    </Link>
+          title={text}
+        >
+          {text}
+        </a>
+      </Link>
+      <style jsx>{`
+        .btn-shadow {
+          box-shadow: 10px 10px 20px #1c1c1f, -10px -10px 20px #323235;
+        }
+        .btn-shadow:hover,
+        .btn-shadow.active {
+          box-shadow: inset 10px 10px 20px #1c1c1f,
+            inset -10px -10px 20px #323235;
+        }
+      `}</style>
+    </>
   );
 };
 
@@ -35,7 +41,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <nav className="fixed top-0 left-0 z-10 flex flex-col items-center w-full px-4 justify-items-start sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
+      <nav className="fixed top-0 left-0 z-10 flex w-full flex-col items-center justify-items-start px-4 sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
         <NavbarLink href="/" text="Home" />
         <NavbarLink href="/about" text="About" />
         <NavbarLink href="/portfolio" text="Portfolio" />

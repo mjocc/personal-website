@@ -26,7 +26,7 @@ export default function Portfolio({ portfolio: fullPortfolio }) {
         <title>Portfolio | mjocc</title>
       </Head>
       <div
-        className={`absolute flex overflow-x-auto top-0 inset-x-0 snap-x ${utils.heightVisibleScreen}`}
+        className="absolute inset-x-0 top-0 flex overflow-x-auto snap-x utils__visible-screen-height"
       >
         {fullPortfolio.map((item, index) => (
           <div key={item.data.slug} className={utils.flexCenter}>
