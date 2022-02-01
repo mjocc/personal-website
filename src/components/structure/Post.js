@@ -14,15 +14,24 @@ export default function Post({ page, title, url, placeholder, content }) {
           {title} | {page} | mjocc
         </title>
       </Head>
-      <article className="container mb-10 mt-28 pb-10">
-        <Link href={`/${page}`}>
-          <a>
-            <Image src={leftArrow} alt="back arrow" width={35} height={35} />
-          </a>
-        </Link>
-        <h1 className="pt-3 pb-6 text-center font-heading text-7xl font-bold text-white">
-          {title}
-        </h1>
+      <article className="container relative pb-10 mt-4 mb-10">
+        <div className="relative pb-12">
+          <div className="sticky top-0 left-0 pt-24 ml-10">
+            <Link href={`/${page}`}>
+              <a>
+                <Image
+                  src={leftArrow}
+                  alt="back arrow"
+                  width={35}
+                  height={35}
+                />
+              </a>
+            </Link>
+          </div>
+          <h1 className="font-bold text-center text-white font-heading text-7xl">
+            {title}
+          </h1>
+        </div>
         {placeholder && (
           <div className="px-10 pb-6">
             <PlaceholderImage
@@ -35,7 +44,7 @@ export default function Post({ page, title, url, placeholder, content }) {
           </div>
         )}
         <div
-          className="prose prose-invert"
+          className="mx-auto prose prose-lg prose-invert"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </article>

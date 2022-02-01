@@ -2,7 +2,6 @@ import Layout from '@components/structure/Layout';
 import { Card } from '@components/utilities/Card';
 import PlaceholderImage from '@components/utilities/PlaceholderImage';
 import { getPortfolioItems } from '@lib/portfolio';
-import utils from '@styles/Utilities.module.scss';
 import chunk from 'lodash/chunk';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -29,7 +28,7 @@ export default function Portfolio({ portfolio: fullPortfolio }) {
         className="absolute inset-x-0 top-0 flex overflow-x-auto snap-x utils__visible-screen-height"
       >
         {fullPortfolio.map((item, index) => (
-          <div key={item.data.slug} className={utils.flexCenter}>
+          <div key={item.data.slug} className="utils__flex-center min-w-[25vw]">
             <Card
               className={`mx-1 snap-start scroll-mx-1 animate__animated
                 ${
