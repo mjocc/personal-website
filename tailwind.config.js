@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['"Inter"', ...defaultConfig.theme.fontFamily.sans],
+        heading: ['Inter', ...defaultConfig.theme.fontFamily.sans],
       },
       container: {
         center: true,

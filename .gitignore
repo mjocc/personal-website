@@ -37,3 +37,6 @@ yarn-error.log*
 
 # local netlify folder
 .netlify
+
+# replit
+.breakpoints
