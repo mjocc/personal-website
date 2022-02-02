@@ -1,7 +1,12 @@
 import Footer from '@components/items/Footer';
 import Navbar from '@components/items/Navbar';
-import MainContent from '@components/structure/MainContent';
 import { FC } from 'react';
+
+const MainContent: FC = ({ children }) => {
+  return (
+    <div className="relative utils__visible-screen-height">{children}</div>
+  );
+};
 
 interface LayoutProps {
   hideNavbar?: boolean;
@@ -18,6 +23,6 @@ const Layout: FC<LayoutProps> = ({ children, hideNavbar, noNavbarShadow }) => {
       <Footer />
     </>
   );
-}
+};
 
 export default Layout;

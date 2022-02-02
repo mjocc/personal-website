@@ -1,6 +1,14 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
-const HeaderLetter = ({ character, animationType = 'rubberBand' }) => {
+interface HeaderLetter {
+  character: string;
+  animationType?: string;
+}
+
+const HeaderLetter: FC<HeaderLetter> = ({
+  character,
+  animationType = 'rubberBand',
+}) => {
   const [pulsing, setPulsing] = useState(false);
   return character !== ' ' ? (
     <span
@@ -19,14 +27,15 @@ const HeaderLetter = ({ character, animationType = 'rubberBand' }) => {
   );
 };
 
-const HeaderText = ({ className = '', children: text }) => (
+interface HeaderTextProps {
+  text: string;
+  className?: string;
+}
+
+const HeaderText: FC<HeaderTextProps> = ({ className = '', text }) => (
   <h1 className={`font-heading text-8xl ${className}`}>
     {[...text].map((character, index) => (
-      <HeaderLetter
-        key={index}
-        character={character}
-        animationType="rubberBand"
-      />
+      <HeaderLetter key={index} character={character} />
     ))}
   </h1>
 );

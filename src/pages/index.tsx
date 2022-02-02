@@ -30,15 +30,14 @@ const HomePage: NextPage = () => {
         <div className="utils__flex-center sm:h-screen sm:w-screen">
           <div className="flex flex-col text-white">
             <Animate type="fadeIn">
-              <HeaderText className="pb-2 text-9xl text-emerald-500">
-                mjocc
-              </HeaderText>
-              <HeaderText className="text-zinc-100">web developer</HeaderText>
-              <HeaderText className="text-7xl text-zinc-300">
-                & student
-              </HeaderText>
+              <HeaderText
+                className="pb-2 text-9xl text-emerald-500"
+                text="mjocc"
+              />
+              <HeaderText className="text-zinc-100" text="web developer" />
+              <HeaderText className="text-7xl text-zinc-300" text="& student" />
 
-              <SocialMediaIcons className="mt-7 pl-2" width="350px" noShadow />
+              <SocialMediaIcons className="pl-2 mt-7" width="350px" noShadow />
             </Animate>
           </div>
         </div>
