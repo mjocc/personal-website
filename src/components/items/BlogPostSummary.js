@@ -9,7 +9,7 @@ export default function BlogPostSummary({ className = '', slug, title, date }) {
           <span className="text-2xl font-bold text-zinc-100 group-hover:underline">
             {title}
           </span>
-          <span className="text-l font-semibold italic text-zinc-500 group-hover:underline">
+          <span className="text-l font-semibold italic text-zinc-400 group-hover:underline">
             {dateFormat(date, 'd mmmm, yyyy')}
           </span>
         </a>
