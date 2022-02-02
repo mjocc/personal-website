@@ -22,7 +22,7 @@ export default function Contact() {
             Contact Me
           </h1>
           <div className="flex flex-row items-center justify-center">
-            <SocialMediaIcons className="animate__animated animate__fadeInLeft" height="350px" column={true} />
+            <SocialMediaIcons className="animate__animated animate__fadeInLeft" height="350px" column />
             <ContactForm
               className="ml-52"
               onSubmit={async (values) => {

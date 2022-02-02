@@ -5,15 +5,11 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect } from 'react';
 import Particles from 'react-tsparticles';
+import { loadLinksPreset } from 'tsparticles-preset-links';
 
 /*
   TODO:
-  - https://particles.js.org/samples/presets/links
-  - https://particles.js.org/samples/presets/index.html
-  - https://github.com/matteobruni/tsparticles
-  - https://github.com/matteobruni/tsparticles/tree/main/components/react
-  - https://www.npmjs.com/package/react-tsparticles
-
+    - add nav to home screen
 */
 
 export default function Home() {
@@ -30,9 +26,9 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Layout>
+      <Layout hideNavbar>
         <Head>
-          <title>Home | mjocc</title>
+          <title>mjocc | web developer & student</title>
         </Head>
         <Script
           src="https://identity.netlify.com/v1/netlify-identity-widget.js"
@@ -49,12 +45,17 @@ export default function Home() {
               <HeaderText className="text-zinc-300">& student</HeaderText>
             </div>
 
-            <SocialMediaIcons className="pl-2 mt-7" width="350px" />
+            <SocialMediaIcons className="pl-2 mt-7" width="350px" noShadow />
           </div>
         </div>
       </Layout>
 
-      <Particles id="animated-background" />
+      <Particles
+        id="animated-background"
+        className="fixed -z-10"
+        init={(main) => loadLinksPreset(main)}
+        options={{ preset: 'links' }}
+      />
 
       <style jsx>{`
         .animated-background {
