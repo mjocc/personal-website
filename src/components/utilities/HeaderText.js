@@ -5,7 +5,9 @@ const HeaderLetter = ({ character, animationType = 'rubberBand' }) => {
   return character !== ' ' ? (
     <span
       className={`inline-block transition-colors duration-500 ${
-        pulsing ? `animate__animated animate__${animationType} text-emerald-500` : ''
+        pulsing
+          ? `animate__animated animate__${animationType} text-emerald-500`
+          : ''
       }`}
       onMouseEnter={() => setPulsing(true)}
       onAnimationEnd={() => setPulsing(false)}

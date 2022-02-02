@@ -6,7 +6,7 @@ function SocialMediaIcon({ href, name, src, noShadow }) {
       <a
         href={href}
         className={`utils__flex-center utils__replace-focus-ring h-16 w-16 rounded-3xl bg-zinc-800 transition ${
-          noShadow ?'hover:bg-zinc-900' : 'icon-shadow'
+          noShadow ? 'hover:bg-zinc-900' : 'icon-shadow'
         }`}
         title={name}
       >

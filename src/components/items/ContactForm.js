@@ -106,7 +106,7 @@ export default function ContactForm({ onSubmit, className = '' }) {
         <Form
           id="contact-form"
           name="contact"
-          className={`flex flex-col animate__animated animate__fadeInRight ${className}`}
+          className={`animate__animated animate__fadeInRight flex flex-col ${className}`}
           data-netlify={true}
           netlify-honeypot="phone-number"
         >

@@ -24,13 +24,11 @@ export default function Portfolio({ portfolio: fullPortfolio }) {
       <Head>
         <title>Portfolio | mjocc</title>
       </Head>
-      <div
-        className="absolute inset-x-0 top-0 flex overflow-x-auto snap-x utils__visible-screen-height"
-      >
+      <div className="utils__visible-screen-height absolute inset-x-0 top-0 flex snap-x overflow-x-auto">
         {fullPortfolio.map((item, index) => (
           <div key={item.data.slug} className="utils__flex-center min-w-[25vw]">
             <Card
-              className={`mx-1 snap-start scroll-mx-1 animate__animated
+              className={`animate__animated mx-1 snap-start scroll-mx-1
                 ${
                   index % 2
                     ? 'top-card animate__slideInDown mb-10'

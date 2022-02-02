@@ -16,13 +16,17 @@ export default function Contact() {
         <title>Contact Me | mjocc</title>
       </Head>
 
-      <div className="w-screen utils__flex-center utils__visible-screen-height">
+      <div className="utils__flex-center utils__visible-screen-height w-screen">
         <div className="flex-col pb-10">
-          <h1 className="font-bold text-center text-white mb-14 font-heading text-8xl animate__animated animate__fadeInDown">
+          <h1 className="animate__animated animate__fadeInDown mb-14 text-center font-heading text-8xl font-bold text-white">
             Contact Me
           </h1>
           <div className="flex flex-row items-center justify-center">
-            <SocialMediaIcons className="animate__animated animate__fadeInLeft" height="350px" column />
+            <SocialMediaIcons
+              className="animate__animated animate__fadeInLeft"
+              height="350px"
+              column
+            />
             <ContactForm
               className="ml-52"
               onSubmit={async (values) => {

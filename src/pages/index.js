@@ -6,6 +6,7 @@ import Script from 'next/script';
 import { useEffect } from 'react';
 import Particles from 'react-tsparticles';
 import { loadLinksPreset } from 'tsparticles-preset-links';
+import Animate from '@components/utilities/Animate'
 
 /*
   TODO:
@@ -36,16 +37,16 @@ export default function Home() {
         />
 
         <div className="utils__flex-center sm:h-screen sm:w-screen">
-          <div className="flex flex-col text-white fade">
-            <div className="animate__animated animate__fadeInDown">
+          <div className="flex flex-col text-white">
+            <Animate type="flipInX">
               <HeaderText className="pb-4 text-9xl text-emerald-500">
                 mjocc
               </HeaderText>
               <HeaderText className="text-zinc-100">web developer</HeaderText>
               <HeaderText className="text-zinc-300">& student</HeaderText>
-            </div>
+            </Animate>
 
-            <SocialMediaIcons className="pl-2 mt-7" width="350px" noShadow />
+            <SocialMediaIcons className="mt-7 pl-2" width="350px" noShadow />
           </div>
         </div>
       </Layout>

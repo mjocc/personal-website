@@ -14,9 +14,9 @@ export default function Post({ page, title, url, placeholder, content }) {
           {title} | {page} | mjocc
         </title>
       </Head>
-      <article className="container relative pb-10 mt-4 mb-10">
+      <article className="container relative mt-4 mb-10 pb-10">
         <div className="relative pb-12">
-          <div className="sticky top-0 left-0 pt-24 ml-10">
+          <div className="sticky top-0 left-0 ml-10 pt-24">
             <Link href={`/${page}`}>
               <a>
                 <Image
@@ -28,7 +28,7 @@ export default function Post({ page, title, url, placeholder, content }) {
               </a>
             </Link>
           </div>
-          <h1 className="font-bold text-center text-white font-heading text-7xl">
+          <h1 className="text-center font-heading text-7xl font-bold text-white">
             {title}
           </h1>
         </div>
@@ -44,7 +44,7 @@ export default function Post({ page, title, url, placeholder, content }) {
           </div>
         )}
         <div
-          className="mx-auto prose prose-lg prose-invert"
+          className="prose prose-lg prose-invert mx-auto"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </article>
