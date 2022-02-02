@@ -27,7 +27,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Layout hideNavbar>
+      <Layout noNavbarShadow>
         <Head>
           <title>mjocc | web developer & student</title>
         </Head>

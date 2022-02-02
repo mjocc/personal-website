@@ -1,6 +1,10 @@
 import Image from 'next/image';
+import { createContext, useContext } from 'react';
 
-function SocialMediaIcon({ href, name, src, noShadow }) {
+const ShadowContext = createContext(false);
+
+function SocialMediaIcon({ href, name, src }) {
+  const noShadow = useContext(ShadowContext);
   return (
     <>
       <a
@@ -40,24 +44,23 @@ export default function SocialMediaIcons({
       } ${className}`}
       style={column ? { height } : { width }}
     >
-      <SocialMediaIcon
-        href="https://github.com/mjocc"
-        name="GitHub"
-        src="/images/github-logo.svg"
-        noShadow={noShadow}
-      />
-      <SocialMediaIcon
-        href="https://g.dev/mjocc"
-        name="Google Developer Profile"
-        src="/images/google-developer-logo.svg"
-        noShadow={noShadow}
-      />
-      <SocialMediaIcon
-        href="https://uk.linkedin.com/"
-        name="LinkedIn"
-        src="/images/linkedin-logo.svg"
-        noShadow={noShadow}
-      />
+      <ShadowContext.Provider value={noShadow}>
+        <SocialMediaIcon
+          href="https://github.com/mjocc"
+          name="GitHub"
+          src="/images/github-logo.svg"
+        />
+        <SocialMediaIcon
+          href="https://g.dev/mjocc"
+          name="Google Developer Profile"
+          src="/images/google-developer-logo.svg"
+        />
+        <SocialMediaIcon
+          href="https://uk.linkedin.com/"
+          name="LinkedIn"
+          src="/images/linkedin-logo.svg"
+        />
+      </ShadowContext.Provider>
     </div>
   );
 }

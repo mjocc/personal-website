@@ -2,10 +2,10 @@ import Footer from '@components/items/Footer';
 import Navbar from '@components/items/Navbar';
 import MainContent from '@components/structure/MainContent';
 
-export default function Layout({ children, hideNavbar }) {
+export default function Layout({ children, hideNavbar, noNavbarShadow }) {
   return (
     <>
-      {!hideNavbar && <Navbar />}
+      {!hideNavbar && <Navbar noShadow={noNavbarShadow} />}
 
       <MainContent>{children}</MainContent>
 
