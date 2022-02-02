@@ -9,6 +9,7 @@ node_modules
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+package-lock.json # prevent accidental use of npm instead of yarn
 
 # testing
 /coverage
