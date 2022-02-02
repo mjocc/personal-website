@@ -398,6 +398,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/netlify-identity-widget@npm:^1.9.3":
+  version: 1.9.3
+  resolution: "@types/netlify-identity-widget@npm:1.9.3"
+  checksum: 11f2160db1466aaed4e626c45ad87e65d98f944e2950ddc1c1ab10214e779a317c18e8a26047fbcbf6588f17ee84b248f8bd830b1ea0737f77b1a4505c1845b4
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*, @types/node@npm:^17.0.14":
   version: 17.0.14
   resolution: "@types/node@npm:17.0.14"
@@ -3570,6 +3577,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"netlify-identity-widget@npm:^1.9.2":
+  version: 1.9.2
+  resolution: "netlify-identity-widget@npm:1.9.2"
+  checksum: abba8d53ef2a4e0faa187198ba4b861d58e044be3ab57276be5a21a3c859fa03398c485b31a06ecd5d200ead968c47a61c4ae3554d6a09d35fe88acd27ed415f
+  languageName: node
+  linkType: hard
+
 "next-transpile-modules@npm:^9.0.0":
   version: 9.0.0
   resolution: "next-transpile-modules@npm:9.0.0"
@@ -4097,6 +4111,7 @@ __metadata:
     "@tailwindcss/line-clamp": ^0.2.2
     "@tailwindcss/typography": ^0.5.0
     "@tippyjs/react": ^4.2.6
+    "@types/netlify-identity-widget": ^1.9.3
     "@types/node": ^17.0.14
     "@types/react": ^17.0.38
     animate.css: ^4.1.1
@@ -4111,6 +4126,7 @@ __metadata:
     highlight.js: ^11.3.1
     lodash: ^4.17.21
     marked: ^4.0.4
+    netlify-identity-widget: ^1.9.2
     next: ^12.0.4
     next-transpile-modules: ^9.0.0
     plaiceholder: ^2.2.0

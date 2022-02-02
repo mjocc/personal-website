@@ -1,4 +1,10 @@
-const Animate = ({ type, types, children }) => {
+import { FC, ReactNode } from 'react';
+
+type AnimateProps =
+  | { type: string; types?: never }
+  | { type?: never; types: string[] };
+
+const Animate: FC<AnimateProps> = ({ type, types, children }) => {
   let className = 'animate__animated ';
   if (type) {
     className = className.concat(`animate__${type}`);

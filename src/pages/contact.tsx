@@ -1,7 +1,9 @@
 import ContactForm from '@components/items/ContactForm';
 import SocialMediaIcons from '@components/items/SocialMediaIcons';
 import Layout from '@components/structure/Layout';
+import { NextPage } from 'next';
 import Head from 'next/head';
+import { FC } from 'react';
 
 const encode = (data) => {
   return Object.keys(data)
@@ -9,7 +11,7 @@ const encode = (data) => {
     .join('&');
 };
 
-export default function Contact() {
+const ContactPage: NextPage = () => {
   return (
     <Layout>
       <Head>
@@ -57,3 +59,5 @@ export default function Contact() {
     </Layout>
   );
 }
+
+export default ContactPage;

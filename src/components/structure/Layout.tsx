@@ -1,8 +1,14 @@
 import Footer from '@components/items/Footer';
 import Navbar from '@components/items/Navbar';
 import MainContent from '@components/structure/MainContent';
+import { FC } from 'react';
 
-export default function Layout({ children, hideNavbar, noNavbarShadow }) {
+interface LayoutProps {
+  hideNavbar?: boolean;
+  noNavbarShadow?: boolean;
+}
+
+const Layout: FC<LayoutProps> = ({ children, hideNavbar, noNavbarShadow }) => {
   return (
     <>
       {!hideNavbar && <Navbar noShadow={noNavbarShadow} />}
@@ -13,3 +19,5 @@ export default function Layout({ children, hideNavbar, noNavbarShadow }) {
     </>
   );
 }
+
+export default Layout;

@@ -1,40 +1,31 @@
 import SocialMediaIcons from '@components/items/SocialMediaIcons';
 import Layout from '@components/structure/Layout';
+import Animate from '@components/utilities/Animate';
 import HeaderText from '@components/utilities/HeaderText';
+import { NextPage } from 'next';
 import Head from 'next/head';
-import Script from 'next/script';
 import { useEffect } from 'react';
 import Particles from 'react-tsparticles';
 import { loadLinksPreset } from 'tsparticles-preset-links';
-import Animate from '@components/utilities/Animate';
+import netlifyIdentity from 'netlify-identity-widget';
 
-/*
-  TODO:
-    - add nav to home screen
-*/
-
-export default function Home() {
+const HomePage: NextPage = () => {
   useEffect(() => {
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', (user) => {
-        if (!user) {
-          window.netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
-        }
-      });
-    }
+    netlifyIdentity.init();
+    netlifyIdentity.on('init', (user) => {
+      if (!user) {
+        netlifyIdentity.on('login', () => {
+          document.location.href = '/admin/';
+        });
+      }
+    });
   }, []);
   return (
     <>
       <Layout noNavbarShadow>
         <Head>
-          <title>mjocc | web developer & student</title>
+          <title>Web developer & student | mjocc</title>
         </Head>
-        <Script
-          src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-          strategy="beforeInteractive"
-        />
 
         <div className="utils__flex-center sm:h-screen sm:w-screen">
           <div className="flex flex-col text-white">
@@ -43,7 +34,9 @@ export default function Home() {
                 mjocc
               </HeaderText>
               <HeaderText className="text-zinc-100">web developer</HeaderText>
-              <HeaderText className="text-zinc-300 text-7xl">& student</HeaderText>
+              <HeaderText className="text-7xl text-zinc-300">
+                & student
+              </HeaderText>
 
               <SocialMediaIcons className="mt-7 pl-2" width="350px" noShadow />
             </Animate>
@@ -69,4 +62,6 @@ export default function Home() {
       `}</style>
     </>
   );
-}
+};
+
+export default HomePage;

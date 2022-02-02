@@ -1,9 +1,15 @@
 import Image from 'next/image';
-import { createContext, useContext } from 'react';
+import { createContext, FC, useContext } from 'react';
 
 const ShadowContext = createContext(false);
 
-function SocialMediaIcon({ href, name, src }) {
+interface SocialMediaIconProps {
+  href: string;
+  name: string;
+  src: string;
+}
+
+const SocialMediaIcon: FC<SocialMediaIconProps> = ({ href, name, src }) => {
   const noShadow = useContext(ShadowContext);
   return (
     <>
@@ -28,15 +34,23 @@ function SocialMediaIcon({ href, name, src }) {
       `}</style>
     </>
   );
+};
+
+interface SocialMediaIconsProps {
+  className?: string;
+  width?: string;
+  height?: string;
+  column?: boolean;
+  noShadow?: boolean;
 }
 
-export default function SocialMediaIcons({
+const SocialMediaIcons: FC<SocialMediaIconsProps> = ({
   className = '',
   width = '500px',
   height = '500px',
   column,
   noShadow,
-}) {
+}) => {
   return (
     <div
       className={`flex h-16 items-center justify-between ${
@@ -44,7 +58,7 @@ export default function SocialMediaIcons({
       } ${className}`}
       style={column ? { height } : { width }}
     >
-      <ShadowContext.Provider value={noShadow}>
+      <ShadowContext.Provider value={!!noShadow}>
         <SocialMediaIcon
           href="https://github.com/mjocc"
           name="GitHub"
@@ -63,4 +77,6 @@ export default function SocialMediaIcons({
       </ShadowContext.Provider>
     </div>
   );
-}
+};
+
+export default SocialMediaIcons;

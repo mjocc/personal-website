@@ -1,13 +1,8 @@
 import Layout from '@components/structure/Layout';
+import { NextPage } from 'next';
 import Head from 'next/head';
 
-const HeaderText = ({ className = '', children }) => (
-  <h1 className={`font-heading text-8xl text-white ${className}`}>
-    {children}
-  </h1>
-);
-
-export default function About() {
+const AboutPage: NextPage = () => {
   return (
     <Layout>
       <Head>
@@ -15,4 +10,6 @@ export default function About() {
       </Head>
     </Layout>
   );
-}
+};
+
+export default AboutPage;

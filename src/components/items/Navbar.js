@@ -12,7 +12,7 @@ const NavbarLink = ({ href, text, align = 'left' }) => {
     <>
       <Link href={href}>
         <a
-          className={`utils__replace-focus-ring mx-2.5 mt-2.5 rounded-full bg-zinc-800 py-2.5 px-6 font-bold text-white
+          className={`utils__replace-focus-ring mx-2.5 mt-2.5 rounded-full bg-zinc-800 py-2.5 px-6 font-bold text-white transition
           ${noShadow ? 'hover:bg-zinc-900' : 'btn-shadow'}
           ${pathname === href ? (noShadow ? 'bg-zinc-900' : 'active') : ''}
           ${align === 'right' ? 'sm:ml-auto' : ''}
