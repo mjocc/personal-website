@@ -1,3 +1,4 @@
+import Animate from '@components/utilities/Animate';
 import Button from '@components/utilities/StandardButton';
 import Tippy from '@tippyjs/react';
 import { ErrorMessage, Field, Form, Formik, useFormikContext } from 'formik';
@@ -103,29 +104,36 @@ export default function ContactForm({ onSubmit, className = '' }) {
       }}
     >
       {({ isSubmitting }) => (
-        <Form
-          id="contact-form"
-          name="contact"
-          className={`animate__animated animate__fadeInRight flex flex-col ${className}`}
-          data-netlify={true}
-          netlify-honeypot="phone-number"
-        >
-          <div className="flex">
-            <FormField label="Name" name="name" type="text" className="mr-2" />
-            <FormField label="Email" name="email" type="email" />
-          </div>
-          <FormField label="Subject" name="subject" type="text" />
-          <FormField label="Message" name="message" as="textarea" />
+        <Animate type="fadeInRight">
+          <Form
+            id="contact-form"
+            name="contact"
+            className={`flex flex-col ${className}`}
+            data-netlify={true}
+            netlify-honeypot="phone-number"
+          >
+            <div className="flex">
+              <FormField
+                label="Name"
+                name="name"
+                type="text"
+                className="mr-2"
+              />
+              <FormField label="Email" name="email" type="email" />
+            </div>
+            <FormField label="Subject" name="subject" type="text" />
+            <FormField label="Message" name="message" as="textarea" />
 
-          <HoneypotField />
+            <HoneypotField />
 
-          <Button type="submit" disabled={isSubmitting}>
-            Send message
-          </Button>
+            <Button type="submit" disabled={isSubmitting}>
+              Send message
+            </Button>
 
-          <SubmitSuccessMessage show={submitted === 'success'} />
-          <SubmitErrorMessage show={submitted === 'error'} />
-        </Form>
+            <SubmitSuccessMessage show={submitted === 'success'} />
+            <SubmitErrorMessage show={submitted === 'error'} />
+          </Form>
+        </Animate>
       )}
     </Formik>
   );

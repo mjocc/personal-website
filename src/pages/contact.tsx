@@ -1,6 +1,7 @@
 import ContactForm from '@components/items/ContactForm';
 import SocialMediaIcons from '@components/items/SocialMediaIcons';
 import Layout from '@components/structure/Layout';
+import Animate from '@components/utilities/Animate';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { FC } from 'react';
@@ -20,15 +21,15 @@ const ContactPage: NextPage = () => {
 
       <div className="utils__flex-center utils__visible-screen-height w-screen">
         <div className="flex-col pb-10">
-          <h1 className="animate__animated animate__fadeInDown mb-14 text-center font-heading text-8xl font-bold text-white">
-            Contact Me
-          </h1>
+          <Animate type="fadeInDown">
+            <h1 className="mb-14 text-center font-heading text-8xl font-bold text-white">
+              Contact Me
+            </h1>
+          </Animate>
           <div className="flex flex-row items-center justify-center">
-            <SocialMediaIcons
-              className="animate__animated animate__fadeInLeft"
-              height="350px"
-              column
-            />
+            <Animate type="fadeInLeft">
+              <SocialMediaIcons height="350px" column />
+            </Animate>
             <ContactForm
               className="ml-52"
               onSubmit={async (values) => {
@@ -58,6 +59,6 @@ const ContactPage: NextPage = () => {
       </div>
     </Layout>
   );
-}
+};
 
 export default ContactPage;
