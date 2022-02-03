@@ -1,5 +1,5 @@
 import Layout from '@components/structure/Layout';
-import { Card } from '@components/utilities/Card';
+import Card from '@components/utilities/Card';
 import PlaceholderImage from '@components/utilities/PlaceholderImage';
 import { getPortfolioItems } from '@lib/portfolio';
 import chunk from 'lodash/chunk';

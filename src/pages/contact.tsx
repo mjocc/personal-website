@@ -4,9 +4,8 @@ import Layout from '@components/structure/Layout';
 import Animate from '@components/utilities/Animate';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { FC } from 'react';
 
-const encode = (data) => {
+const encode = (data: { [key: string]: string }) => {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&');

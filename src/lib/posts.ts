@@ -1,14 +1,21 @@
 import { join } from 'path';
 import { cwd } from 'process';
-import { getDataFromDir, getDataFromFile, getSlugsFromDir } from './content';
+import {
+  getDataFromDir,
+  getDataFromFile,
+  getSlugsFromDir
+} from '@lib/content';
+import { z } from 'zod';
 
-const transformationFunction = async (file) => {
-  file.data.date = new Date(file.data.date).getTime();
-};
+
+const postFrontMatterSchema = z.object({
+
+})
+type PostFrontMatter = z.infer<typeof postFrontMatterSchema>
 
 export const getPosts = async () => {
   const portfolioDirectory = join(cwd(), 'content/posts');
-  return await getDataFromDir(portfolioDirectory, transformationFunction);
+  return await getDataFromDir<PostFrontMatter>(portfolioDirectory);
 };
 
 export const getPostSlugs = async () => {
@@ -16,11 +23,10 @@ export const getPostSlugs = async () => {
   return await getSlugsFromDir(portfolioDirectory);
 };
 
-export const getPost = async (slug) => {
+export const getPost = async (slug: string) => {
   const portfolioDirectory = join(cwd(), 'content/posts');
-  return await getDataFromFile(
+  return await getDataFromFile<PostFrontMatter>(
     portfolioDirectory,
-    `${slug}.md`,
-    transformationFunction
+    `${slug}.md`
   );
 };
