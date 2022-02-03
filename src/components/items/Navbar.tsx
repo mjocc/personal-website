@@ -1,10 +1,16 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { createContext, useContext } from 'react';
+import { createContext, useContext, FC } from 'react';
 
 const ShadowContext = createContext(false);
 
-const NavbarLink = ({ href, text, align = 'left' }) => {
+interface NavbarLinkProps {
+    href: string;
+    text: string;
+    align?: 'left' | 'right';
+}
+
+const NavbarLink: FC<NavbarLinkProps> = ({ href, text, align = 'left' }) => {
   const router = useRouter();
   const pathname = router.pathname;
   const noShadow = useContext(ShadowContext);
@@ -36,7 +42,11 @@ const NavbarLink = ({ href, text, align = 'left' }) => {
   );
 };
 
-export default function Navbar({ noShadow }) {
+interface NavbarProps {
+    noShadow?: boolean;
+}
+
+const Navbar: FC<NavbarProps> = ({ noShadow }) => {
   return (
     <>
       <div className="navbar-hamburger-bar">
@@ -58,3 +68,5 @@ export default function Navbar({ noShadow }) {
     </>
   );
 }
+
+export default Navbar;

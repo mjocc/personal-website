@@ -1,7 +1,15 @@
+import { FC } from 'react'
 import dateFormat from 'dateformat';
 import Link from 'next/link';
 
-export default function BlogPostSummary({ className = '', slug, title, date }) {
+interface BlogPostSummaryProps {
+    className?: string;
+    slug: string;
+    title: string;
+    date: number;
+}
+
+const BlogPostSummary: FC = ({ className = '', slug, title, date }) => {
   return (
     <div className={className}>
       <Link href={`/blog/posts/${slug}`}>
@@ -17,3 +25,5 @@ export default function BlogPostSummary({ className = '', slug, title, date }) {
     </div>
   );
 }
+
+export default BlogPostSummary;
