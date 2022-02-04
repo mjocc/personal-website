@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 interface FooterLinkProps {
-    href: string;
+  href: string;
 }
 
 const FooterLink: FC<FooterLinkProps> = ({ href, children }) => (
@@ -19,6 +19,6 @@ const Footer: FC = () => {
       <FooterLink href="/admin/">Admin</FooterLink>
     </footer>
   );
-}
+};
 
 export default Footer;

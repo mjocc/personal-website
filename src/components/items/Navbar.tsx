@@ -5,9 +5,9 @@ import { createContext, useContext, FC } from 'react';
 const ShadowContext = createContext(false);
 
 interface NavbarLinkProps {
-    href: string;
-    text: string;
-    align?: 'left' | 'right';
+  href: string;
+  text: string;
+  align?: 'left' | 'right';
 }
 
 const NavbarLink: FC<NavbarLinkProps> = ({ href, text, align = 'left' }) => {
@@ -43,7 +43,7 @@ const NavbarLink: FC<NavbarLinkProps> = ({ href, text, align = 'left' }) => {
 };
 
 interface NavbarProps {
-    noShadow?: boolean;
+  noShadow?: boolean;
 }
 
 const Navbar: FC<NavbarProps> = ({ noShadow }) => {
@@ -67,6 +67,6 @@ const Navbar: FC<NavbarProps> = ({ noShadow }) => {
       </nav>
     </>
   );
-}
+};
 
 export default Navbar;

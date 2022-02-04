@@ -9,11 +9,16 @@ interface PlaceholderImageProps {
   href: string;
 }
 
-const PlaceholderImage: FC<PlaceholderImageProps> = ({ imgProps, css, alt, href }) => {
+const PlaceholderImage: FC<PlaceholderImageProps> = ({
+  imgProps,
+  css,
+  alt,
+  href,
+}) => {
   return (
-    <div className="relative block overflow-hidden utils__next-fix-image">
+    <div className="utils__next-fix-image relative block overflow-hidden">
       <div
-        className="absolute inset-0 w-full h-full transform scale-150 blur-2xl filter"
+        className="absolute inset-0 h-full w-full scale-150 transform blur-2xl filter"
         style={css}
       />
       <Image {...imgProps} alt={alt} />
@@ -23,6 +28,6 @@ const PlaceholderImage: FC<PlaceholderImageProps> = ({ imgProps, css, alt, href 
       )}
     </div>
   );
-}
+};
 
 export default PlaceholderImage;

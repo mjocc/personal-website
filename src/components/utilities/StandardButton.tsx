@@ -36,7 +36,7 @@ const Button: FC<ButtonProps> = ({
       {...buttonProps}
     >
       {type === 'submit' && submitting ? (
-        <Image src={Spinner} className="h-5 w-5 m-auto animate-spin" />
+        <Image src={Spinner} className="m-auto h-5 w-5 animate-spin" />
       ) : (
         children
       )}

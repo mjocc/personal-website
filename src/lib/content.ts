@@ -8,13 +8,16 @@ import { z, AnyZodObject } from 'zod';
 
 type MatterFile = matter.GrayMatterFile<string>;
 
-const sharedFrontMatterSchema = z.object({
-  slug: z.string(),
-  title: z.string(),
-  date: z.string().transform((dateStr: string) => new Date(dateStr).getTime()),
-})
-type SharedFrontMatter = z.input<typeof sharedFrontMatterSchema>;
-type ValidatedSharedFrontMatter = z.infer<typeof sharedFrontMatterSchema>;
+export const creatFrontMatterSchema = (extraValidationSchema: AnyZodObject) => {
+  const sharedValidationSchema = z.object({
+    slug: z.string(),
+    title: z.string(),
+    date: z
+      .string()
+      .transform((dateStr: string) => new Date(dateStr).getTime()),
+  });
+  return sharedValidationSchema.merge(extraValidationSchema);
+};
 
 interface BaseFrontMatter {
   [key: string]: any;
@@ -22,7 +25,7 @@ interface BaseFrontMatter {
 
 export interface FileData<FrontMatterType extends BaseFrontMatter>
   extends Omit<MatterFile, 'orig'> {
-  data: FrontMatterType & SharedFrontMatter;
+  data: FrontMatterType;
   orig?: MatterFile['orig'];
 }
 
@@ -35,10 +38,13 @@ export const getFileNames = async (directory: string) => {
   return portfolioFiles;
 };
 
-export const getDataFromFile = async <FrontMatterType extends BaseFrontMatter>(
+export const getDataFromFile = async <
+  FrontMatterInputType extends BaseFrontMatter,
+  FrontMatterOutputType extends BaseFrontMatter
+>(
   directory: string,
   fileName: string,
-  extraValidationSchema: AnyZodObject, // TODO: Add type here
+  frontMatterSchema: AnyZodObject, // TODO: Add type here
   transformationFunction?: TransformationFunction<FrontMatterType>
 ) => {
   let filePath = join(directory, fileName);
@@ -53,9 +59,7 @@ export const getDataFromFile = async <FrontMatterType extends BaseFrontMatter>(
   });
 
   delete fileData.orig;
-  const validationSchema = sharedFrontMatterSchema.merge(extraValidationSchema)
-  const validatedFileData =
-    validationSchema.parse(fileData);
+  const vvalidatedFileData = frontMatterSchema.parse(fileData);
   if (transformationFunction) {
     await transformationFunction(validatedFileData);
   }
@@ -71,7 +75,10 @@ export const getDataFromFile = async <FrontMatterType extends BaseFrontMatter>(
   }
 };
 
-export const getDataFromDir = async <FrontMatterType extends BaseFrontMatter>(
+export const getDataFromDir = async <
+  FrontMatterInputType extends BaseFrontMatter,
+  FrontMatterOutputType extends BaseFrontMatter
+>(
   directory: string,
   transformationFunction?: TransformationFunction<FrontMatterType>
 ) => {

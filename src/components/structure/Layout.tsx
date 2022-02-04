@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 const MainContent: FC = ({ children }) => {
   return (
-    <div className="relative utils__visible-screen-height">{children}</div>
+    <div className="utils__visible-screen-height relative">{children}</div>
   );
 };
 

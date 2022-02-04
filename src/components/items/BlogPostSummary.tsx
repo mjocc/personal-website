@@ -1,12 +1,12 @@
-import { FC } from 'react'
+import { FC } from 'react';
 import dateFormat from 'dateformat';
 import Link from 'next/link';
 
 interface BlogPostSummaryProps {
-    className?: string;
-    slug: string;
-    title: string;
-    date: number;
+  className?: string;
+  slug: string;
+  title: string;
+  date: number;
 }
 
 const BlogPostSummary: FC = ({ className = '', slug, title, date }) => {
@@ -24,6 +24,6 @@ const BlogPostSummary: FC = ({ className = '', slug, title, date }) => {
       </Link>
     </div>
   );
-}
+};
 
 export default BlogPostSummary;

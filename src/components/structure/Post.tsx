@@ -24,15 +24,15 @@ const Post: FC<PostProps> = ({ page, title, url, placeholder, content }) => {
           {title} | {page} | mjocc
         </title>
       </Head>
-      <article className="container relative pb-10 mt-4 mb-10">
-        <div className="sticky top-0 left-0 pt-24 ml-10">
+      <article className="container relative mt-4 mb-10 pb-10">
+        <div className="sticky top-0 left-0 ml-10 pt-24">
           <Link href={`/${page}`}>
             <a>
               <Image src={leftArrow} alt="back arrow" width={35} height={35} />
             </a>
           </Link>
         </div>
-        <h1 className="px-24 pb-12 font-bold text-center text-white font-heading text-7xl">
+        <h1 className="px-24 pb-12 text-center font-heading text-7xl font-bold text-white">
           {title}
         </h1>
         {placeholder && (
@@ -46,7 +46,7 @@ const Post: FC<PostProps> = ({ page, title, url, placeholder, content }) => {
           </div>
         )}
         <div
-          className="mx-auto prose prose-lg prose-invert"
+          className="prose prose-lg prose-invert mx-auto"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </article>

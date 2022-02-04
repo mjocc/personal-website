@@ -37,7 +37,7 @@ const HomePage: NextPage = () => {
               <HeaderText className="text-zinc-100" text="web developer" />
               <HeaderText className="text-7xl text-zinc-300" text="& student" />
 
-              <SocialMediaIcons className="pl-2 mt-7" width="350px" noShadow />
+              <SocialMediaIcons className="mt-7 pl-2" width="350px" noShadow />
             </Animate>
           </div>
         </div>

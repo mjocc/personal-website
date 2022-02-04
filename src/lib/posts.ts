@@ -3,15 +3,13 @@ import { cwd } from 'process';
 import {
   getDataFromDir,
   getDataFromFile,
-  getSlugsFromDir
+  getSlugsFromDir,
+  createFrontMatterSchema,
 } from '@lib/content';
 import { z } from 'zod';
 
-
-const postFrontMatterSchema = z.object({
-
-})
-type PostFrontMatter = z.infer<typeof postFrontMatterSchema>
+const postFrontMatterSchema = createFrontMatterSchema(z.object({}));
+type PostFrontMatter = z.infer<typeof postFrontMatterSchema>;
 
 export const getPosts = async () => {
   const portfolioDirectory = join(cwd(), 'content/posts');
