@@ -9,7 +9,9 @@ node_modules
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-package-lock.json # prevent accidental use of npm instead of yarn
+
+# prevent accidental use of npm instead of yarn
+package-lock.json
 
 # testing
 /coverage
@@ -43,3 +45,6 @@ yarn-error.log*
 
 # typescript
 tsconfig.tsbuildinfo
+
+# eslint
+.eslintcache
