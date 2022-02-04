@@ -12,7 +12,7 @@ collections:
     files:
       - name: 'general'
         label: 'Site Config'
-        file: 'config.json'
+        file: 'content/config.json'
         description: 'General site settings'
         fields:
           - label: 'Site description'
