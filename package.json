@@ -7,7 +7,8 @@
     "export": "next export",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*\" \"public/admin/*\"",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "4.0.0-beta.9",
@@ -49,6 +50,8 @@
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.3.3",
     "next-transpile-modules": "^9.0.0",
     "postcss": "^8.3.11",
     "prettier": "^2.4.1",
@@ -58,6 +61,10 @@
   },
   "prettier": {
     "singleQuote": true
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.src/**/*": "prettier --write"
   },
   "packageManager": "yarn@3.1.1"
 }
