@@ -1,9 +1,11 @@
+import ProvideContext from '@components/utilities/ProvideContext';
+import { SiteConfigContext } from '@lib/config';
 import '@styles/main.scss';
 import 'animate.css';
-import Head from 'next/head';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 
-function Application({ Component, pageProps }: AppProps) {
+const Application = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -23,9 +25,11 @@ function Application({ Component, pageProps }: AppProps) {
           href="https://avatars.githubusercontent.com/u/61629073?v=4"
         />
       </Head>
-      <Component {...pageProps} />
+      <ProvideContext>
+        <Component {...pageProps} />
+      </ProvideContext>
     </>
   );
-}
+};
 
 export default Application;
