@@ -7,6 +7,10 @@ const colorMapping = {
     DEFAULT: 'bg-blue-700',
     clicked: 'hover:bg-blue-800',
   },
+  emerald: {
+    DEFAULT: 'bg-emerald-600',
+    clicked: 'hover:bg-emerald-700',
+  }
 };
 
 type HTMLButtonProps = DetailedHTMLProps<

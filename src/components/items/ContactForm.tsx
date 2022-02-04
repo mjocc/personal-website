@@ -72,12 +72,18 @@ const ContactForm: FC<ContactFormProps> = ({ onSubmit, className = '' }) => {
                 label="Name"
                 name="name"
                 type="text"
-                className="mr-2"
+                containerClassName="mr-2"
               />
               <FormField label="Email" name="email" type="email" />
             </div>
             <FormField label="Subject" name="subject" type="text" />
-            <FormField label="Message" name="message" as="textarea" />
+            <FormField
+              label="Message"
+              name="message"
+              as="textarea"
+              containerClassName="mb-3"
+              fieldClassName="h-28"
+            />
 
             <HoneypotField />
 

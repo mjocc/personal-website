@@ -3,19 +3,21 @@ import exclamationCircle from '@images/exclamation-circle.svg';
 import Tippy from '@tippyjs/react';
 import { ErrorMessage, Field, FieldAttributes, useFormikContext } from 'formik';
 import Image from 'next/image';
-import { FC, useCallback, useEffect, useState } from 'react';
+import { FC, useCallback } from 'react';
 import 'tippy.js/dist/tippy.css';
 
 interface FormField extends FieldAttributes<any> {
   label: string;
   name: keyof ContactFormValues;
-  className?: string;
+  containerClassName?: string;
+  fieldClassName?: string;
 }
 
 const FormField: FC<FormField> = ({
   label,
   name,
-  className = '',
+  containerClassName = '',
+  fieldClassName = '',
   ...fieldProps
 }) => {
   const { errors, touched } = useFormikContext<ContactFormValues>();
@@ -33,22 +35,16 @@ const FormField: FC<FormField> = ({
       visible={true}
       placement="right"
     >
-      <div className={`mb-2 ${className}`}>
+      <div className={`mb-2 ${containerClassName}`}>
         <div className="relative">
-          {showError ? (
-            <span className="absolute inset-y-0 right-0 flex items-center pr-2">
-              <Image src={exclamationCircle} />
-            </span>
-          ) : (
-            <></>
-          )}
           <Field
             className={`block w-full rounded bg-zinc-700 text-zinc-400 shadow-sm focus:ring focus:ring-opacity-50
-          ${
-            showError
-              ? 'border-[1.5px] border-red-900 focus:border-red-800 focus:ring-red-700'
-              : 'border-zinc-900 focus:border-zinc-800 focus:ring-zinc-700'
-          }`}
+              ${fieldClassName}
+              ${
+                showError
+                  ? 'border-[1.5px] border-red-900 focus:border-red-800 focus:ring-red-700'
+                  : 'border-zinc-900 focus:border-zinc-800 focus:ring-zinc-700'
+              }`}
             id={`${name}-form-field`}
             name={name}
             placeholder={label}
@@ -57,7 +53,7 @@ const FormField: FC<FormField> = ({
           />
           {showError && (
             <span className="absolute inset-y-0 right-0 flex items-center pr-2">
-              <Image src={exclamationCircle} />
+              <Image src={exclamationCircle} alt="form field error" />
             </span>
           )}
         </div>

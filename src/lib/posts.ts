@@ -1,19 +1,23 @@
-import { join } from 'path';
-import { cwd } from 'process';
 import {
   getDataFromDir,
   getDataFromFile,
   getSlugsFromDir,
-  createFrontMatterSchema,
+  sharedValidationSchema,
 } from '@lib/content';
+import { join } from 'path';
+import { cwd } from 'process';
 import { z } from 'zod';
 
-const postFrontMatterSchema = createFrontMatterSchema(z.object({}));
-type PostFrontMatter = z.infer<typeof postFrontMatterSchema>;
+const postFrontMatterSchema = z.object({});
+const frontMatterSchema = sharedValidationSchema.merge(postFrontMatterSchema);
+type PostFrontMatter = z.infer<typeof frontMatterSchema>;
 
 export const getPosts = async () => {
   const portfolioDirectory = join(cwd(), 'content/posts');
-  return await getDataFromDir<PostFrontMatter>(portfolioDirectory);
+  return await getDataFromDir<PostFrontMatter>(
+    portfolioDirectory,
+    frontMatterSchema
+  );
 };
 
 export const getPostSlugs = async () => {
@@ -25,6 +29,7 @@ export const getPost = async (slug: string) => {
   const portfolioDirectory = join(cwd(), 'content/posts');
   return await getDataFromFile<PostFrontMatter>(
     portfolioDirectory,
-    `${slug}.md`
+    `${slug}.md`,
+    frontMatterSchema
   );
 };

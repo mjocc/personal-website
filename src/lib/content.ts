@@ -8,23 +8,17 @@ import { z, AnyZodObject } from 'zod';
 
 type MatterFile = matter.GrayMatterFile<string>;
 
-export const creatFrontMatterSchema = (extraValidationSchema: AnyZodObject) => {
-  const sharedValidationSchema = z.object({
-    slug: z.string(),
-    title: z.string(),
-    date: z
-      .string()
-      .transform((dateStr: string) => new Date(dateStr).getTime()),
-  });
-  return sharedValidationSchema.merge(extraValidationSchema);
-};
+export const sharedValidationSchema = z.object({
+  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  title: z.string(),
+  date: z
+    .string()
+    .regex(/^\d{4}-([0]\d|1[0-2])-([0-2]\d|3[01])$/)
+    .transform((dateStr: string) => new Date(dateStr).getTime()),
+});
+type SharedFrontMatterType = z.infer<typeof sharedValidationSchema>;
 
-interface BaseFrontMatter {
-  [key: string]: any;
-}
-
-export interface FileData<FrontMatterType extends BaseFrontMatter>
-  extends Omit<MatterFile, 'orig'> {
+interface FileData<FrontMatterType> extends Omit<MatterFile, 'orig'> {
   data: FrontMatterType;
   orig?: MatterFile['orig'];
 }
@@ -39,18 +33,23 @@ export const getFileNames = async (directory: string) => {
 };
 
 export const getDataFromFile = async <
-  FrontMatterInputType extends BaseFrontMatter,
-  FrontMatterOutputType extends BaseFrontMatter
+  FrontMatterType extends SharedFrontMatterType
 >(
   directory: string,
   fileName: string,
-  frontMatterSchema: AnyZodObject, // TODO: Add type here
+  frontMatterSchema: AnyZodObject,
   transformationFunction?: TransformationFunction<FrontMatterType>
 ) => {
   let filePath = join(directory, fileName);
   let fileContents = await readFile(filePath, 'utf8');
-  // TODO: remove this as (and any others in the project) and replace with type validation
   let fileData = matter(fileContents) as FileData<FrontMatterType>;
+
+  // TODO: remove this as (and any others in the project) and replace with type validation
+  const validatedFrontMatterData = (await frontMatterSchema.parseAsync(
+    fileData.data
+  )) as FrontMatterType;
+  fileData.data = validatedFrontMatterData;
+
   fileData.content = marked.parse(fileData.content, {
     gfm: true,
     highlight(code) {
@@ -59,35 +58,36 @@ export const getDataFromFile = async <
   });
 
   delete fileData.orig;
-  const vvalidatedFileData = frontMatterSchema.parse(fileData);
+
   if (transformationFunction) {
-    await transformationFunction(validatedFileData);
+    await transformationFunction(fileData);
   }
 
   // Validate slug string matches file name
   let slug = fileName.replace(/\.md$/, '');
-  if (validatedFileData.data.slug !== slug) {
+  if (fileData.data.slug !== slug) {
     throw new Error(
       `slug field doesn\'t match with the path of its content source (${slug})`
     );
   } else {
-    return validatedFileData;
+    return fileData;
   }
 };
 
 export const getDataFromDir = async <
-  FrontMatterInputType extends BaseFrontMatter,
-  FrontMatterOutputType extends BaseFrontMatter
+  FrontMatterType extends SharedFrontMatterType
 >(
   directory: string,
+  frontMatterSchema: AnyZodObject,
   transformationFunction?: TransformationFunction<FrontMatterType>
 ) => {
   const fileNames = await getFileNames(directory);
   const fileData: FileData<FrontMatterType>[] = [];
   for (const fileName of fileNames) {
-    let data = await getDataFromFile(
+    let data: FileData<FrontMatterType> = await getDataFromFile(
       directory,
       fileName,
+      frontMatterSchema,
       transformationFunction
     );
     fileData.push(data);

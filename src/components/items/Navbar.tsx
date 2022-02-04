@@ -57,7 +57,7 @@ const Navbar: FC<NavbarProps> = ({ noShadow }) => {
         </div>
       </div>
       <nav className="fixed top-0 left-0 z-10 flex w-full flex-col items-center justify-items-start px-4 sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
-        <ShadowContext.Provider value={noShadow}>
+        <ShadowContext.Provider value={!!noShadow}>
           <NavbarLink href="/" text="Home" />
           <NavbarLink href="/about" text="About" />
           <NavbarLink href="/portfolio" text="Portfolio" />

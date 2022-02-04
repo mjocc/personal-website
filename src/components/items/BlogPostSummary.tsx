@@ -9,7 +9,12 @@ interface BlogPostSummaryProps {
   date: number;
 }
 
-const BlogPostSummary: FC = ({ className = '', slug, title, date }) => {
+const BlogPostSummary: FC<BlogPostSummaryProps> = ({
+  className = '',
+  slug,
+  title,
+  date,
+}) => {
   return (
     <div className={className}>
       <Link href={`/blog/posts/${slug}`}>

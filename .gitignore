@@ -40,3 +40,6 @@ yarn-error.log*
 
 # replit
 .breakpoints
+
+# typescript
+tsconfig.tsbuildinfo

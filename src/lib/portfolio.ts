@@ -1,21 +1,33 @@
-import { join } from 'path';
-import { IGetPlaiceholderReturn } from 'plaiceholder';
-import { cwd } from 'process';
 import {
-  FileData,
   getDataFromDir,
   getDataFromFile,
   getSlugsFromDir,
+  sharedValidationSchema,
   TransformationFunction,
 } from '@lib/content';
 import { getPlaceholder } from '@lib/placeholder';
+import { join } from 'path';
+import { IGetPlaiceholderReturn } from 'plaiceholder';
+import { cwd } from 'process';
+import { z } from 'zod';
 
-interface PortfolioFrontMatter {
+interface awd {
   url: string;
   img: string;
   summary: string;
   placeholder?: IGetPlaiceholderReturn;
 }
+
+const portfolioFrontMatterSchema = z.object({
+  url: z.string(),
+  img: z.string(),
+  summary: z.string(),
+  placeholder: z.any(),
+});
+const frontMatterSchema = sharedValidationSchema.merge(
+  portfolioFrontMatterSchema
+);
+type PortfolioFrontMatter = z.infer<typeof frontMatterSchema>;
 
 const transformationFunction: TransformationFunction<
   PortfolioFrontMatter
@@ -27,6 +39,7 @@ export const getPortfolioItems = async () => {
   const portfolioDirectory = join(cwd(), 'content/portfolio');
   return await getDataFromDir<PortfolioFrontMatter>(
     portfolioDirectory,
+    frontMatterSchema,
     transformationFunction
   );
 };
@@ -41,6 +54,7 @@ export const getPortfolioItem = async (slug: string) => {
   return await getDataFromFile<PortfolioFrontMatter>(
     portfolioDirectory,
     `${slug}.md`,
+    frontMatterSchema,
     transformationFunction
   );
 };

@@ -384,6 +384,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dateformat@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@types/dateformat@npm:5.0.0"
+  checksum: fee3fff637675fd55b59fff6a0507a120ae212a0c7ba823c00a45473da617a7d466e6d7d40d2b4b88af9df3f4be3ed80a51e222ea346c7738de688aa2c6747f1
+  languageName: node
+  linkType: hard
+
 "@types/json5@npm:^0.0.29":
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
@@ -4111,6 +4118,7 @@ __metadata:
     "@tailwindcss/line-clamp": ^0.2.2
     "@tailwindcss/typography": ^0.5.0
     "@tippyjs/react": ^4.2.6
+    "@types/dateformat": ^5.0.0
     "@types/lodash": ^4.14.178
     "@types/marked": ^4.0.2
     "@types/netlify-identity-widget": ^1.9.3
