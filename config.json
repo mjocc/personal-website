@@ -1,0 +1,17 @@
+{
+  "twitter_account": "example",
+  "github_account": "mjocc",
+  "linkedin_account": "example2",
+  "site_description": "personal website and portfolio for mjocc",
+  "site_keywords": [
+    "web developer",
+    "github",
+    "python",
+    "typescript",
+    "react",
+    "next.js",
+    "netlify",
+    "wix",
+    "scss"
+  ]
+}
