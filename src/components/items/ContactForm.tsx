@@ -11,17 +11,19 @@ import 'tippy.js/dist/tippy.css';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 
-const validationSchema = z
-  .object({
-    name: z.string().max(50, { message: 'Must be 50 characters or less' }),
-    email: z.string().email({ message: 'Invalid email address' }),
-    subject: z.string().max(50, { message: 'Must be 50 characters or less' }),
-    message: z
-      .string()
-      .max(1000, { message: 'Must be 1000 characters or less' }),
-    'phone-number': z.string(), // netlify honeypot field
-  })
-  .partial({ name: true, subject: true });
+const validationSchema = z.object({
+  name: z
+    .string()
+    .max(50, { message: 'Must be 50 characters or less' })
+    .optional(),
+  email: z.string().email({ message: 'Invalid email address' }),
+  subject: z
+    .string()
+    .max(50, { message: 'Must be 50 characters or less' })
+    .optional(),
+  message: z.string().max(1000, { message: 'Must be 1000 characters or less' }),
+  'phone-number': z.string().optional(), // netlify honeypot field
+});
 
 export type ContactFormValues = z.infer<typeof validationSchema>;
 
@@ -81,13 +83,17 @@ const ContactForm: FC<ContactFormProps> = ({ onSubmit, className = '' }) => {
               label="Message"
               name="message"
               as="textarea"
-              containerClassName="mb-3"
               fieldClassName="h-28"
             />
 
             <HoneypotField />
 
-            <Button color="blue" type="submit" submitting={isSubmitting}>
+            <Button
+              color="blue"
+              className="mb-2"
+              type="submit"
+              submitting={isSubmitting}
+            >
               Send message
             </Button>
 

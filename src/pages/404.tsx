@@ -2,9 +2,11 @@ import LargeTextLayout from '@components/structure/LargeTextLayout';
 import Button from '@components/utilities/StandardButton';
 import Head from 'next/head';
 import { FC } from 'react';
+import Spinner from '@images/loading.svg';
+import Image from 'next/image';
 
 const Error404Page: FC = () => (
-  <LargeTextLayout>
+  <LargeTextLayout noLayout>
     <Head>
       <title>404: This page could not be found</title>
     </Head>
@@ -13,9 +15,9 @@ const Error404Page: FC = () => (
       <h1 className="font-heading text-6xl text-zinc-300">
         This page could not be found
       </h1>
-      <div className="flex-grow flex">
-        <Button color="emerald">Back to home</Button>
-      </div>
+      <Button color="emerald" href="/" className="mt-5 w-64">
+        Back to home
+      </Button>
     </div>
   </LargeTextLayout>
 );
