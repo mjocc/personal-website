@@ -4,16 +4,15 @@ import hljs from 'highlight.js';
 import orderBy from 'lodash/orderBy';
 import { marked } from 'marked';
 import { join } from 'path';
-import { z } from 'zod';
+import { z, AnyZodObject } from 'zod';
 
 type MatterFile = matter.GrayMatterFile<string>;
 
-const sharedFrontMatterSchemaParams = {
+const sharedFrontMatterSchema = z.object({
   slug: z.string(),
   title: z.string(),
   date: z.string().transform((dateStr: string) => new Date(dateStr).getTime()),
-};
-const sharedFrontMatterSchema = z.object(sharedFrontMatterSchemaParams);
+})
 type SharedFrontMatter = z.input<typeof sharedFrontMatterSchema>;
 type ValidatedSharedFrontMatter = z.infer<typeof sharedFrontMatterSchema>;
 
@@ -39,7 +38,7 @@ export const getFileNames = async (directory: string) => {
 export const getDataFromFile = async <FrontMatterType extends BaseFrontMatter>(
   directory: string,
   fileName: string,
-  validationSchemaParams: any, // TODO: Add type here
+  extraValidationSchema: AnyZodObject, // TODO: Add type here
   transformationFunction?: TransformationFunction<FrontMatterType>
 ) => {
   let filePath = join(directory, fileName);
@@ -54,11 +53,8 @@ export const getDataFromFile = async <FrontMatterType extends BaseFrontMatter>(
   });
 
   delete fileData.orig;
-  const validationSchema = z.object({
-    ...validationSchemaParams,
-    ...sharedFrontMatterSchemaParams,
-  });
-  const validatedFileData: ValidatedSharedFrontMatter =
+  const validationSchema = sharedFrontMatterSchema.merge(extraValidationSchema)
+  const validatedFileData =
     validationSchema.parse(fileData);
   if (transformationFunction) {
     await transformationFunction(validatedFileData);
