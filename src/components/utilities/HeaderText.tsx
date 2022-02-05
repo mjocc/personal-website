@@ -30,10 +30,11 @@ const HeaderLetter: FC<HeaderLetter> = ({
 interface HeaderTextProps {
   text: string;
   className?: string;
+  textSize?: string;
 }
 
-const HeaderText: FC<HeaderTextProps> = ({ className = '', text }) => (
-  <h1 className={`font-heading text-8xl ${className}`}>
+const HeaderText: FC<HeaderTextProps> = ({ text, className = '', textSize = 'text-8xl' }) => (
+  <h1 className={`font-heading ${textSize} ${className}`}>
     {[...text].map((character, index) => (
       <HeaderLetter key={index} character={character} />
     ))}

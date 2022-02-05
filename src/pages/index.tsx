@@ -1,6 +1,5 @@
 import SocialMediaIcons from '@components/items/SocialMediaIcons';
 import LargeTextLayout from '@components/structure/LargeTextLayout';
-import Layout from '@components/structure/Layout';
 import HeaderText from '@components/utilities/HeaderText';
 import netlifyIdentity from 'netlify-identity-widget';
 import { NextPage } from 'next';
@@ -23,9 +22,17 @@ const HomePage: NextPage = () => {
       <Head>
         <title>Web developer & student | mjocc</title>
       </Head>
-      <HeaderText className="pb-2 text-9xl text-emerald-500" text="mjocc" />
+      <HeaderText
+        textSize="text-9xl"
+        className="pb-2 text-emerald-500"
+        text="mjocc"
+      />
       <HeaderText className="text-zinc-100" text="web developer" />
-      <HeaderText className="text-7xl text-zinc-300" text="& student" />
+      <HeaderText
+        textSize="text-7xl"
+        className="text-zinc-300"
+        text="& student"
+      />
 
       <SocialMediaIcons className="mt-7 pl-2" width="350px" noShadow />
     </LargeTextLayout>

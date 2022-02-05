@@ -1,12 +1,17 @@
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 import { createContext, FC, useContext } from 'react';
+import config from '@lib/config';
+import githubLogo from '@images/github-logo.svg';
+import gdevLogo from '@images/google-developer-logo.svg';
+import twitterLogo from '@images/twitter-logo.svg';
+import linkedinLogo from '@images/linkedin-logo.svg';
 
 const ShadowContext = createContext(false);
 
 interface SocialMediaIconProps {
   href: string;
   name: string;
-  src: string;
+  src: ImageProps['src'];
 }
 
 const SocialMediaIcon: FC<SocialMediaIconProps> = ({ href, name, src }) => {
@@ -60,19 +65,24 @@ const SocialMediaIcons: FC<SocialMediaIconsProps> = ({
     >
       <ShadowContext.Provider value={!!noShadow}>
         <SocialMediaIcon
-          href="https://github.com/mjocc"
+          href={`https://github.com/${config.github_account}`}
           name="GitHub"
-          src="/images/github-logo.svg"
+          src={githubLogo}
         />
         <SocialMediaIcon
-          href="https://g.dev/mjocc"
+          href={`https://g.dev/${config.gdev_account}`}
           name="Google Developer Profile"
-          src="/images/google-developer-logo.svg"
+          src={gdevLogo}
         />
         <SocialMediaIcon
-          href="https://uk.linkedin.com/"
+          href={`https://twitter.com/${config.twitter_account}`}
+          name="Twitter"
+          src={twitterLogo}
+        />
+        <SocialMediaIcon
+          href={`https://uk.linkedin.com/in/${config.linkedin_account}`}
           name="LinkedIn"
-          src="/images/linkedin-logo.svg"
+          src={linkedinLogo}
         />
       </ShadowContext.Provider>
     </div>
