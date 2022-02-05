@@ -11,9 +11,9 @@ import { FC } from 'react';
 interface PostProps {
   page: string;
   title: string;
-  url: string;
-  placeholder: IGetPlaiceholderReturn;
   content: string;
+  url?: string;
+  placeholder?: IGetPlaiceholderReturn;
 }
 
 const Post: FC<PostProps> = ({ page, title, url, placeholder, content }) => {
@@ -24,18 +24,18 @@ const Post: FC<PostProps> = ({ page, title, url, placeholder, content }) => {
           {title} | {page} | mjocc
         </title>
       </Head>
-      <article className="container relative mt-4 mb-10 pb-10">
-        <div className="sticky top-0 left-0 ml-10 pt-24">
+      <article className="container relative pb-10 mt-4 mb-10">
+        <div className="sticky top-0 left-0 pt-24 ml-10">
           <Link href={`/${page}`}>
             <a>
               <Image src={leftArrow} alt="back arrow" width={35} height={35} />
             </a>
           </Link>
         </div>
-        <h1 className="px-24 pb-12 text-center font-heading text-7xl font-bold text-white">
+        <h1 className="px-24 pb-12 font-bold text-center text-white font-heading text-7xl">
           {title}
         </h1>
-        {placeholder && (
+        {placeholder && url && (
           <div className="px-10 pb-6">
             <PlaceholderImage
               href={url}
@@ -46,10 +46,12 @@ const Post: FC<PostProps> = ({ page, title, url, placeholder, content }) => {
           </div>
         )}
         <div
-          className="prose prose-lg prose-invert mx-auto"
+          className="mx-auto prose prose-lg prose-invert"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </article>
     </Layout>
   );
 };
+
+export default Post;

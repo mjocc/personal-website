@@ -24,7 +24,7 @@ export default function Portfolio({ portfolio: fullPortfolio }) {
       <Head>
         <title>Portfolio | mjocc</title>
       </Head>
-      <div className="utils__visible-screen-height absolute inset-x-0 top-0 flex snap-x overflow-x-auto">
+      <div className="absolute inset-x-0 top-0 flex overflow-x-auto utils__visible-screen-height snap-x">
         {fullPortfolio.map((item, index) => (
           <div key={item.data.slug} className="utils__flex-center min-w-[25vw]">
             <Card
