@@ -15,10 +15,10 @@ const ErrorPage: FC<ErrorPageProps> = ({ code, message }) => (
         {code}: {message}
       </title>
     </Head>
-    <div className="flex-col gap-5 text-center utils__flex-center">
+    <div className="utils__flex-center flex-col gap-5 text-center">
       <h1 className="font-heading text-9xl">{code}</h1>
-      <h1 className="text-6xl font-heading text-zinc-300">{message}</h1>
-      <Button color="emerald" href="/" className="w-64 mt-5">
+      <h1 className="font-heading text-6xl text-zinc-300">{message}</h1>
+      <Button color="emerald" href="/" className="mt-5 w-64">
         Back to home
       </Button>
     </div>

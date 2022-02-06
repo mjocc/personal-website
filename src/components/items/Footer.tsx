@@ -5,13 +5,16 @@ interface FooterLinkProps {
 }
 
 const FooterLink: FC<FooterLinkProps> = ({ href, children }) => (
-  <a href={href} className="text-sm text-zinc-100 hover:underline decoration-wavy hover:text-zinc-400">
+  <a
+    href={href}
+    className="text-sm text-zinc-100 hover:text-zinc-400 hover:underline"
+  >
     {children}
   </a>
 );
 
 const Footer: FC = () => (
-  <footer className="fixed bottom-0 flex items-center justify-between w-full px-3 py-2 bg-zinc-900">
+  <footer className="fixed bottom-0 flex w-full items-center justify-between bg-zinc-900 px-3 py-2">
     <FooterLink href="https://www.github.com/mjocc/personal-website-next">
       GitHub Repository
     </FooterLink>
