@@ -15,7 +15,7 @@ const ContactPage: NextPage = () => (
     <div className="utils__flex-center utils__visible-screen-height w-screen">
       <div className="flex-col pb-10">
         <Animate type="fadeInDown">
-          <h1 className="mb-14 text-center font-heading text-8xl font-bold text-white">
+          <h1 className="font-heading mb-14 text-center text-8xl font-bold text-white">
             Contact Me
           </h1>
         </Animate>

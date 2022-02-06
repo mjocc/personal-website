@@ -3,7 +3,7 @@ import {
   getDataFromFile,
   getSlugsFromDir,
   sharedValidationSchema,
-  TransformationFunction
+  TransformationFunction,
 } from '@lib/content';
 import { getPlaceholder } from '@lib/placeholder';
 import { join } from 'path';

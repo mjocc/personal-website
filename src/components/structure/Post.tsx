@@ -48,7 +48,7 @@ const Post: FC<PostProps> = ({
         </span>
       )}
       <h1
-        className={`px-24 pb-12 text-center font-heading font-bold text-white ${titleSize}`}
+        className={`font-heading px-24 pb-12 text-center font-bold text-white ${titleSize}`}
       >
         {title}
       </h1>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @import '_typography.scss';
+}
+
 @layer utilities {
   @import '_utils.scss';
 }

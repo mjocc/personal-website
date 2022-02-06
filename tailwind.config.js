@@ -1,4 +1,4 @@
-const defaultConfig = require('tailwindcss/defaultConfig')
+const defaultConfig = require('tailwindcss/defaultConfig');
 
 module.exports = {
   content: [
@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Inter', ...defaultConfig.theme.fontFamily.sans],
+        sans: ['Inter', ...defaultConfig.theme.fontFamily.sans],
+        mono: ['"JetBrains Mono"', ...defaultConfig.theme.fontFamily.mono],
       },
       container: {
         center: true,
