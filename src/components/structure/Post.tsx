@@ -13,7 +13,7 @@ interface PostProps {
   page: string;
   title: string;
   titleSize?: string;
-  date?: string;
+  date?: number;
   content: string;
   url?: string;
   placeholder?: IGetPlaiceholderReturn;
@@ -42,9 +42,11 @@ const Post: FC<PostProps> = ({
           </a>
         </Link>
       </div>
-      <span className="text-lg absolute right-0 top-0 mt-24 ml-auto font-semibold text-zinc-400">
-        {dateFormat(date, 'dS mmmm, yyyy')}
-      </span>
+      {date && (
+        <span className="absolute right-0 top-0 mt-24 mr-10 ml-auto text-lg font-semibold text-zinc-400">
+          {dateFormat(date, 'dS mmmm, yyyy')}
+        </span>
+      )}
       <h1
         className={`px-24 pb-12 text-center font-heading font-bold text-white ${titleSize}`}
       >

@@ -29,7 +29,13 @@ interface BlogPostProps
   extends InferGetStaticPropsType<typeof getStaticProps> {}
 
 const BlogPost: NextPage<BlogPostProps> = ({ content, data }) => (
-  <Post page="blog" title={data.title} titleSize="text-6xl" content={content} />
+  <Post
+    page="blog"
+    title={data.title}
+    titleSize="text-6xl"
+    date={data.date}
+    content={content}
+  />
 );
 
 export default BlogPost;
