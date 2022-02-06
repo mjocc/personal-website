@@ -39,7 +39,7 @@ const CardContainer: FC<CardProps> = ({
 );
 
 interface Card {
-  (props: PropsWithChildren<CardProps>): ReactNode;
+  (props: PropsWithChildren<CardProps>): JSX.Element;
   Body: FC;
   Title: FC;
   Text: FC;

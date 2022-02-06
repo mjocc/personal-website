@@ -1,7 +1,7 @@
 import Post from '@components/structure/Post';
 import { ContentPropsType, PathObject } from '@lib/content';
 import { getPost, getPostSlugs } from '@lib/posts';
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { FC } from 'react';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<PropsType, PathObject> = async (
 interface BlogPostProps
   extends InferGetStaticPropsType<typeof getStaticProps> {}
 
-const BlogPost: FC<BlogPostProps> = ({ content, data }) => {
+const BlogPost: NextPage<BlogPostProps> = ({ content, data }) => {
   return <Post page="blog" title={data.title} content={content} />;
 };
 

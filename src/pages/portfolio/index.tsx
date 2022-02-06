@@ -1,31 +1,30 @@
 import Layout from '@components/structure/Layout';
 import Card from '@components/utilities/Card';
 import PlaceholderImage from '@components/utilities/PlaceholderImage';
+import { ContentPropsType } from '@lib/content';
 import { getPortfolioItems } from '@lib/portfolio';
 import chunk from 'lodash/chunk';
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
-export const getStaticProps = async () => {
+type PropsType = { portfolio: ContentPropsType<typeof getPortfolioItems> };
+
+export const getStaticProps: GetStaticProps<PropsType> = async () => {
   const portfolio = await getPortfolioItems();
   return { props: { portfolio } };
 };
 
-export default function Portfolio({ portfolio: fullPortfolio }) {
-  const portfolioChunks = chunk(fullPortfolio, 4);
-  const [chunkIndex, setChunkIndex] = useState(0);
-  const getCurrentChunk = () => portfolioChunks[chunkIndex];
+interface PortfolioProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
-  const showRightArrow = () => !!portfolioChunks[chunkIndex + 1];
-  const showLeftArrow = () => !!portfolioChunks[chunkIndex - 1];
-
+const Portfolio: NextPage<PortfolioProps> = ({ portfolio }) => {
   return (
     <Layout>
       <Head>
         <title>Portfolio | mjocc</title>
       </Head>
       <div className="absolute inset-x-0 top-0 flex overflow-x-auto utils__visible-screen-height snap-x">
-        {fullPortfolio.map((item, index) => (
+        {portfolio.map((item, index) => (
           <div key={item.data.slug} className="utils__flex-center min-w-[25vw]">
             <Card
               className={`animate__animated mx-1 snap-start scroll-mx-1
@@ -49,18 +48,8 @@ export default function Portfolio({ portfolio: fullPortfolio }) {
           </div>
         ))}
       </div>
-      {/* {showRightArrow() && (
-        <ArrowButton
-          orientation="right"
-          onClick={() => setChunkIndex((index) => index + 1)}
-        />
-      )}
-      {showLeftArrow() && (
-        <ArrowButton
-          orientation="left"
-          onClick={() => setChunkIndex((index) => index - 1)}
-        />
-      )} */}
     </Layout>
   );
 }
+
+export default Portfolio;

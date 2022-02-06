@@ -6,7 +6,7 @@ interface PlaceholderImageProps {
   imgProps: ImageProps;
   css: IGetCSSReturn;
   alt: string;
-  href: string;
+  href?: string;
 }
 
 const PlaceholderImage: FC<PlaceholderImageProps> = ({
@@ -16,13 +16,13 @@ const PlaceholderImage: FC<PlaceholderImageProps> = ({
   href,
 }) => {
   return (
-    <div className="utils__next-fix-image relative block overflow-hidden">
+    <div className="relative block overflow-hidden utils__next-fix-image">
       <div
-        className="absolute inset-0 h-full w-full scale-150 transform blur-2xl filter"
+        className="absolute inset-0 w-full h-full transform scale-150 blur-2xl filter"
         style={css}
       />
       <Image {...imgProps} alt={alt} />
-      {href !== undefined && (
+      {href && (
         /* eslint-disable-next-line jsx-a11y/anchor-has-content */
         <a href={href} className="utils__stretched-link" />
       )}
