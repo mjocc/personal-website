@@ -11,6 +11,6 @@ const configSchema = z.object({
   site_keywords: z.string().array(),
 });
 
-const siteConfig = configSchema.parse(config)
+const siteConfig = configSchema.parse(config);
 
 export default siteConfig;

@@ -10,15 +10,13 @@ const FooterLink: FC<FooterLinkProps> = ({ href, children }) => (
   </a>
 );
 
-const Footer: FC = () => {
-  return (
-    <footer className="fixed bottom-0 flex w-full items-center justify-between bg-zinc-900 px-3 py-2">
-      <FooterLink href="https://www.github.com/mjocc/personal-website-next">
-        GitHub Repository
-      </FooterLink>
-      <FooterLink href="/admin/">Admin</FooterLink>
-    </footer>
-  );
-};
+const Footer: FC = () => (
+  <footer className="fixed bottom-0 flex w-full items-center justify-between bg-zinc-900 px-3 py-2">
+    <FooterLink href="https://www.github.com/mjocc/personal-website-next">
+      GitHub Repository
+    </FooterLink>
+    <FooterLink href="/admin/">Admin</FooterLink>
+  </footer>
+);
 
 export default Footer;

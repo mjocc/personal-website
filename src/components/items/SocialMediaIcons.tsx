@@ -55,38 +55,36 @@ const SocialMediaIcons: FC<SocialMediaIconsProps> = ({
   height = '500px',
   column,
   noShadow,
-}) => {
-  return (
-    <div
-      className={`flex h-16 items-center justify-between ${
-        column && 'flex-col'
-      } ${className}`}
-      style={column ? { height } : { width }}
-    >
-      <ShadowContext.Provider value={!!noShadow}>
-        <SocialMediaIcon
-          href={`https://github.com/${config.github_account}`}
-          name="GitHub"
-          src={githubLogo}
-        />
-        <SocialMediaIcon
-          href={`https://g.dev/${config.gdev_account}`}
-          name="Google Developer Profile"
-          src={gdevLogo}
-        />
-        <SocialMediaIcon
-          href={`https://twitter.com/${config.twitter_account}`}
-          name="Twitter"
-          src={twitterLogo}
-        />
-        <SocialMediaIcon
-          href={`https://uk.linkedin.com/in/${config.linkedin_account}`}
-          name="LinkedIn"
-          src={linkedinLogo}
-        />
-      </ShadowContext.Provider>
-    </div>
-  );
-};
+}) => (
+  <div
+    className={`flex h-16 items-center justify-between ${
+      column && 'flex-col'
+    } ${className}`}
+    style={column ? { height } : { width }}
+  >
+    <ShadowContext.Provider value={!!noShadow}>
+      <SocialMediaIcon
+        href={`https://github.com/${config.github_account}`}
+        name="GitHub"
+        src={githubLogo}
+      />
+      <SocialMediaIcon
+        href={`https://g.dev/${config.gdev_account}`}
+        name="Google Developer Profile"
+        src={gdevLogo}
+      />
+      <SocialMediaIcon
+        href={`https://twitter.com/${config.twitter_account}`}
+        name="Twitter"
+        src={twitterLogo}
+      />
+      <SocialMediaIcon
+        href={`https://uk.linkedin.com/in/${config.linkedin_account}`}
+        name="LinkedIn"
+        src={linkedinLogo}
+      />
+    </ShadowContext.Provider>
+  </div>
+);
 
 export default SocialMediaIcons;

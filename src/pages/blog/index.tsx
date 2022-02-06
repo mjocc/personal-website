@@ -1,7 +1,7 @@
 import BlogPostSummary from '@components/items/BlogPostSummary';
 import Layout from '@components/structure/Layout';
 import { ContentPropsType } from '@lib/content';
-import { getPosts } from '@lib/posts';
+import { getPosts } from '@lib/blog';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
 
@@ -19,7 +19,7 @@ const Blog: NextPage<BlogProps> = ({ posts }) => (
     <Head>
       <title>Blog | mjocc</title>
     </Head>
-    <div className="flex flex-col w-3/4 p-20 item-center h-3/4">
+    <div className="item-center flex h-3/4 w-3/4 flex-col p-20">
       {posts.map((post) => (
         <BlogPostSummary
           key={post.data.slug}

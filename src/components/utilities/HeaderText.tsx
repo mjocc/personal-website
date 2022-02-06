@@ -33,7 +33,11 @@ interface HeaderTextProps {
   textSize?: string;
 }
 
-const HeaderText: FC<HeaderTextProps> = ({ text, className = '', textSize = 'text-8xl' }) => (
+const HeaderText: FC<HeaderTextProps> = ({
+  text,
+  className = '',
+  textSize = 'text-8xl',
+}) => (
   <h1 className={`font-heading ${textSize} ${className}`}>
     {[...text].map((character, index) => (
       <HeaderLetter key={index} character={character} />

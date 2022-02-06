@@ -106,9 +106,7 @@ export type PathParamObject = { params: PathObject };
 
 export const getSlugsFromDir = async (directory: string) => {
   let fileNames = await getFileNames(directory);
-  let slugs = fileNames.map((fileName) => {
-    return fileName.replace(/\.md$/, '');
-  });
+  let slugs = fileNames.map((fileName) => fileName.replace(/\.md$/, ''));
   let paths: PathParamObject[] = [];
   for (const slug of slugs) {
     paths.push({ params: { slug } });

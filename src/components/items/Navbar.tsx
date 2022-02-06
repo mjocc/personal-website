@@ -46,27 +46,25 @@ interface NavbarProps {
   noShadow?: boolean;
 }
 
-const Navbar: FC<NavbarProps> = ({ noShadow }) => {
-  return (
-    <>
-      <div className="navbar-hamburger-bar">
-        <div className="navbar-hamburger-container">
-          <div className="navbar-hamburger">
-            <div />
-          </div>
+const Navbar: FC<NavbarProps> = ({ noShadow }) => (
+  <>
+    <div className="navbar-hamburger-bar">
+      <div className="navbar-hamburger-container">
+        <div className="navbar-hamburger">
+          <div />
         </div>
       </div>
-      <nav className="fixed top-0 left-0 z-10 flex w-full flex-col items-center justify-items-start px-4 sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
-        <ShadowContext.Provider value={!!noShadow}>
-          <NavbarLink href="/" text="Home" />
-          <NavbarLink href="/about" text="About" />
-          <NavbarLink href="/portfolio" text="Portfolio" />
-          <NavbarLink href="/blog" text="Blog" />
-          <NavbarLink href="/contact" text="Contact Me" align="right" />
-        </ShadowContext.Provider>
-      </nav>
-    </>
-  );
-};
+    </div>
+    <nav className="fixed top-0 left-0 z-10 flex w-full flex-col items-center justify-items-start px-4 sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
+      <ShadowContext.Provider value={!!noShadow}>
+        <NavbarLink href="/" text="Home" />
+        <NavbarLink href="/about" text="About" />
+        <NavbarLink href="/portfolio" text="Portfolio" />
+        <NavbarLink href="/blog" text="Blog" />
+        <NavbarLink href="/contact" text="Contact Me" align="right" />
+      </ShadowContext.Provider>
+    </nav>
+  </>
+);
 
 export default Navbar;

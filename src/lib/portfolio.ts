@@ -3,20 +3,12 @@ import {
   getDataFromFile,
   getSlugsFromDir,
   sharedValidationSchema,
-  TransformationFunction,
+  TransformationFunction
 } from '@lib/content';
 import { getPlaceholder } from '@lib/placeholder';
 import { join } from 'path';
-import { IGetPlaiceholderReturn } from 'plaiceholder';
 import { cwd } from 'process';
 import { z } from 'zod';
-
-interface awd {
-  url: string;
-  img: string;
-  summary: string;
-  placeholder?: IGetPlaiceholderReturn;
-}
 
 const portfolioFrontMatterSchema = z.object({
   url: z.string(),
