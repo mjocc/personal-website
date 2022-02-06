@@ -19,7 +19,7 @@ const ContactPage: NextPage = () => (
             Contact Me
           </h1>
         </Animate>
-        <div className="flex flex-row items-center justify-center">
+        <div className="utils__flex-center flex-row">
           <Animate type="fadeInLeft">
             <SocialMediaIcons height="350px" column />
           </Animate>

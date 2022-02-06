@@ -1,4 +1,5 @@
 import {
+  FileData,
   getDataFromDir,
   getDataFromFile,
   getSlugsFromDir,
@@ -50,3 +51,5 @@ export const getPortfolioItem = async (slug: string) => {
     transformationFunction
   );
 };
+
+export type PortfolioItem = FileData<PortfolioFrontMatter>;

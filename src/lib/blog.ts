@@ -1,4 +1,5 @@
 import {
+  FileData,
   getDataFromDir,
   getDataFromFile,
   getSlugsFromDir,
@@ -33,3 +34,5 @@ export const getPost = async (slug: string) => {
     frontMatterSchema
   );
 };
+
+export type BlogPost = FileData<PostFrontMatter>;

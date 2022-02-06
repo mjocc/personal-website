@@ -19,7 +19,7 @@ export const sharedValidationSchema = z.object({
 });
 type SharedFrontMatterType = z.infer<typeof sharedValidationSchema>;
 
-interface FileData<FrontMatterType> extends Omit<MatterFile, 'orig'> {
+export interface FileData<FrontMatterType> extends Omit<MatterFile, 'orig'> {
   data: FrontMatterType;
   orig?: MatterFile['orig'];
 }

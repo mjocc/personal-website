@@ -4273,6 +4273,7 @@ __metadata:
     prettier-plugin-tailwindcss: ^0.1.5
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-paginate: ^8.1.0
     react-tsparticles: ^1.40.0
     sass: ^1.49.7
     sharp: ^0.30.0
@@ -4789,7 +4790,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2":
+"prop-types@npm:^15.6.1, prop-types@npm:^15.7.2":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -4878,6 +4879,17 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-paginate@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "react-paginate@npm:8.1.0"
+  dependencies:
+    prop-types: ^15.6.1
+  peerDependencies:
+    react: ^16 || ^17
+  checksum: bb0575c009adc2b7379f22bca86d20fba6303a40bae7a8dc1557b7c7106d5ed188f9a53df601e1c8b9a27eb601643a6836c266ff1eab0c8d1c50ad4a71916396
   languageName: node
   linkType: hard
 

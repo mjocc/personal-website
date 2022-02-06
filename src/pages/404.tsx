@@ -8,7 +8,7 @@ const Error404Page: NextPage = () => (
     <Head>
       <title>404: This page could not be found</title>
     </Head>
-    <div className="flex flex-col items-center justify-center gap-5 text-center">
+    <div className="utils__flex-center flex-col gap-5 text-center">
       <h1 className="font-heading text-9xl">404</h1>
       <h1 className="font-heading text-6xl text-zinc-300">
         This page could not be found
