@@ -40,8 +40,8 @@ const Paginate: FC<PaginateProps> = ({
             nextClassName="relative inline-flex items-center px-2 py-2 rounded-r-md border border-zinc-900 bg-zinc-700 text-sm font-medium border-zinc-900 hover:bg-zinc-800"
             nextLinkClassName="utils__stretched-link"
             nextLabel="Next"
-            disabledClassName="z-10 bg-zinc-900"
-            disabledLinkClassName="utils__stretched-link"
+            disabledClassName="z-10 text-zinc-500 !bg-zinc-800"
+            disabledLinkClassName="utils__stretched-link cursor-default"
           />
         </div>
       )}
