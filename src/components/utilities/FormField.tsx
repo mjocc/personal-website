@@ -42,7 +42,7 @@ const FormField: FC<FormField> = ({
               ${fieldClassName}
               ${
                 showError
-                  ? 'border-[1.5px] border-red-900 focus:border-red-800 focus:ring-red-700'
+                  ? 'border-[1.5px] border-red-900 focus:border-red-800 focus:ring-red-700 caret-red-700'
                   : 'border-zinc-900 focus:border-zinc-800 focus:ring-zinc-700'
               }`}
             id={`${name}-form-field`}
@@ -95,7 +95,7 @@ export const SubmitSuccessMessage: FC<SubmitSuccessMessageProps> = ({
 }) => (
   <StatusMessage
     show={show}
-    className="border-green-900 bg-green-200 text-green-700"
+    className="text-green-700 bg-green-200 border-green-900"
   >
     Form submitted successfully.
   </StatusMessage>
@@ -104,7 +104,7 @@ export const SubmitSuccessMessage: FC<SubmitSuccessMessageProps> = ({
 interface SubmitErrorMessageProps extends SubmitMessageProps {}
 
 export const SubmitErrorMessage: FC<SubmitErrorMessageProps> = ({ show }) => (
-  <StatusMessage show={show} className="border-red-900 bg-red-200 text-red-700">
+  <StatusMessage show={show} className="text-red-700 bg-red-200 border-red-900">
     Something went wrong. Please try again.
   </StatusMessage>
 );
