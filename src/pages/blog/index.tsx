@@ -4,7 +4,6 @@ import { ContentPropsType } from '@lib/content';
 import { getPosts } from '@lib/posts';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
-import { FC } from 'react';
 
 type PropsType = { posts: ContentPropsType<typeof getPosts> };
 

@@ -2,14 +2,9 @@ import ContactForm from '@components/items/ContactForm';
 import SocialMediaIcons from '@components/items/SocialMediaIcons';
 import Layout from '@components/structure/Layout';
 import Animate from '@components/utilities/Animate';
+import { submitContactForm } from '@lib/forms';
 import { NextPage } from 'next';
 import Head from 'next/head';
-
-const encode = (data: { [key: string]: string }) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-};
 
 const ContactPage: NextPage = () => {
   return (
@@ -29,30 +24,7 @@ const ContactPage: NextPage = () => {
             <Animate type="fadeInLeft">
               <SocialMediaIcons height="350px" column />
             </Animate>
-            <ContactForm
-              className="ml-52"
-              onSubmit={async (values) => {
-                let success = false;
-                await fetch('/form-submit.html', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                  },
-                  body: encode({ 'form-name': 'contact', ...values }),
-                })
-                  .then((res) => {
-                    if (res.status === 200) {
-                      success = true;
-                    } else {
-                      success = false;
-                    }
-                  })
-                  .catch(() => {
-                    success = false;
-                  });
-                return success;
-              }}
-            />
+            <ContactForm className="ml-52" onSubmit={submitContactForm} />
           </div>
         </div>
       </div>

@@ -3,10 +3,8 @@ import Card from '@components/utilities/Card';
 import PlaceholderImage from '@components/utilities/PlaceholderImage';
 import { ContentPropsType } from '@lib/content';
 import { getPortfolioItems } from '@lib/portfolio';
-import chunk from 'lodash/chunk';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
-import { FC, useState } from 'react';
 
 type PropsType = { portfolio: ContentPropsType<typeof getPortfolioItems> };
 

@@ -1,11 +1,9 @@
 import LargeTextLayout from '@components/structure/LargeTextLayout';
 import Button from '@components/utilities/StandardButton';
+import { NextPage } from 'next';
 import Head from 'next/head';
-import { FC } from 'react';
-import Spinner from '@images/loading.svg';
-import Image from 'next/image';
 
-const Error404Page: FC = () => (
+const Error404Page: NextPage = () => (
   <LargeTextLayout noLayout>
     <Head>
       <title>404: This page could not be found</title>
