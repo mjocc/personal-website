@@ -22,9 +22,9 @@ interface NavbarProps {
 }
 
 const Navbar: FC<NavbarProps> = ({ noShadow }) => {
-  const { isLargeTablet, isDesktop } = useBreakpoints();
+  const { isLargeTablet, isDesktop, isLargeDesktop } = useBreakpoints();
 
-  if (isLargeTablet || isDesktop)
+  if (isLargeTablet || isDesktop || isLargeDesktop)
     return <DesktopNavbar noShadow={noShadow} links={navbarLinks} />;
 
   return <MobileNavbar links={navbarLinks} />;
