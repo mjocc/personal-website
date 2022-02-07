@@ -11,9 +11,6 @@ module.exports = {
         sans: ['Inter', ...defaultConfig.theme.fontFamily.sans],
         mono: ['"JetBrains Mono"', ...defaultConfig.theme.fontFamily.mono],
       },
-      container: {
-        center: true,
-      },
     },
   },
   plugins: [

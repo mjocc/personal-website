@@ -34,7 +34,7 @@ const Post: FC<PostProps> = ({
         {title} | {page} | mjocc
       </title>
     </Head>
-    <article className="container relative mt-4 mb-10 pb-10">
+    <article className="container mx-auto relative mt-4 mb-10 pb-10">
       <div className="sticky top-0 left-0 ml-10 pt-24">
         <Link href={`/${page}`}>
           <a>
