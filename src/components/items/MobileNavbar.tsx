@@ -10,7 +10,7 @@ interface MobileNavbarLinkProps {
 const MobileNavbarLink: FC<MobileNavbarLinkProps> = ({ href, text }) => {
   return (
     <Link href={href}>
-      <a className="text-center text-lg text-white w-full py-3">{text}</a>
+      <a className="w-full py-3 text-center text-lg text-white">{text}</a>
     </Link>
   );
 };
@@ -24,12 +24,12 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ links }) => {
   return (
     <div>
       <div
-        className={`fixed top-0 flex flex-col gap-3 transition-transform duration-300 w-full ${
+        className={`fixed top-0 flex w-full flex-col gap-3 transition-transform duration-300 ${
           open ? '' : '-translate-y-full'
         }`}
       >
         {links.map((link) => (
-          <MobileNavbarLink {...link} />
+          <MobileNavbarLink key={link.text} {...link} />
         ))}
       </div>
       <button

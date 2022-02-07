@@ -57,7 +57,7 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ noShadow, links }) => (
     <nav className="fixed top-0 left-0 z-10 flex w-full flex-col items-center justify-items-start px-4 sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
       <ShadowContext.Provider value={!!noShadow}>
         {links.map((link) => (
-          <DesktopNavbarLink {...link} />
+          <DesktopNavbarLink key={link.text} {...link} />
         ))}
       </ShadowContext.Provider>
     </nav>
