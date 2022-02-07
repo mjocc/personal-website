@@ -3,6 +3,7 @@ import 'animate.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import config from '@lib/config';
+import { MediaContextProvider } from '@lib/breakpoints';
 
 const Application = ({ Component, pageProps }: AppProps) => (
   <>
@@ -20,7 +21,9 @@ const Application = ({ Component, pageProps }: AppProps) => (
         href="https://avatars.githubusercontent.com/u/61629073?v=4"
       />
     </Head>
-    <Component {...pageProps} />
+    <MediaContextProvider>
+      <Component {...pageProps} />
+    </MediaContextProvider>
   </>
 );
 

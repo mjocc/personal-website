@@ -1,5 +1,5 @@
 import DesktopNavbar from '@components/items/DesktopNavbar';
-import { useBreakpoints } from '@lib/breakpoints';
+import { Media } from '@lib/breakpoints';
 import { FC } from 'react';
 import MobileNavbar from './MobileNavbar';
 
@@ -21,13 +21,15 @@ interface NavbarProps {
   noShadow?: boolean;
 }
 
-const Navbar: FC<NavbarProps> = ({ noShadow }) => {
-  const { isLargeTablet, isDesktop, isLargeDesktop } = useBreakpoints();
-
-  if (isLargeTablet || isDesktop || isLargeDesktop)
-    return <DesktopNavbar noShadow={noShadow} links={navbarLinks} />;
-
-  return <MobileNavbar links={navbarLinks} />;
-};
+const Navbar: FC<NavbarProps> = ({ noShadow }) => (
+  <>
+    <Media greaterThanOrEqual="md">
+      <DesktopNavbar noShadow={noShadow} links={navbarLinks} />;
+    </Media>
+    <Media lessThan="md">
+      <MobileNavbar links={navbarLinks} />;
+    </Media>
+  </>
+);
 
 export default Navbar;
