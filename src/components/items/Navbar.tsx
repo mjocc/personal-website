@@ -1,63 +1,33 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { createContext, useContext, FC } from 'react';
+import DesktopNavbar from '@components/items/DesktopNavbar';
+import { useBreakpoints } from '@lib/breakpoints';
+import { FC } from 'react';
+import MobileNavbar from './MobileNavbar';
 
-const ShadowContext = createContext(false);
-
-interface NavbarLinkProps {
+export type NavbarLink = {
   href: string;
   text: string;
   align?: 'left' | 'right';
-}
-
-const NavbarLink: FC<NavbarLinkProps> = ({ href, text, align = 'left' }) => {
-  const router = useRouter();
-  const pathname = router.pathname;
-  const noShadow = useContext(ShadowContext);
-  return (
-    <>
-      <Link href={href}>
-        <a
-          className={`utils__replace-focus-ring mx-2.5 mt-2.5 rounded-full bg-zinc-800 py-2.5 px-6 font-bold text-white transition
-          ${noShadow ? 'hover:bg-zinc-900' : 'btn-shadow'}
-          ${pathname === href ? (noShadow ? 'bg-zinc-900' : 'active') : ''}
-          ${align === 'right' ? 'sm:ml-auto' : ''}
-          `}
-          title={text}
-        >
-          {text}
-        </a>
-      </Link>
-      <style jsx>{`
-        .btn-shadow {
-          box-shadow: 10px 10px 20px #1c1c1f, -10px -10px 20px #323235;
-        }
-        .btn-shadow:hover,
-        .btn-shadow.active {
-          box-shadow: inset 10px 10px 20px #1c1c1f,
-            inset -10px -10px 20px #323235;
-        }
-      `}</style>
-    </>
-  );
 };
+
+const navbarLinks: NavbarLink[] = [
+  { href: '/', text: 'Home' },
+  { href: '/about', text: 'About' },
+  { href: '/portfolio', text: 'Portfolio' },
+  { href: '/blog', text: 'Blog' },
+  { href: '/contact', text: 'Contact me', align: 'right' },
+];
 
 interface NavbarProps {
   noShadow?: boolean;
 }
 
-const Navbar: FC<NavbarProps> = ({ noShadow }) => (
-  <>
-    <nav className="fixed top-0 left-0 z-10 flex w-full flex-col items-center justify-items-start px-4 sm:flex sm:flex-row sm:flex-nowrap sm:p-0">
-      <ShadowContext.Provider value={!!noShadow}>
-        <NavbarLink href="/" text="Home" />
-        <NavbarLink href="/about" text="About" />
-        <NavbarLink href="/portfolio" text="Portfolio" />
-        <NavbarLink href="/blog" text="Blog" />
-        <NavbarLink href="/contact" text="Contact Me" align="right" />
-      </ShadowContext.Provider>
-    </nav>
-  </>
-);
+const Navbar: FC<NavbarProps> = ({ noShadow }) => {
+  const { isLargeTablet, isDesktop } = useBreakpoints();
+
+  if (isLargeTablet || isDesktop)
+    return <DesktopNavbar noShadow={noShadow} links={navbarLinks} />;
+
+  return <MobileNavbar links={navbarLinks} />;
+};
 
 export default Navbar;
