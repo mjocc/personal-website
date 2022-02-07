@@ -10,7 +10,7 @@ interface LargeTextLayoutProps {
 
 const LargeTextLayout: FC<LargeTextLayoutProps> = ({ children, noLayout }) => {
   const content = (
-    <div className="utils__flex-center sm:h-screen sm:w-screen">
+    <div className="utils__flex-center h-screen w-screen">
       <div className="flex flex-col text-white">
         <Animate type="fadeIn">{children}</Animate>
       </div>

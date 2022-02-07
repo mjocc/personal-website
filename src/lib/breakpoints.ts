@@ -26,13 +26,13 @@ const useMinMaxMediaQuery = (minPixels: string, maxPixels: string) =>
 const usePhoneMediaQuery = () => useMaxMediaQuery(breakpoints.sm);
 const useSmallTabletMediaQuery = () =>
   useMinMaxMediaQuery(breakpoints.sm, breakpoints.md);
-const useTabletMediaQuery = () =>
+const useLargeTabletMediaQuery = () =>
   useMinMaxMediaQuery(breakpoints.md, breakpoints.lg);
 const useDesktopMediaQuery = () => useMinMediaQuery(breakpoints.lg);
 
 export const useBreakpoints = () => ({
   isPhone: usePhoneMediaQuery(),
   isSmallTablet: useSmallTabletMediaQuery(),
-  isTablet: useTabletMediaQuery(),
+  isLargeTablet: useLargeTabletMediaQuery(),
   isDesktop: useDesktopMediaQuery(),
 });
