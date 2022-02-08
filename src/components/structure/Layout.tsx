@@ -1,6 +1,6 @@
 import Footer from '@components/items/Footer';
 import Navbar from '@components/items/Navbar';
-import SkipToContent from '@components/utilities/SkipToContent';
+import SkipToContent from '@components/items/SkipToContent';
 import { FC } from 'react';
 
 const MainContent: FC = ({ children }) => (
