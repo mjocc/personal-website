@@ -1,7 +1,6 @@
-import Image from 'next/image';
-import LoadingImage from '@images/loading.svg';
-import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react';
+import Spinner from '@components/utilities/Spinner';
 import Link from 'next/link';
+import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react';
 
 const colorMapping = {
   blue: {
@@ -41,17 +40,7 @@ const Button: FC<ButtonProps> = ({
       type={type}
       {...buttonProps}
     >
-      {submitting ? (
-        <Image
-          src={LoadingImage}
-          width={40}
-          height={10}
-          className="m-auto"
-          alt="loading"
-        />
-      ) : (
-        children
-      )}
+      {submitting ? <Spinner width={40} height={10} /> : children}
     </button>
   );
   return href ? <Link href={href}>{content}</Link> : content;
