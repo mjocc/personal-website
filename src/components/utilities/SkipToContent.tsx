@@ -1,23 +1,16 @@
-import { useBreakpoints } from '@lib/breakpoints';
+import { Media } from '@lib/breakpoints';
 import { FC } from 'react';
 
 interface SkipToContentProps {}
 
-const SkipToContent: FC<SkipToContentProps> = () => {
-  const { isLargeTablet, isDesktop } = useBreakpoints();
-
-  if (isLargeTablet || isDesktop)
-    return (
-      <>
-        <div className="fixed top-0 left-1/2 z-50 -translate-y-full rounded-b-xl border border-zinc-900 bg-zinc-800 p-3 text-white transition-transform duration-300 focus-within:-translate-y-1">
-          <a className="utils__replace-focus-ring underline" href="#main">
-            Skip to content
-          </a>
-        </div>
-      </>
-    );
-
-  return null;
-};
+const SkipToContent: FC<SkipToContentProps> = () => (
+  <Media greaterThan="sm">
+    <div className="fixed top-0 z-50 p-3 text-white transition-transform duration-300 -translate-y-full border left-1/2 rounded-b-xl border-zinc-900 bg-zinc-800 focus-within:-translate-y-1">
+      <a className="underline utils__replace-focus-ring" href="#main">
+        Skip to content
+      </a>
+    </div>
+  </Media>
+);
 
 export default SkipToContent;
