@@ -25,10 +25,10 @@ export const getStaticProps: GetStaticProps<PropsType, PathObject> = async (
   return { props: post };
 };
 
-interface BlogPostProps
+interface BlogPostPageProps
   extends InferGetStaticPropsType<typeof getStaticProps> {}
 
-const BlogPost: NextPage<BlogPostProps> = ({ content, data }) => (
+const BlogPostPage: NextPage<BlogPostPageProps> = ({ content, data }) => (
   <Post
     page="blog"
     title={data.title}
@@ -38,4 +38,4 @@ const BlogPost: NextPage<BlogPostProps> = ({ content, data }) => (
   />
 );
 
-export default BlogPost;
+export default BlogPostPage;

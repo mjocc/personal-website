@@ -21,10 +21,10 @@ export const getStaticProps: GetStaticProps<PropsType, PathObject> = async (
   return { props: portfolioItem };
 };
 
-interface PortfolioItemProps
+interface PortfolioItemPageProps
   extends InferGetStaticPropsType<typeof getStaticProps> {}
 
-const PortfolioItem: FC<PortfolioItemProps> = ({ content, data }) => (
+const PortfolioItemPage: FC<PortfolioItemPageProps> = ({ content, data }) => (
   <Post
     page="portfolio"
     title={data.title}
@@ -34,4 +34,4 @@ const PortfolioItem: FC<PortfolioItemProps> = ({ content, data }) => (
   />
 );
 
-export default PortfolioItem;
+export default PortfolioItemPage;

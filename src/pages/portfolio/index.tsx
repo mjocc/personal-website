@@ -13,10 +13,10 @@ export const getStaticProps: GetStaticProps<PropsType> = async () => {
   return { props: { portfolio } };
 };
 
-interface PortfolioProps
+interface PortfolioPageProps
   extends InferGetStaticPropsType<typeof getStaticProps> {}
 
-const Portfolio: NextPage<PortfolioProps> = ({ portfolio }) => (
+const PortfolioPage: NextPage<PortfolioPageProps> = ({ portfolio }) => (
   <Layout>
     <Head>
       <title>Portfolio | mjocc</title>
@@ -49,4 +49,4 @@ const Portfolio: NextPage<PortfolioProps> = ({ portfolio }) => (
   </Layout>
 );
 
-export default Portfolio;
+export default PortfolioPage;
