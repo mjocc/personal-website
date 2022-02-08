@@ -2,6 +2,14 @@
   from = "/builds"
   to = "https://app.netlify.com/sites/priceless-liskov-5ad496/deploys"
 
+[[redirects]]
+  from="/goodreads"
+  to="https://www.goodreads.com/user/show/139878301-mjocc"
+
+[[redirects]]
+  from="/books"
+  to="https://www.goodreads.com/user/show/139878301-mjocc"
+
 [build]
   command = "yarn run build"
   publish = ".next"
