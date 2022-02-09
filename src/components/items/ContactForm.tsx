@@ -7,7 +7,6 @@ import FormField, {
 import Button from '@components/utilities/StandardButton';
 import { Form, Formik } from 'formik';
 import { FC, useState } from 'react';
-import 'tippy.js/dist/tippy.css';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 

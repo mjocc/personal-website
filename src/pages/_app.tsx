@@ -1,9 +1,11 @@
+import { MediaContextProvider } from '@lib/breakpoints';
+import config from '@lib/config';
 import '@styles/main.scss';
 import 'animate.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import config from '@lib/config';
-import { MediaContextProvider } from '@lib/breakpoints';
+import 'tippy.js/dist/tippy.css';
+
 
 const Application = ({ Component, pageProps }: AppProps) => (
   <>

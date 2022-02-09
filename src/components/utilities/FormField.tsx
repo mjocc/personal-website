@@ -4,7 +4,6 @@ import Tippy from '@tippyjs/react';
 import { ErrorMessage, Field, FieldAttributes, useFormikContext } from 'formik';
 import Image from 'next/image';
 import { FC, useCallback } from 'react';
-import 'tippy.js/dist/tippy.css';
 
 interface FormField extends FieldAttributes<any> {
   label: string;
