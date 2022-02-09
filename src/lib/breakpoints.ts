@@ -1,6 +1,7 @@
 import { createMedia } from '@artsy/fresnel';
 
 export const breakpoints = {
+  '0': 0,
   sm: 640,
   md: 768,
   lg: 1024,
