@@ -33,7 +33,7 @@ const PortfolioPage: NextPage<PortfolioPageProps> = ({ portfolio }) => {
       <div className="absolute inset-x-0 top-0 utils__visible-screen-height">
         <Masonry
           breakpointCols={columnBreakpoints}
-          className="flex overflow-y-auto md:mt-16"
+          className="flex overflow-y-auto md:mt-10"
         >
           {portfolio.map((item) => (
             <Card
