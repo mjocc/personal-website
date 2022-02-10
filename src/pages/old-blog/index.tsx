@@ -13,9 +13,9 @@ export const getStaticProps: GetStaticProps<PropsType> = async () => {
   return { props: { posts } };
 };
 
-interface BlogPageProps extends InferGetStaticPropsType<typeof getStaticProps> {}
+interface OldBlogPageProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
-const BlogPage: NextPage<BlogPageProps> = ({ posts }) => (
+const OldBlogPage: NextPage<OldBlogPageProps> = ({ posts }) => (
   <Layout>
     <Head>
       <title>Blog | mjocc</title>
@@ -37,4 +37,4 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts }) => (
   </Layout>
 );
 
-export default BlogPage;
+export default OldBlogPage;

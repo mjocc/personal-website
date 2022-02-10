@@ -16,7 +16,7 @@ const BlogPostSummary: FC<BlogPostSummaryProps> = ({
   date,
 }) => (
   <div className={className}>
-    <Link href={`/blog/posts/${slug}`}>
+    <Link href={`/old-blog/posts/${slug}`}>
       <a className="group relative flex flex-col">
         <span className="text-2xl font-bold text-zinc-100 group-hover:underline">
           {title}

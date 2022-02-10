@@ -10,6 +10,10 @@
   from="/books"
   to="https://www.goodreads.com/user/show/139878301-mjocc"
 
+[[redirects]]
+  from="/blog"
+  to="https://blog.mjocc.dev"
+
 [build]
   command = "yarn run build"
   publish = ".next"
