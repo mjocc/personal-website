@@ -3,12 +3,12 @@
   to = "https://app.netlify.com/sites/priceless-liskov-5ad496/deploys"
 
 [[redirects]]
-  from="/goodreads"
-  to="https://www.goodreads.com/user/show/139878301-mjocc"
+  from="/story-graph"
+  to="https://app.thestorygraph.com/profile/mjocc"
 
 [[redirects]]
   from="/books"
-  to="https://www.goodreads.com/user/show/139878301-mjocc"
+  to="https://app.thestorygraph.com/profile/mjocc"
 
 [[redirects]]
   from="/blog"
